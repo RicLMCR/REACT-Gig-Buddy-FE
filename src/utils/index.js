@@ -1,3 +1,6 @@
+
+
+
 //create user fetch request
 export const createUser = async (username, email, password, setUser)=>{
     try {
@@ -49,3 +52,22 @@ export const deleteUser = async (username)=>{
         console.log(error);
     }
 }
+
+
+ export const fetchEvents =  async (setApiData) => {
+    try {
+    const response = await fetch("https://www.skiddle.com/api/v1/events/search/?api_key=9eca984fc063066727406327c285fb75&latitude=53.4839&longitude=-2.2446&radius=5&eventcode=LIVE&order=distance&description=1&limit=100")
+    
+
+    const data = await response.json()
+    if (!response.ok){
+      throw new Error(response.statusText)
+    }
+    console.log(data, "data")
+    setApiData(data.results)
+    console.log(data.results)
+
+    } catch (err) {
+      console.log(err)
+    }
+  }

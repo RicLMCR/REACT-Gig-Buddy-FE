@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+People going to gigs, but don’t have friends with similar music taste and therefore have to go alone, or people who were planning on going with someone else to a gig, but dropped out at the last minute. In order to solve this problem, our team will create a social site on which users can find their own ‘gig buddy’.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Trello/Kanban Board: (https://trello.com/b/fISPgnfm/cn-final-project).

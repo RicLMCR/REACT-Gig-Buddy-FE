@@ -11,7 +11,8 @@ export const createUser = async (username, email, password, setUser)=>{
             }),
         });
         const data = await res.json();
-        setUser(data.newUser.username);     
+        setUser(data.newUser.username);   
+        console.log(data.newUser.user);
     } catch (error) {
         console.log(error);
     }
@@ -29,6 +30,7 @@ export const logInUser = async (username, password, setUser)=>{
             }),
         });
         const data = await res.json();
+        console.log(data.user.username);
         setUser(data.user.username);
     } catch (error) {
         console.log(error);
@@ -43,6 +45,7 @@ export const deleteUser = async (username)=>{
             headers: {"Content-Type": "application/json"}
         })
         const data = await res.json();
+        console.log(`${data.user.username} is deleted`);
         // setUser(data.user.username);
         console.log(username, "has been deleted");
         } catch (error) {

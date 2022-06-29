@@ -5,6 +5,7 @@ header {
     box-shadow: 0 8px;
 }
 
+/* Gig buddy 'logo' */
 h1 {
     color: white;
     font-size: 4rem;
@@ -15,6 +16,7 @@ h1 {
     letter-spacing: .1rem;
 }
 
+/* moving the search icon from its default spot */
 .search-icon {
     position: relative;
     left: 30px;
@@ -42,15 +44,12 @@ ul {
     gap: .7rem;
 }
 
-ul li {
-    font-size: 2em;
-}
-
 .message-icon {
     position: relative;
     top: 6px;
 }
 
+/* moving the profile pic from its default spot and making it round */
 .nav-profile-pic {
     border-radius: 50%;
     position: relative;

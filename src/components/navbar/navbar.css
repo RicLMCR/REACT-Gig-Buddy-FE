@@ -43,8 +43,12 @@ ul {
 }
 
 ul li {
-    color: white;
     font-size: 2em;
+}
+
+.message-icon {
+    position: relative;
+    top: 6px;
 }
 
 .nav-profile-pic {

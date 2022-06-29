@@ -1,36 +1,32 @@
-nav {
-    background-color: #320E0E;
-    padding: 10px;
-}
-
-.nav-flex {
+header {
     display: flex;
     align-items: center;
-    justify-content: space-between
-}
-
-.nav-left {
-    display: flex;
-    align-items: center;
-    gap: 4rem;
+    background-color: #01956c;
+    box-shadow: 0 8px;
 }
 
 h1 {
     color: white;
     font-size: 4rem;
     position: relative;
-    bottom: 10px;
+    bottom: 5px;
+    flex-grow: 1;
+    padding: 5px;
+    letter-spacing: .1rem;
 }
 
 input {
     padding: .4rem 2rem;
     height: 2rem;
-    width: 15rem;
+    min-width: 20rem;
+    border-radius: 2px;
+    border: 0;
 }
 
-.nav-right {
+nav {
     display: flex;
     align-items: center;
+    padding: 10px;
 }
 
 ul {
@@ -38,20 +34,23 @@ ul {
     justify-content: flex-end;
     align-items: center;
     list-style-type: none;
-    gap: .5rem;
+    gap: .7rem;
 }
 
 ul li {
     color: white;
+    font-size: 2em;
 }
 
 .nav-profile-pic {
     border-radius: 50%;
+    position: relative;
+    top: 5px;
 }
 
 .logout-btn {
-    background-color: #752424;
-    border: .5px solid black;
+    background-color: black;
+    border-radius: 5px;
     padding: 5px 15px;
     color: white;
     margin-left: 1em;

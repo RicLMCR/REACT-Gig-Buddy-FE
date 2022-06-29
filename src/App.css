@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
+
 *,
 ::before,
 ::after,
@@ -7,6 +9,11 @@ h3,
 ul {
   margin: 0;
   padding: 0;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: 'League Gothic', sans-serif;
 }
 
 @media (prefers-reduced-motion: no-preference) {

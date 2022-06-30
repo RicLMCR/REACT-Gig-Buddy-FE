@@ -1,9 +1,11 @@
 
 import "./search.css"
 import {useState, useEffect} from "react"
-export const SearchBar = ({apiData, setValue, value, setDisplayEvent, displayEvent}) => {
+import { BiSearchAlt } from 'react-icons/bi';
+import { GoLocation } from "react-icons/go";
+import { TbCalendarEvent } from "react-icons/tb";
+export const SearchBar = ({apiData, setValue, value, setDisplayEvent, }) => {
 
-        const [test, setTest]= useState([])
       
         const onChange = (event) => {
           setValue(event.target.value);
@@ -16,12 +18,11 @@ export const SearchBar = ({apiData, setValue, value, setDisplayEvent, displayEve
       
         return (
           <div className="search">
-            <h1>Search</h1>
-      
             <div className="search-container">
               <div className="search-inner">
+              <BiSearchAlt size={25} className='search-icon' />
                 <input className="search-input" type="text"  placeholder="Search for events"value={value} onChange={onChange} />
-                <button onClick={() => onSearch(value)}> Search </button>
+                {/* <button onClick={() => onSearch(value)}> Search </button> */}
               </div>
               <div className="dropdown"> {apiData.filter((item) => {
                                          const searchTerm = value.toLowerCase();
@@ -43,7 +44,8 @@ export const SearchBar = ({apiData, setValue, value, setDisplayEvent, displayEve
                      <img  className="dropdown-logo" src={item.largeimageurl} alt="logo"  />
                      <div className="dropdown-text-flex">
                       <h1 className="dropdown-title">{item.eventname}</h1>  
-                      <div className="search-date">{item.date}</div> 
+                      <div className="search-date"><TbCalendarEvent/>{item.date}</div> 
+                      <div className="search-date"><GoLocation></GoLocation> {item.venuename}</div> 
                       {/* <div className="search-venue">{item.venue.name}</div>  */}
                       </div>
                     </div>

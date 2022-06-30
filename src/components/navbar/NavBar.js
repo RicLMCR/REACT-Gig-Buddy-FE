@@ -3,19 +3,19 @@ import './navbar.css';
 import { Link } from 'react-router-dom';
 import { BiSearchAlt } from 'react-icons/bi';
 import { MdMessage } from 'react-icons/md';
+import { SearchBar } from '../search/search';
 
-
-const Navbar = () => {
+const Navbar = ({displayEvent, setDisplayEvent, value, setValue , apiData}) => {
     return (
-    <header>
-            <h1><Link style={{textDecoration: 'none', color: 'white'}} to="/">Gig Buddy</Link></h1>
+    <header className='Navbar-header'>
+            <h1 className='Navbar-title'><Link style={{textDecoration: 'none', color: 'white'}} to="/">Gig Buddy</Link></h1>
 
             {/* Calling the search icon from React icons */}
-            <BiSearchAlt size={25} className='search-icon' />
 
+       
             {/* Basic input bar */}
-            <input type='text' placeholder="Search" />
-        <nav>
+            <SearchBar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} ></SearchBar>     
+               <nav>
             <ul>
                 {/* Calling the message icon from React icons */}
                 <li><Link to="/messages"><MdMessage size={40} className='message-icon' color='white' /></Link></li>

@@ -7,7 +7,7 @@ import Messages from './pages/Messages';
 import Profile from './pages/Profile';
 import {useState, useEffect} from "react"
 import {fetchEvents, fetchArtist} from "./utils"
-import {SearchBar} from "./components/search/search" 
+
 import {EventList} from "./components/eventList/eventList"
 function App() {
 
@@ -26,23 +26,15 @@ const [displayEvent, setDisplayEvent] =useState ([])
   return (
 
     <>
-      <Navbar />
+      <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} />
+  
       <Routes>
         <Route path="/" element={ <Home />} />
         <Route path="/messages" element={ <Messages />}  />
         <Route path="/profile" element={ <Profile />}  />
+        <Route path="/event" element={ <EventList  displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} />}  />
       </Routes>
     </>
-
-    <div className="App">
-      <h1>Gig Buddy</h1>
-      <div className=''>
-      <SearchBar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} ></SearchBar>
-      <EventList   displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} ></EventList>
-  
-    </div>
-    </div>
-
   );
 }
 

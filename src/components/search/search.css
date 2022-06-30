@@ -4,12 +4,19 @@
     padding: 0;
 }
 
-.search-input{
+.search-container{
 
+display: flex;
+min-width: 400px;
+align-items: center;
+justify-content:center;
+flex-direction: column;
 
 }
 
 .dropdown-row{
+    
+    max-width: 500px;
 display: flex;
 flex-direction: row;
 justify-content:flex-start;
@@ -17,8 +24,17 @@ background-color: antiquewhite;
 border-bottom: grey solid 1px;
 
 }
+.dropdown{
+    transform: scale(0.8);
+    position: absolute;
+    left:720px;
+    top:80px;
+    opacity: 0.7;
 
-
+}
+.dropdown-row:hover{
+    transform: scale(1.05);
+}
 .dropdown-logo{
     height: 50px;
 }

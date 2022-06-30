@@ -1,17 +1,20 @@
 
 import "./search.css"
 import {useState, useEffect} from "react"
-export const SearchBar = ({apiData, setValue, value}) => {
+export const SearchBar = ({apiData, setValue, value, setDisplayEvent, displayEvent}) => {
 
-        
+        const [test, setTest]= useState([])
       
         const onChange = (event) => {
           setValue(event.target.value);
         };
       
-        const onSearch = (searchTerm) => {
+        const onSearch = (searchTerm, item) => {
+          setTest(item);
           setValue(searchTerm);
-          // our api to fetch the search result
+     console.log("display event", test)
+     console.log(item, "onsearch")
+             // our api to fetch the search result
           console.log("search ", searchTerm);
         };
       
@@ -24,11 +27,9 @@ export const SearchBar = ({apiData, setValue, value}) => {
                 <input className="search-input" type="text"  placeholder="Search for events"value={value} onChange={onChange} />
                 <button onClick={() => onSearch(value)}> Search </button>
               </div>
-              <div className="dropdown">
-                {apiData
-                  .filter((item) => {
-                    const searchTerm = value.toLowerCase();
-                    const fullName = item.eventname.toLowerCase();
+              <div className="dropdown"> {apiData.filter((item) => {
+                                         const searchTerm = value.toLowerCase();
+                                          const fullName = item.eventname.toLowerCase();
       
                     return (
                       searchTerm &&
@@ -37,22 +38,23 @@ export const SearchBar = ({apiData, setValue, value}) => {
                     );
                   })
                   .slice(0, 10)
-                  .map((item) => (
-                    <div
-                      onClick={() => onSearch(item.eventname)}
+                  .map((item, index) => (
+                    <div 
+                      onClick={() => onSearch(item.eventname, item)}
                       className="dropdown-row"
-                      key={item.eventname}
+                      key={index}
                     >
-                     <img  className="dropdown-logo" src={item.imageurl} alt="logo"  />
+                     <img  className="dropdown-logo" src={item.largeimageurl} alt="logo"  />
                      <div className="dropdown-text-flex">
                       <h1 className="dropdown-title">{item.eventname}</h1>  
                       <div className="search-date">{item.date}</div> 
-                      <div className="search-venue">{item.venue.name}</div> 
+                      {/* <div className="search-venue">{item.venue.name}</div>  */}
                       </div>
                     </div>
                   ))}
               </div>
             </div>
           </div>
+          
         );
       }

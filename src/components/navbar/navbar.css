@@ -1,17 +1,18 @@
-header {
+.Navbar-header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background-color: #01956c;
     box-shadow: 0 8px;
 }
 
 /* Gig buddy 'logo' */
-h1 {
+.Navbar-title {
     color: white;
     font-size: 4rem;
     position: relative;
     bottom: 5px;
-    flex-grow: 1;
+
     padding: 5px;
     letter-spacing: .1rem;
 }
@@ -19,7 +20,8 @@ h1 {
 /* moving the search icon from its default spot */
 .search-icon {
     position: relative;
-    left: 30px;
+    left: 25px;
+    top:10px
 }
 
 input {

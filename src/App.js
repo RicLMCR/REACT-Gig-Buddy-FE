@@ -24,7 +24,6 @@ const [displayEvent, setDisplayEvent] =useState ([])
 
   useEffect (() => {
     fetchEvents(setApiData)
-    // fetchArtist(setArtists)
   }, [])
 
   try {
@@ -33,22 +32,13 @@ const [displayEvent, setDisplayEvent] =useState ([])
     <div className="App">
       <LogorSign/>
     <>
-      <Navbar />
+      <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} />
       <Routes>
         <Route path="/" element={ <Home />} />
         <Route path="/messages" element={ <Messages />}  />
         <Route path="/profile" element={ <Profile />}  />
       </Routes>
     </>
-
-
-      <h1>Gig Buddy</h1>
-      <div className=''>
-      <SearchBar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} ></SearchBar>
-      <EventList   displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} ></EventList>
-    </div>
-
- 
 
   
         <h1>Gig Buddy</h1>

@@ -1,9 +1,18 @@
 import { useState } from "react";
-import './LogorSign.css'
-// import { createUser, logInUser, } from "../../utils";
+// import './LogorSign.css'
+import { createUser} from '../../utils/fetchReq'
 
 export const LogorSign = () => { 
+    const [username, setUsername] = useState();
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
     // switch between log in page and sign up page 
+
+    const submitHandlerCreate=(e)=>{
+        e.preventDefault();
+        createUser(username, email, password);
+    };
+
     try { 
         const [logSwitch, setlogSwitch] = useState(true);
         return(

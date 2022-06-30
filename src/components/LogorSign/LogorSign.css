@@ -16,11 +16,11 @@ h1{
     padding: 10px;
 }
 
-/* .bigContainer { 
+.bigContainer { 
   margin: auto;
   height: ;
   border: 2px orange solid;
-} */
+}
 .background{ 
     background-color: white;
     background-image: none;
@@ -37,7 +37,7 @@ h1{
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     border-radius: 10px;
-    /* border: solid orange 2px; */
+    /* border: solid orange 2px;
 }
 
 .smallContainer { 
@@ -90,4 +90,4 @@ input {
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
     cursor: pointer;
-}
+} */

@@ -9,8 +9,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Messages from './pages/Messages';
 import Profile from './pages/Profile';
-import {useState, useEffect} from "react"
-import {fetchEvents, fetchArtist} from "./utils"
+import {fetchEvents, fetchArtist} from "./utils/fetchReq"
 import {SearchBar} from "./components/search/search" 
 import {EventList} from "./components/eventList/eventList"
 

@@ -9,16 +9,16 @@ const BuddySwipe=()=> {
 //add images -- img: img1,
 //add got ticket 
     const [attendees, setattendees]=useState([
-        { username: "Luka",  buddy: false, key:1},
-        { username: "Deivydas", buddy: false, key:2},
-        { username: "Markus", buddy: false, key:3},
-        { username: "Jessica", buddy: false, key:4},
+        { username: "Luka",  liked: false, key:1},
+        { username: "Deivydas", liked: false,  key:2},
+        { username: "Markus", liked: false,  key:3},
+        { username: "Jessica", liked: false,  key:4},
       ]);
 
     //we need to ensure that, once user swipes on a potential buddy, the buddy's profile does not appear again - should the user return in another session 
-    //this list should ultimately be logged in the DB and ensure that any 'swiped' users do not appear in the 'attendees' list above
+    //this list should be logged in the DB and ensure that any 'swiped' users do not appear in the 'attendees' list above
     //users in this list should also receive a notification requesting a buddy up (this should be triggered in the 'swipeRightOn...' function below)
-     const [potentialBuddy, setPotentialBuddy] = useState ([]);
+     const [reviewedAttendee, setReviewedAttendee] = useState ([]);
      
     try {
     //increment value for counter
@@ -27,14 +27,13 @@ const BuddySwipe=()=> {
     //on swipe right, displayed person is added to potential buddy list and increment counter increases by one
     const swipeRightOnBuddy = (attendee)=>{
         setNum(num+1);
-        console.log("attendee", attendee);
-        console.log("List of potential buddies so far:", potentialBuddy);
-        //add to potentialBuddy list - use spread operator
-        potentialBuddy = [...potentialBuddy, ...attendee];
-        setPotentialBuddy(potentialBuddy);
-        console.log("updated list of potential buddies:", potentialBuddy);    
-        
-        //or - instead of new List, have an item within the object - liked: true/false. Swipe right sets to true, left sets to false, if liked--true > send notifcation and add to potential buddy list, 
+        console.log("attendess is: ", attendee, "List of potential buddies so far is:", reviewedAttendee);
+        //change attendee liked status to true
+        // function required to send notification to the other user at this point
+        attendee.liked = true;
+        //add to reviewedAttendee list - use spread operator
+        let newReviewedAttendee = [...reviewedAttendee, ...[attendee]];
+        setReviewedAttendee(newReviewedAttendee); 
     }
 
     //on swipe left, displayed person is removed from temporary attendees list and incerement counter increases by one
@@ -55,7 +54,7 @@ return (
             <h1>{attendees[num].username}</h1>
             <img src={attendees[num].img} alt="buddy"/>
         </div>
-        <button className="swipeButton" onClick={()=>{swipeRightOnBuddy(attendees[num])}}>Yes</button>
+        <button className="swipeButton" onClick={(e)=>{swipeRightOnBuddy([attendees[num]])}}>Yes</button>
     </div>
 );
     

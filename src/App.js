@@ -1,4 +1,6 @@
 import './App.css';
+import { useEffect, useState} from 'react';
+import BuddySwipe from './components/buddySwipe';
 
 import Navbar from './components/navbar/NavBar';
 import { Routes, Route } from 'react-router-dom';
@@ -11,12 +13,10 @@ import {SearchBar} from "./components/search/search"
 import {EventList} from "./components/eventList/eventList"
 function App() {
 
-
-  const [value, setValue] = useState("");
-  const [apiData, setApiData] = useState([])
+ const [value, setValue] = useState("");
+ const [apiData, setApiData] = useState([])
 const [artists, setArtists] =useState([])
 const [displayEvent, setDisplayEvent] =useState ([])
-
 
   useEffect (() => {
     fetchEvents(setApiData)
@@ -24,7 +24,6 @@ const [displayEvent, setDisplayEvent] =useState ([])
   }, [])
 
   return (
-
     <>
       <Navbar />
       <Routes>
@@ -39,11 +38,19 @@ const [displayEvent, setDisplayEvent] =useState ([])
       <div className=''>
       <SearchBar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} ></SearchBar>
       <EventList   displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} ></EventList>
-  
     </div>
     </div>
-
   );
+
+  try {
+    return (
+      <div className="App">
+        <h1>Gig Buddy</h1>
+        <BuddySwipe/>
+      </div>
+    );
+  } catch (error) 
+  }
 }
 
 export default App;

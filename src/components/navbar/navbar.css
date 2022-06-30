@@ -1,0 +1,65 @@
+header {
+    display: flex;
+    align-items: center;
+    background-color: #01956c;
+    box-shadow: 0 8px;
+}
+
+/* Gig buddy 'logo' */
+h1 {
+    color: white;
+    font-size: 4rem;
+    position: relative;
+    bottom: 5px;
+    flex-grow: 1;
+    padding: 5px;
+    letter-spacing: .1rem;
+}
+
+/* moving the search icon from its default spot */
+.search-icon {
+    position: relative;
+    left: 30px;
+}
+
+input {
+    padding: .4rem 2rem;
+    height: 2rem;
+    min-width: 20rem;
+    border-radius: 2px;
+    border: 0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style-type: none;
+    gap: .7rem;
+}
+
+.message-icon {
+    position: relative;
+    top: 6px;
+}
+
+/* moving the profile pic from its default spot and making it round */
+.nav-profile-pic {
+    border-radius: 50%;
+    position: relative;
+    top: 5px;
+}
+
+.logout-btn {
+    background-color: black;
+    border-radius: 5px;
+    padding: 5px 15px;
+    color: white;
+    margin-left: 1em;
+}

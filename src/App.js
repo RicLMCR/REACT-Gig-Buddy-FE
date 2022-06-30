@@ -41,13 +41,14 @@ const [displayEvent, setDisplayEvent] =useState ([])
         <Route path="/messages" element={ <Messages />}  />
         <Route path="/profile" element={ <Profile />}  />
         <Route path="/login" element={ <LogorSign />}  />
+        <Route path="/event" element={ <EventList displayEvent={displayEvent} />}  />
        </Routes>
     </>
 
-        <h1>Gig Buddy</h1>
+        {/* <h1>Gig Buddy</h1>
         <BuddySwipe/>
         <TestFunc/>
-        <button onClick={logInUser}>Log In</button>
+        <button onClick={logInUser}>Log In</button> */}
       </div>
 
   );

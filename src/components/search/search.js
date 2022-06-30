@@ -10,12 +10,8 @@ export const SearchBar = ({apiData, setValue, value, setDisplayEvent, displayEve
         };
       
         const onSearch = (searchTerm, item) => {
-          setTest(item);
+          setDisplayEvent([item]);
           setValue(searchTerm);
-     console.log("display event", test)
-     console.log(item, "onsearch")
-             // our api to fetch the search result
-          console.log("search ", searchTerm);
         };
       
         return (

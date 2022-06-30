@@ -12,8 +12,8 @@ const [displayEvent, setDisplayEvent] =useState ([])
 
 
   useEffect (() => {
-    // fetchEvents(setApiData)
-    fetchArtist(setArtists)
+    fetchEvents(setApiData)
+    // fetchArtist(setArtists)
   }, [])
 
   return (

@@ -89,7 +89,6 @@ console.log(data)
             data.results.forEach(async(item, index) => {
 
                 const eventObj = {
-                    testKey: "test test test",
                     id: item.id,
                     eventname: item.eventname,
                     artists: item.artists,

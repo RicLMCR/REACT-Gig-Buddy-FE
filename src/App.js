@@ -7,14 +7,15 @@ import TestFunc from './components/test';
 import BuddySwipe from './components/buddySwipe';
 import Navbar from './components/navbar/NavBar';
 import {SearchBar} from "./components/search/search" ;
-import {EventList} from "./components/eventList/eventList";a
-
+import {EventList} from "./components/eventList/eventList";
 
 import {fetchEvents, fetchArtist} from "./utils/fetchReq"
 
 import Home from './pages/Home';
 import Messages from './pages/Messages';
 import Profile from './pages/Profile';
+
+import { LogorSign } from './components/LogorSign/LogorSign';
 
 
 function App() {
@@ -26,32 +27,23 @@ const [displayEvent, setDisplayEvent] =useState ([])
 
   useEffect (() => {
     fetchEvents(setApiData)
-    // fetchArtist(setArtists)
   }, [])
 
   try {
 
   return (
     <div className="App">
+      
     <>
-      <Navbar />
+      <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} />
       <Routes>
         <Route path="/" element={ <Home />} />
         <Route path="/messages" element={ <Messages />}  />
         <Route path="/profile" element={ <Profile />}  />
-      </Routes>
+        <Route path="/login" element={ <LogorSign />}  />
+       </Routes>
     </>
 
-
-      <h1>Gig Buddy</h1>
-      <div className=''>
-      <SearchBar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} ></SearchBar>
-      <EventList   displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} ></EventList>
-    </div>
-
- 
-
-  
         <h1>Gig Buddy</h1>
         <BuddySwipe/>
         <TestFunc/>

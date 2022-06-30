@@ -18,7 +18,7 @@ function App() {
 
  const [value, setValue] = useState("");
  const [apiData, setApiData] = useState([])
-const [artists, setArtists] =useState([])
+
 const [displayEvent, setDisplayEvent] =useState ([])
 
   useEffect (() => {

@@ -1,17 +1,20 @@
 import './App.css';
 import { useEffect, useState} from 'react';
-import BuddySwipe from './components/buddySwipe';
 import { logInUser } from './utils/fetchReq';
-import TestFunc from './components/test';
-
-import Navbar from './components/navbar/NavBar';
 import { Routes, Route } from 'react-router-dom';
+
+import TestFunc from './components/test';
+import BuddySwipe from './components/buddySwipe';
+import Navbar from './components/navbar/NavBar';
+import {SearchBar} from "./components/search/search" ;
+import {EventList} from "./components/eventList/eventList";a
+
+
+import {fetchEvents, fetchArtist} from "./utils/fetchReq"
+
 import Home from './pages/Home';
 import Messages from './pages/Messages';
 import Profile from './pages/Profile';
-import {fetchEvents, fetchArtist} from "./utils/fetchReq"
-import {SearchBar} from "./components/search/search" 
-import {EventList} from "./components/eventList/eventList"
 
 
 function App() {

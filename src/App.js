@@ -12,6 +12,7 @@ import Profile from './pages/Profile';
 import {fetchEvents, fetchArtist} from "./utils/fetchReq"
 import {SearchBar} from "./components/search/search" 
 import {EventList} from "./components/eventList/eventList"
+import { LogorSign } from './components/LogorSign/LogorSign';
 
 
 function App() {
@@ -30,6 +31,7 @@ const [displayEvent, setDisplayEvent] =useState ([])
 
   return (
     <div className="App">
+      <LogorSign/>
     <>
       <Navbar />
       <Routes>

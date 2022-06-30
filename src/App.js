@@ -13,6 +13,8 @@ import {useState, useEffect} from "react"
 import {fetchEvents, fetchArtist} from "./utils"
 import {SearchBar} from "./components/search/search" 
 import {EventList} from "./components/eventList/eventList"
+
+
 function App() {
 
  const [value, setValue] = useState("");
@@ -25,7 +27,10 @@ const [displayEvent, setDisplayEvent] =useState ([])
     // fetchArtist(setArtists)
   }, [])
 
+  try {
+
   return (
+    <div className="App">
     <>
       <Navbar />
       <Routes>
@@ -35,26 +40,27 @@ const [displayEvent, setDisplayEvent] =useState ([])
       </Routes>
     </>
 
-    <div className="App">
+
       <h1>Gig Buddy</h1>
       <div className=''>
       <SearchBar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} ></SearchBar>
       <EventList   displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} ></EventList>
     </div>
-    </div>
-  );
 
-  try {
-    return (
-      <div className="App">
+ 
+
+  
         <h1>Gig Buddy</h1>
         <BuddySwipe/>
         <TestFunc/>
         <button onClick={logInUser}>Log In</button>
       </div>
-    );
-  } catch (error) 
+
+  );
+  } catch (error) {
+    console.log(error);
   }
 }
+
 
 export default App;

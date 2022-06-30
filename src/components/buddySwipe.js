@@ -5,6 +5,7 @@ import './buddySwipe.css';
 
 const BuddySwipe=()=> {
 
+    //test comment
 //temporary hook to contain user profiles loaded from 'attendees' 
 //add images -- img: img1,
 //add got ticket 

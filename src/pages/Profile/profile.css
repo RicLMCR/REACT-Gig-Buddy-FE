@@ -1,22 +1,29 @@
 .profile-page-top {
     display: flex;
     justify-content: space-around;
+    padding: 20px;
+    border: solid 2px orange;
 }
 
 .profile-image {
     border-radius: 50%;
+    max-width: 75%;
 }
 
 .profile-buddies {
     align-self: center;
+    border: solid 2px pink;
+    padding: 2px;
 }
 
 .buddy-images {
     display: flex;
+    border: solid 2px green;
 }
 
 .buddy-image {
     border-radius: 50%;
+    padding: 5px;
 }
 
 .see-more-text {

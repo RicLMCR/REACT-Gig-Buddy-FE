@@ -19,6 +19,10 @@
     border-radius: 50%;
 }
 
+.see-more-text {
+    align-self: flex-end;
+}
+
 .profile-page-bottom {
     display: flex;
     justify-content: space-around;

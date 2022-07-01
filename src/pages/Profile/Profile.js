@@ -31,6 +31,7 @@ return (
             </div>
             <div className='mygigs-div'>
                 <h2 className='mygigs-header'>My Gigs</h2>
+                <div className="gig-images">
                 <img className="mygig-image" src="https://www.fillmurray.com/194/194" alt="gig" />
                 <img className="mygig-image" src="https://www.fillmurray.com/194/194" alt="gig" />
                 <img className="mygig-image" src="https://www.fillmurray.com/194/194" alt="gig" />
@@ -43,6 +44,7 @@ return (
                 <img className='gig-friend-image' src="https://www.fillmurray.com/36/36" alt="friend" />
                 </div>
                 <p className='see-more-text'>See more...</p>
+                </div>
             </div>
         </section>
         </div>

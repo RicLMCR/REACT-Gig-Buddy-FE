@@ -20,12 +20,16 @@ import { LogOrSign, LogOut, DeleteUser } from './components/LogorSign/LogorSign'
 
 function App() {
 
-  const [user, setUser]=useState();
 
-//  const [value, setValue] = useState("");
-//  const [apiData, setApiData] = useState([])
+  const [user, setUser]=useState();
+=======
+ const [value, setValue] = useState("");
+ const [apiData, setApiData] = useState([])
+
+const [displayEvent, setDisplayEvent] =useState ([])
+
 // const [artists, setArtists] =useState([])
-// const [displayEvent, setDisplayEvent] =useState ([])
+
 
 //   useEffect (() => {
 //     fetchEvents(setApiData)
@@ -43,6 +47,7 @@ function App() {
         <Route path="/messages" element={ <Messages />}  />
         <Route path="/profile" element={ <Profile />}  />
         <Route path="/login" element={ <LogorSign />}  />
+
        </Routes> */}
     </>
 {user ? <div>
@@ -56,6 +61,16 @@ function App() {
       :
       <LogOrSign user={user} setUser={setUser}/>
       }
+
+        <Route path="/event" element={ <EventList displayEvent={displayEvent} />}  />
+       </Routes>
+    </>
+
+        {/* <h1>Gig Buddy</h1>
+        <BuddySwipe/>
+        <TestFunc/>
+        <button onClick={logInUser}>Log In</button> */}
+
       </div>
 
   );

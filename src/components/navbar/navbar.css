@@ -24,7 +24,7 @@
     top:10px
 }
 
-input {
+.navbarHeader > input {
     padding: .4rem 2rem;
     height: 2rem;
     min-width: 20rem;

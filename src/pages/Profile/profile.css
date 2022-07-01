@@ -8,6 +8,7 @@
 .profile-image {
     border-radius: 50%;
     max-width: 75%;
+    border: #08ac4b solid 1.5px;
 }
 
 .profile-buddies {
@@ -37,10 +38,14 @@
 
 .bio-container {
     max-width: 500px;
+    border: 2px red solid;
+    padding: 5px;
 }
 
 .mygig-image {
     z-index: 1;
+    padding: 5px;
+
 } 
 
 .gig-friend-image-group {
@@ -52,4 +57,16 @@
 .gig-friend-image {
     border-radius: 50%;
     margin-right: 3px;
+}
+
+.text{ 
+    font-family: "Roboto", sans-serif;
+    color: #08ac4b;
+    background-color: #FFFFFF;
+    background-image: none;
+    text-transform: uppercase;
+    margin: auto; 
+    padding: 10px;
+    text-align: center;
+    border: #08ac4b solid 2px;
 }

@@ -17,7 +17,7 @@ export const ProfileImageUploader = () => {
     console.log(image);
 
     const handleImageSubmit = () => {
-        const imageRef = ref(storage, "image");
+        const imageRef = ref(storage, Date());
         uploadBytes(imageRef, image).then(() => {
             getDownloadURL(imageRef).then((url) => {
                 setUrl(url);
@@ -32,6 +32,7 @@ export const ProfileImageUploader = () => {
     };
 return (
     <>
+    <Avatar alt="Profile" src={url} sx={{ width: 338, height: 338 }} />
     <input type="file" name='profileImage' onChange={handleImageChange} accept="image/png, image/gif, image/jpeg" />
     <button onClick={handleImageSubmit}>Submit</button>
     </>

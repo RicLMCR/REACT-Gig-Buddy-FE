@@ -1,4 +1,5 @@
 import React from 'react';
+import { ProfileImageUploader } from '../../components/profileImageUploader/profileImageUploader';
 // import '../index.css'
 import './profile.css'
 
@@ -9,7 +10,7 @@ return (
 
         <section className='profile-page-top'>
             <div className='profile-picture-div'>
-                <img className='profile-image' src='https://www.fillmurray.com/338/338' alt='profile' />
+                <ProfileImageUploader />
             </div>
             <div className='profile-buddies'>
                 <h2 className='buddies-header'>Buddies</h2>

@@ -15,19 +15,21 @@ import Home from './pages/Home';
 import Messages from './pages/Messages';
 import Profile from './pages/Profile';
 
-import { LogorSign } from './components/LogorSign/LogorSign';
+import { LogOrSign, LogOut, DeleteUser } from './components/LogorSign/LogorSign';
 
 
 function App() {
 
- const [value, setValue] = useState("");
- const [apiData, setApiData] = useState([])
-const [artists, setArtists] =useState([])
-const [displayEvent, setDisplayEvent] =useState ([])
+  const [user, setUser]=useState();
 
-  useEffect (() => {
-    fetchEvents(setApiData)
-  }, [])
+//  const [value, setValue] = useState("");
+//  const [apiData, setApiData] = useState([])
+// const [artists, setArtists] =useState([])
+// const [displayEvent, setDisplayEvent] =useState ([])
+
+//   useEffect (() => {
+//     fetchEvents(setApiData)
+//   }, [])
 
   try {
 
@@ -35,19 +37,25 @@ const [displayEvent, setDisplayEvent] =useState ([])
     <div className="App">
       
     <>
-      <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} />
+      {/* <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} />
       <Routes>
         <Route path="/" element={ <Home />} />
         <Route path="/messages" element={ <Messages />}  />
         <Route path="/profile" element={ <Profile />}  />
         <Route path="/login" element={ <LogorSign />}  />
-       </Routes>
+       </Routes> */}
     </>
-
+{user ? <div>
         <h1>Gig Buddy</h1>
-        <BuddySwipe/>
-        <TestFunc/>
-        <button onClick={logInUser}>Log In</button>
+        <h1>{user}</h1>
+
+       <DeleteUser user={user} setUser={setUser}/>
+       <LogOut user={user} setUser={setUser}/>
+       {/* <BuddySwipe/> */}
+        </div>
+      :
+      <LogOrSign user={user} setUser={setUser}/>
+      }
       </div>
 
   );

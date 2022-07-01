@@ -1,8 +1,6 @@
-
-
-
 //create user fetch request
 export const createUser = async (username, email, password, setUser)=>{
+    console.log("fetch hit", username, email, password);
     try {
         const res = await fetch(`${process.env.REACT_APP_REST_API}user`, {//Note: 'user' might not be needed
             method:"POST",
@@ -15,7 +13,7 @@ export const createUser = async (username, email, password, setUser)=>{
         });
         const data = await res.json();
         setUser(data.newUser.username);   
-        console.log(data.newUser.user);
+        console.log("succesfully created:", data.newUser.user);
     } catch (error) {
         console.log(error);
     }
@@ -33,7 +31,7 @@ export const logInUser = async (username, password, setUser)=>{
             }),
         });
         const data = await res.json();
-        console.log(data.user.username);
+        console.log("user", username, "logged in", data.user.username);
         setUser(data.user.username);
     } catch (error) {
         console.log(error);
@@ -41,15 +39,18 @@ export const logInUser = async (username, password, setUser)=>{
 };
 
 //delete user fetch request
-export const deleteUser = async (username)=>{
+export const deleteUser = async (username, setUser)=>{
+    console.log("fetch", username)
     try {
         const res = await fetch(`${process.env.REACT_APP_REST_API}${username}`, {
             method: 'DELETE',
-            headers: {"Content-Type": "application/json"}
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                username: username
+            }),
         })
         const data = await res.json();
-        console.log(`${data.user.username} is deleted`);
-        // setUser(data.user.username);
+        // setUser("deleted");
         console.log(username, "has been deleted");
         } catch (error) {
         console.log(error);

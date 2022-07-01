@@ -10,10 +10,72 @@
     gap:80px
 }
 .eventlist-container{
-    background-color:beige;
+    padding: 35px;
+    margin-top: 10px;
+    background-image:url("./background-abstract-1064993_1920.jpg");
     width: 850px;
-    height: 600px;
+    height: 500px;
     border-radius: 10px;
-    
+    display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    ". . . . content3"
+    "content1 content1 content5 content5 content5"
+    "content1 content1 content2 content2 content2"
+    ". . . . content4";
+  grid-gap: 0.2rem;
+  
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
 
+.event-title{
+    color: white;
+    font-size: 45px;
+    text-decoration: underline red;
+    grid-area: content5;
+    justify-self: center;
+    align-self: flex-end;
+
+}
+
+.event-image{
+border-radius: 10px;
+grid-area: content1;
+height: 250px;
+justify-self: center;
+background-color: rgba(0, 0, 0, 0.374);
+border-bottom: red solid 3px;
+
+}
+.event-description{
+    grid-area: content2;
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.374);
+    text-align: center;
+    border-radius: 15px;
+    color: rgb(220, 214, 214);
+    align-self: center;
+    align-self: flex-start;
+    
+}
+
+.event-date{
+    grid-area: content3;
+    justify-self: center;
+    color: white;
+    font-size: 24px;
+    background-color: rgba(0, 0, 0, 0.374);
+    height: 40px;
+    width: 180px;
+    padding: 5px 0px 0px 30px;
+    border-radius:8px;
+    
+}
+.event-location{
+    grid-area: content4;
+    justify-self: center;
+    text-align: left;
+
+    font-size: 16px;
 }

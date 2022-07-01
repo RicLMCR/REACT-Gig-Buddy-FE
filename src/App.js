@@ -21,6 +21,10 @@ import { LogOrSign, LogOut, DeleteUser } from './components/LogorSign/LogorSign'
 function App() {
 
   const [user, setUser]=useState();
+ const [value, setValue] = useState("");
+ const [apiData, setApiData] = useState([])
+
+const [displayEvent, setDisplayEvent] =useState ([])
 
 //  const [value, setValue] = useState("");
 //  const [apiData, setApiData] = useState([])
@@ -56,6 +60,14 @@ function App() {
       :
       <LogOrSign user={user} setUser={setUser}/>
       }
+        {/* <Route path="/event" element={ <EventList displayEvent={displayEvent} />}  />
+       </Routes> */}
+
+
+        {/* <h1>Gig Buddy</h1>
+        <BuddySwipe/>
+        <TestFunc/>
+        <button onClick={logInUser}>Log In</button> */}
       </div>
 
   );

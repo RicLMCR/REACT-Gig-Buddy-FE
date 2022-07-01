@@ -2,13 +2,13 @@
     display: flex;
     justify-content: space-around;
     padding: 20px;
-    border: solid 2px orange;
 }
 
 .profile-image {
     border-radius: 50%;
     max-width: 75%;
     border: #08ac4b solid 1.5px;
+    margin: 0 0 0 50px;
 }
 
 .profile-buddies {
@@ -24,7 +24,8 @@
 
 .buddy-image {
     border-radius: 50%;
-    padding: 5px;
+    margin: 2px;
+
 }
 
 .see-more-text {
@@ -36,10 +37,17 @@
     justify-content: space-around;
 }
 
+.bio-header { 
+    max-width: 500px;
+    border: 2px orange solid;
+    padding: 5px;
+    margin: 10px;
+}
 .bio-container {
     max-width: 500px;
     border: 2px red solid;
     padding: 5px;
+    margin: 10px;
 }
 
 .mygig-image {
@@ -50,8 +58,9 @@
 
 .gig-friend-image-group {
     position: relative;
-    bottom: 40px;
+    bottom: 50px;
     z-index: 2;
+    border: solid brown 2px;
 }
 
 .gig-friend-image {
@@ -65,8 +74,24 @@
     background-color: #FFFFFF;
     background-image: none;
     text-transform: uppercase;
-    margin: auto; 
+    margin: 10px; 
     padding: 10px;
-    text-align: center;
     border: #08ac4b solid 2px;
+}
+
+.text2 { 
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    color: #08ac4b;
+    background-color: #FFFFFF;
+    background-image: none;
+    text-transform: uppercase;
+    margin: 10px; 
+    /* padding: 10px; */
+    border: #08ac4b solid 2px;
+}
+
+.center { 
+    text-align: center;
+
 }

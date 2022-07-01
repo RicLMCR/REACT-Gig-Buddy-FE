@@ -4,16 +4,19 @@ import {useState, useEffect} from "react"
 import{BiSearchAlt} from "react-icons/bi";
 import { GoLocation } from "react-icons/go";
 import { TbCalendarEvent } from "react-icons/tb";
+import { useNavigate } from "react-router-dom";
 
 export const SearchBar = ({apiData, setValue, value, setDisplayEvent}) => {
 
         const onChange = (event) => {
           setValue(event.target.value);
         };
-      
+      const navigate = useNavigate()
         const onSearch = (searchTerm, item) => {
           setDisplayEvent([item]);
           setValue(searchTerm);
+          navigate("/event")
+          setValue("")
         };
       
         return (

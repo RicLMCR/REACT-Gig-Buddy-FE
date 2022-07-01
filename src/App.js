@@ -26,12 +26,10 @@ function App() {
 
 const [displayEvent, setDisplayEvent] =useState ([])
 
-// const [artists, setArtists] =useState([])
 
-
-//   useEffect (() => {
-//     fetchEvents(setApiData)
-//   }, [])
+  useEffect (() => {
+    fetchEvents(setApiData)
+  }, [])
 
   try {
 
@@ -39,33 +37,18 @@ const [displayEvent, setDisplayEvent] =useState ([])
     <div className="App">
       
     <>
-      {/* <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} />
+      <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} />
       <Routes>
         <Route path="/" element={ <Home />} />
         <Route path="/messages" element={ <Messages />}  />
         <Route path="/profile" element={ <Profile />}  />
-        <Route path="/login" element={ <LogorSign />}  />
-       </Routes> */}
+        <Route path="/login" element={ <LogOrSign />}  />
+        <Route path="/event" element={ <EventList displayEvent={displayEvent} />}  />
+        <Route path="/buddySwipe" element={ <BuddySwipe/>} />
+       </Routes>
     </>
-{user ? <div>
-        <h1>Gig Buddy</h1>
-        <h1>{user}</h1>
-
-       <DeleteUser user={user} setUser={setUser}/>
-       <LogOut user={user} setUser={setUser}/>
-       {/* <BuddySwipe/> */}
-        </div>
-      :
-      <LogOrSign user={user} setUser={setUser}/>
-      }
-        {/* <Route path="/event" element={ <EventList displayEvent={displayEvent} />}  />
-       </Routes> */}
 
 
-        {/* <h1>Gig Buddy</h1>
-        <BuddySwipe/>
-        <TestFunc/>
-        <button onClick={logInUser}>Log In</button> */}
       </div>
 
   );
@@ -76,3 +59,5 @@ const [displayEvent, setDisplayEvent] =useState ([])
 
 
 export default App;
+
+

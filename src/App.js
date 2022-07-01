@@ -13,7 +13,7 @@ import {fetchEvents, fetchArtist} from "./utils/fetchReq"
 
 import Home from './pages/Home';
 import Messages from './pages/Messages';
-import Profile from './pages/Profile';
+import Profile from './pages/Profile/Profile';
 
 import { LogOrSign, LogOut, DeleteUser } from './components/LogorSign/LogorSign';
 

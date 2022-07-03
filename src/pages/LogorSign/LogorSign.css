@@ -72,10 +72,9 @@ input {
     padding: 10px;
 }
 
-input[type='text'], input[type='email'], input[type='password'] {
+/* input[type='text'], input[type='email'], input[type='password'] {
     font-family: Verdana;
-    letter-spacing: 0.1em;
-}
+} */
 
 .switchButton { 
     font-family: "Roboto", sans-serif;

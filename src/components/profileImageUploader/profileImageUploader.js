@@ -17,7 +17,8 @@ export const ProfileImageUploader = () => {
     console.log(image);
 
     const handleImageSubmit = () => {
-        const imageRef = ref(storage, Date.now());
+        const imageName = Date.now()
+        const imageRef = ref(storage, "image", imageName);
         uploadBytes(imageRef, image).then(() => {
             getDownloadURL(imageRef).then((url) => {
                 setUrl(url);

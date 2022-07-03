@@ -48,7 +48,7 @@ export const SearchBar = ({apiData, setValue, value, setDisplayEvent}) => {
                      <div className="dropdown-text-flex">
                       <h1 className="dropdown-title">{item.eventname}</h1>  
                       <div className="search-date"><TbCalendarEvent/>{item.date}</div> 
-                      <div className="search-date"><GoLocation></GoLocation> {item.venuename}</div> 
+                      <div className="search-date"><GoLocation /> {item.venuename}</div> 
                       {/* <div className="search-venue">{item.venue.name}</div>  */}
                       </div>
                     </div>

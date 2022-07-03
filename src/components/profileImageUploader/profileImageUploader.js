@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Avatar } from '@mui/material';
 import { storage } from '../../firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'; 
+import uniqid from 'uniqid'
 
 export const ProfileImageUploader = () => {
 
@@ -17,8 +18,7 @@ export const ProfileImageUploader = () => {
     console.log(image);
 
     const handleImageSubmit = () => {
-        const imageName = Date.now()
-        const imageRef = ref(storage, "image", imageName);
+        const imageRef = ref(storage, uniqid('image-'));
         uploadBytes(imageRef, image).then(() => {
             getDownloadURL(imageRef).then((url) => {
                 setUrl(url);

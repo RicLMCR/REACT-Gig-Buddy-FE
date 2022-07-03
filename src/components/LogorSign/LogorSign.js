@@ -26,10 +26,10 @@ export const LogOrSign = ({setUser}) => {
             <div>
                 { logSwitch ? 
                 <div className="formContainer">
-               <form className="logIn" onSubmit={submitHandlerLogin}>
+                <form className="logIn" onSubmit={submitHandlerLogin}>
                     <h1 className="text">Log In</h1>
-                    <input placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
-                    <input classname = "input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>                  
+                    <input type="text" placeholder="Username" onChange={(e)=>setUserName(e.target.value)} />
+                    <input type="password" classname = "input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>                  
                     <button className="loginButton">Submit</button>
                     <div className="flex">
                         <h3 className="smallText">Don't have an account?</h3>
@@ -41,14 +41,14 @@ export const LogOrSign = ({setUser}) => {
                 <div className="formContainer">
                 <form className="signUp" onSubmit={submitHandlerCreate}>
                     <h1 className="text">Create Profile</h1>
-                    <input placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
-                    <input classname = "input" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
-                    <input placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
+                    <input type="text" placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
+                    <input type="email" classname = "input" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
+                    <input type="password" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
                     <button className="loginButton" type="submit">Submit</button>
                     <div className="flex">
                         <h3 className="smallText">Already have an account?</h3>                
                         <button className = "switchButton"onClick={(e)=>{setlogSwitch(true)}}>Log In</button>
-                       
+                    
                     </div>
                 </form>
                 </div>

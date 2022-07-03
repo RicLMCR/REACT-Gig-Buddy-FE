@@ -27,8 +27,8 @@ export const LogOrSign = ({setUser}) => {
                 { logSwitch ? 
                <form className="logIn form" onSubmit={submitHandlerLogin}>
                     <h1>Log In</h1>
-                        <input placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
-                        <input placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
+                        <input type="text" placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
+                        <input type="password" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
                         <div className="btnContainer">
                             <button className="loginButton" type="submit">Submit</button>
                             <button className="switchButton" onClick={(e)=>{setlogSwitch()}}>Sign Up</button>
@@ -38,9 +38,9 @@ export const LogOrSign = ({setUser}) => {
                 <form className="signUp form" onSubmit={submitHandlerCreate}>
                     <h1>Create Profile</h1>
                     
-                        <input placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
-                        <input placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
-                        <input placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
+                        <input type="text" placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
+                        <input type="email" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
+                        <input type="password" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
                         <div className="btnContainer">
                             <button className="loginButton" type="submit">Submit</button>
                             <button className="switchButton" onClick={(e)=>{setlogSwitch(true)}}>Log In</button>

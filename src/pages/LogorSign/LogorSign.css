@@ -63,13 +63,18 @@ h1{
 input { 
     margin: 5px;
     width: 75%;
-    font-family: "Roboto";
+    font-family: Verdana;
     border-radius: 5px;
     height: auto;
     background-color: #f2f2f2;
     background-image: none;
     border: none;
     padding: 10px;
+}
+
+input[type='password'] {
+    font-family: Verdana;
+    letter-spacing: 0.1em;
 }
 
 .switchButton { 

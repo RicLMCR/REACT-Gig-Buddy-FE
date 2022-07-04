@@ -30,8 +30,8 @@ export const LogOrSign = ({setUser}) => {
                         <input placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
                         <input placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
                         <div className="btnContainer">
-                            <button className="loginButton" type="submit">Submit</button>
-                            <button className="switchButton" onClick={(e)=>{setlogSwitch()}}>Sign Up</button>
+                            <button className="loginButton" type="submit">Log In</button>
+                            <button className="switchButton" onClick={(e)=>{setlogSwitch()}}>Sign Up Here</button>
                     </div>
                 </form>
                 :
@@ -42,8 +42,8 @@ export const LogOrSign = ({setUser}) => {
                         <input placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
                         <input placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
                         <div className="btnContainer">
-                            <button className="loginButton" type="submit">Submit</button>
-                            <button className="switchButton" onClick={(e)=>{setlogSwitch(true)}}>Log In</button>
+                            <button className="loginButton" type="submit">Create Account</button>
+                            <button className="switchButton" onClick={(e)=>{setlogSwitch(true)}}>Log In Here</button>
                         </div>
                 </form>
                 }

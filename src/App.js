@@ -39,7 +39,7 @@ const [displayEvent, setDisplayEvent] =useState ([])
     <div className="App">
       
     <>
-      <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} />
+      {/* <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} /> */}
       <Routes>
         <Route path="/" element={ <Home />} />
         <Route path="/messages" element={ <Messages />}  />

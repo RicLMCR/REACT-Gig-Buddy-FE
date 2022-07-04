@@ -1,7 +1,7 @@
 import { useState } from "react";
 import './LogorSign.css'
 import { createUser, logInUser, deleteUser} from '../../utils/fetchReq'
-
+import { useNavigate } from "react-router-dom";
 //login or sign up user
 export const LogOrSign = ({setUser}) => {
 
@@ -9,14 +9,18 @@ export const LogOrSign = ({setUser}) => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     
+    const navigate = useNavigate()
+
     const submitHandlerCreate=(e)=>{
         e.preventDefault();
         createUser(username, email, password, setUser);
+        navigate("/popular")
     };
 
     const submitHandlerLogin = (e)=>{
         e.preventDefault();
         logInUser(username, password, setUser);
+        navigate("/popular")
     };
 
     try { 

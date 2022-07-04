@@ -58,24 +58,6 @@ export const deleteUser = async (username, setUser)=>{
 }
 
 
-// export const fetchEvents =  async (setApiData) => {
-//     try {
-        
-//     const response = await fetch("https://www.skiddle.com/api/v1/events/search/?api_key=9eca984fc063066727406327c285fb75&latitude=53.4839&longitude=-2.2446&radius=5&eventcode=LIVE&order=distance&description=1&limit=100")
-    
-
-//     const data = await response.json()
-//     if (!response.ok){
-//       throw new Error(response.statusText)
-//     }
-//     console.log(data, "data")
-//     setApiData(data.results)
-//     console.log(data.results)
-
-//     } catch (err) {
-//       console.log(err)
-//     }
-//   }
 
    export const fetchEvents = async (setApiData) => {
     try {
@@ -83,7 +65,7 @@ export const deleteUser = async (username, setUser)=>{
         const eventArr = [];
 
         offsetArr.forEach(async(item, index) => {
-                    const res = await fetch(`https://www.skiddle.com/api/v1/events/search/?api_key=9eca984fc063066727406327c285fb75&latitude=53.4839&longitude=-2.2446&radius=5&eventcode=LIVE&order=distance&description=1&limit=100&offset=${item}`);
+                    const res = await fetch(`https://www.skiddle.com/api/v1/events/search/?api_key=${process.env.REACT_APP_API_KEY}&latitude=53.4839&longitude=-2.2446&radius=5&eventcode=LIVE&order=distance&description=1&limit=100&offset=${item}`);
 
                 const data = await res.json();
 console.log(data)
@@ -117,28 +99,30 @@ console.log(data)
 
 
 
-export const fetchArtist =  async (setArtists) => {
+
+export const createEvent = async (eventId, username)=>{
+
+
+    
     try {
-
-    const response = await fetch(`https://www.skiddle.com/api/v1/artist/search/?api_key=9eca984fc063066727406327c285fb75`)
-    
- 
-console.log(response)
-    
-    if (!response.ok){
-      throw new Error(response.statusText)
+        const res = await fetch(`${process.env.REACT_APP_REST_API}event`, {//Note: 'user' might not be needed
+            method:"POST",
+            headers:{"Content-Type": "application/json"},
+            body: JSON.stringify({
+                eventId: eventId,
+                username: "username"
+            }),
+        });
+        const data = await res.json();
+        // setUser(data.newUser.username);   
+        console.log("succesfully created:", data);
+    } catch (error) {
+        console.log(error);
     }
-    const data = await response.json()
-    console.log(data, "data")
-    setArtists(data.results)
-    console.log(data.results)
+};
 
-    } catch (err) {
-      console.log(err)
-    }
-  }
 
-  export const trendingEvent = async (setTrendingEvents) => {
+export const trendingEvent = async (setTrendingEvents) => {
 
     try {
 

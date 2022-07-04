@@ -9,7 +9,7 @@ const BuddySwipe=()=> {
 //temporary hook to contain user profiles loaded from 'attendees' 
 //add images -- img: img1,
 //add got ticket 
-    const [attendees, setattendees]=useState([
+    const [attendees, setAttendees]=useState([
         { username: "Luka",  liked: false, key:1},
         { username: "Deivydas", liked: false,  key:2},
         { username: "Markus", liked: false,  key:3},

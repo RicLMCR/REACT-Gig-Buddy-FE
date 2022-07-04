@@ -2,15 +2,22 @@ import { SearchBar } from "../search/search"
 import "./eventList.css"
 import { GoLocation } from "react-icons/go";
 import { TbCalendarEvent } from "react-icons/tb";
-import { createEvent } from "../../utils/fetchReq";
+import { createEvent, fetchAttendees } from "../../utils/fetchReq";
+
+import { useNavigate } from "react-router-dom";
 
 
 export const EventList = ({value, setValue, apiData, setDisplayEvent, displayEvent}) => {
 const user = {
     user: "sdsdsds"
 }
+
+const navigate = useNavigate()
+
 const addEvent =(item) => {
-createEvent(item, "useruser" )
+createEvent(item, "Deivydas");
+fetchAttendees(item);
+navigate("/buddySwipe")
 
 }
 

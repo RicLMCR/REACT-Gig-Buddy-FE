@@ -26,7 +26,7 @@ export const LogOrSign = ({setUser}) => {
             <div className="formContainer">
                 { logSwitch ? 
                <form className="logIn form" onSubmit={submitHandlerLogin}>
-                    <h1>Log In</h1>
+                    <h1 className="login-title">Log In</h1>
                         <input placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
                         <input placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
                         <div className="btnContainer">

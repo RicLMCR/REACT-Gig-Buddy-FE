@@ -9,12 +9,13 @@ import Navbar from './components/navbar/NavBar';
 import {SearchBar} from "./components/search/search" ;
 import {EventList} from "./components/eventList/eventList";
 
-import {fetchEvents, fetchArtist} from "./utils/fetchReq"
+import {fetchEvents, fetchArtist, trendingEvent} from "./utils/fetchReq"
 
 import Home from './pages/Home';
 import Messages from './pages/Messages';
 import Profile from './pages/Profile/Profile';
-
+import { PopularEvents } from './components/popularEvents/popularEvents';
+import { LogOrSign, LogOut, DeleteUser } from './components/LogorSign/LogorSign';
 
 
 
@@ -23,12 +24,13 @@ function App() {
   
  const [value, setValue] = useState("");
  const [apiData, setApiData] = useState([])
-
+ const [trendingEvents, setTrendingEvents] = useState([])
 const [displayEvent, setDisplayEvent] =useState ([])
 
 
   useEffect (() => {
     fetchEvents(setApiData)
+    trendingEvent(setTrendingEvents)
   }, [])
 
   try {
@@ -45,6 +47,7 @@ const [displayEvent, setDisplayEvent] =useState ([])
         {/* <Route path="/login" element={ <LogOrSign />}  /> */}
         <Route path="/event" element={ <EventList displayEvent={displayEvent} />}  />
         <Route path="/buddySwipe" element={ <BuddySwipe/>} />
+        <Route path="/popular" element={ <PopularEvents setDisplayEvent={setDisplayEvent} setValue={setValue} trendingEvents={trendingEvents}/>} />
        </Routes>
     </>
 

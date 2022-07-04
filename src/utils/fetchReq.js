@@ -83,7 +83,7 @@ export const deleteUser = async (username, setUser)=>{
         const eventArr = [];
 
         offsetArr.forEach(async(item, index) => {
-                    const res = await fetch(`https://www.skiddle.com/api/v1/events/search/?api_key=${process.env.REACT_APP_API_KEY}&latitude=53.4839&longitude=-2.2446&radius=5&eventcode=LIVE&order=distance&description=1&limit=100&offset=${item}`);
+                    const res = await fetch(`https://www.skiddle.com/api/v1/events/search/?api_key=9eca984fc063066727406327c285fb75&latitude=53.4839&longitude=-2.2446&radius=5&eventcode=LIVE&order=distance&description=1&limit=100&offset=${item}`);
 
                 const data = await res.json();
 console.log(data)
@@ -120,7 +120,7 @@ console.log(data)
 export const fetchArtist =  async (setArtists) => {
     try {
 
-    const response = await fetch(`https://www.skiddle.com/api/v1/artist/search/?api_key=${process.env.REACT_APP_API_KEY}`)
+    const response = await fetch(`https://www.skiddle.com/api/v1/artist/search/?api_key=9eca984fc063066727406327c285fb75`)
     
  
 console.log(response)
@@ -137,3 +137,16 @@ console.log(response)
       console.log(err)
     }
   }
+
+  export const trendingEvent = async (setTrendingEvents) => {
+
+    try {
+
+     const res = await fetch("https://www.skiddle.com/api/v1/events/search/?api_key=9eca984fc063066727406327c285fb75&latitude=53.4839&longitude=-2.2446&radius=5&eventcode=LIVE&order=trending&description=1&limit=100");
+     const data = await res.json();
+     console.log(data, "trend")
+        setTrendingEvents(data.results)
+    } catch (error) {
+        console.log(error)
+    }
+}

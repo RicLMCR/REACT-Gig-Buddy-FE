@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import './LogorSign.css'
+import './LogorSign.css'
 import { createUser, logInUser, deleteUser} from '../../utils/fetchReq'
 
 //login or sign up user
@@ -25,22 +25,37 @@ export const LogOrSign = ({setUser}) => {
         return(
             <div>
                 { logSwitch ? 
+                <div className="formContainer">
                <form className="logIn" onSubmit={submitHandlerLogin}>
-                    <h1>Log In</h1>
+                    <h1 className="text">Log In</h1>
                     <input placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
-                    <input placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
-                    <button onClick={(e)=>{setlogSwitch()}}>Sign Up</button>
-                    <button>Submit</button>
+                    <input classname = "input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>                  
+                    <button className="loginButton">Submit</button>
+                    <div className="flex">
+                        <h3 className="smallText">Don't have an account?</h3>
+                        <button className = "switchButton" onClick={(e)=>{setlogSwitch()}}>Sign Up</button>
+                    </div>
                 </form>
+                </div>
                 :
+                <div className="formContainer">
                 <form className="signUp" onSubmit={submitHandlerCreate}>
-                    <h1>Create Profile</h1>
+                    <h1 className="text">Create Profile</h1>
                     <input placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
-                    <input placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
+                    <input classname = "input" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
                     <input placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
+
                     <button onClick={(e)=>{setlogSwitch(true)}}>Log In</button>
                     <button type="submit"  >Submit</button>
+
+                    <button className="loginButton" type="submit">Submit</button>
+                    <div className="flex">
+                        <h3 className="smallText">Already have an account?</h3>                
+                        <button className = "switchButton"onClick={(e)=>{setlogSwitch(true)}}>Log In</button>
+                       
+                    </di
                 </form>
+                </div>
                 }
             </div> 
         )

@@ -1,0 +1,48 @@
+.profile-page-top {
+    display: flex;
+    justify-content: space-around;
+}
+
+.profile-image {
+    border-radius: 50%;
+}
+
+.profile-buddies {
+    align-self: center;
+}
+
+.buddy-images {
+    display: flex;
+}
+
+.buddy-image {
+    border-radius: 50%;
+}
+
+.see-more-text {
+    align-self: flex-end;
+}
+
+.profile-page-bottom {
+    display: flex;
+    justify-content: space-around;
+}
+
+.bio-container {
+    max-width: 500px;
+}
+
+.mygig-image {
+    z-index: 1;
+} 
+
+.gig-friend-image-group {
+    position: relative;
+    bottom: 40px;
+    z-index: 2;
+}
+
+.gig-friend-image {
+    border-radius: 50%;
+    margin-right: 3px;
+}

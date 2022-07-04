@@ -7,7 +7,7 @@ import { SearchBar } from '../search/search';
 
 const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData}) => {
     return (
-    <header className='Navbar-header'>
+    <header className='navbarHeader'>
             <h1><Link style={{textDecoration: 'none', color: 'white'}} to="/">Gig Buddy</Link></h1>
 
 

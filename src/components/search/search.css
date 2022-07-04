@@ -21,15 +21,17 @@ flex-direction: column;
 display: flex;
 flex-direction: row;
 justify-content:flex-start;
-background-color: antiquewhite;
+background-color: rgba(250, 235, 215, 0.789);
 border-bottom: grey solid 1px;
+
 
 }
 .dropdown{
  
     position: absolute;
-    left:720px;
+    left:500px;
     top:75px;
+    z-index: 1;
 
 
 }

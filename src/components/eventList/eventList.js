@@ -2,9 +2,17 @@ import { SearchBar } from "../search/search"
 import "./eventList.css"
 import { GoLocation } from "react-icons/go";
 import { TbCalendarEvent } from "react-icons/tb";
+import { createEvent } from "../../utils/fetchReq";
 
 
 export const EventList = ({value, setValue, apiData, setDisplayEvent, displayEvent}) => {
+const user = {
+    user: "sdsdsds"
+}
+const addEvent =(item) => {
+createEvent(item, "useruser" )
+
+}
 
 return ( 
 <div className="event-list">
@@ -23,6 +31,7 @@ return(
  <div><GoLocation color='red'/>{item.address}</div>
         <div>{item.postcode}</div>
         <div> {item.town}</div>
+        <button  onClick={()=>{addEvent(item.id)} }value={item.id}>{item.id} </button>
      </div></div>
 )
         })}

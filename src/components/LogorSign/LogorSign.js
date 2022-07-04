@@ -39,7 +39,7 @@ export const LogOrSign = ({setUser}) => {
                     <input placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
                     <input placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
                     <button onClick={(e)=>{setlogSwitch(true)}}>Log In</button>
-                    <button type="submit">Submit</button>
+                    <button type="submit"  >Submit</button>
                 </form>
                 }
             </div> 

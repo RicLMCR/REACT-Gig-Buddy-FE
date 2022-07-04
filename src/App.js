@@ -9,12 +9,12 @@ import Navbar from './components/navbar/NavBar';
 import {SearchBar} from "./components/search/search" ;
 import {EventList} from "./components/eventList/eventList";
 
-import {fetchEvents, fetchArtist} from "./utils/fetchReq"
+import {fetchEvents, fetchArtist , trendingEvent} from "./utils/fetchReq"
 
 import Home from './pages/Home';
 import Messages from './pages/Messages';
 import Profile from './pages/Profile';
-
+import { PopularEvents } from './components/popularEvents/popularEvents';
 import { LogOrSign, LogOut, DeleteUser } from './components/LogorSign/LogorSign';
 
 
@@ -23,12 +23,14 @@ function App() {
   const [user, setUser]=useState();
  const [value, setValue] = useState("");
  const [apiData, setApiData] = useState([])
-
+const [trendingEvents, setTrendingEvents] = useState([])
 const [displayEvent, setDisplayEvent] =useState ([])
 
 
   useEffect (() => {
     fetchEvents(setApiData)
+    trendingEvent(setTrendingEvents)
+    console.log(trendingEvents,"trendas")
   }, [])
 
   try {
@@ -39,12 +41,13 @@ const [displayEvent, setDisplayEvent] =useState ([])
     <>
       <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} />
       <Routes>
-        <Route path="/" element={ <Home />} />
+        <Route path="/" element={ <LogOrSign />} />
         <Route path="/messages" element={ <Messages />}  />
         <Route path="/profile" element={ <Profile />}  />
         <Route path="/login" element={ <LogOrSign />}  />
         <Route path="/event" element={ <EventList displayEvent={displayEvent} />}  />
         <Route path="/buddySwipe" element={ <BuddySwipe/>} />
+        <Route path="/popular" element={ <PopularEvents setDisplayEvent={setDisplayEvent} setValue={setValue} trendingEvents={trendingEvents}/>} />
        </Routes>
     </>
 
@@ -61,3 +64,14 @@ const [displayEvent, setDisplayEvent] =useState ([])
 export default App;
 
 
+// {user ? <div>
+//   <h1>Gig Buddy</h1>
+//   <h1>{user}</h1>
+
+//  <DeleteUser user={user} setUser={setUser}/>
+//  <LogOut user={user} setUser={setUser}/>
+//  {/* <BuddySwipe/> */}
+//   </div>
+// :
+// <LogOrSign user={user} setUser={setUser}/>
+// }

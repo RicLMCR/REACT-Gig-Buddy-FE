@@ -101,16 +101,14 @@ console.log(data)
 
 
 export const createEvent = async (eventId, username)=>{
-
-
-    
+ 
     try {
         const res = await fetch(`${process.env.REACT_APP_REST_API}event`, {//Note: 'user' might not be needed
             method:"POST",
             headers:{"Content-Type": "application/json"},
             body: JSON.stringify({
                 eventId: eventId,
-                username: "username"
+                username: username
             }),
         });
         const data = await res.json();
@@ -134,3 +132,21 @@ export const trendingEvent = async (setTrendingEvents) => {
         console.log(error)
     }
 }
+
+
+// fetch attendees for gig. NOTE: Need the gigname - speak to Deivydas 
+export const fetchAttendees = async (event_id)=>{
+    console.log("Fetch Req.js", event_id)
+    try {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}event/:${event_id}`,{
+            method: 'GET',
+            headers: {"Content-Type": "application/json"}
+        })
+
+        const data = await response.json();
+        // setAttendees(data.response.value);
+        console.log("Fetch request:",data.response.value)
+    } catch (error) {
+        console.log(error);
+    }
+  }

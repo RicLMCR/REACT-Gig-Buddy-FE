@@ -10,7 +10,7 @@ export const TestFetch = ()=>{
     const triggerFetch = (e)=>{
     console.log("testFetch hit");
     e.preventDefault();
-    fetchAttendees(36029864);
+    fetchAttendees(12123); // test - change to an eventID in database
 }
     return (
 

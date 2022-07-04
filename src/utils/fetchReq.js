@@ -103,7 +103,7 @@ console.log(data)
 export const createEvent = async (eventId, username)=>{
  
     try {
-        const res = await fetch(`${process.env.REACT_APP_REST_API}event`, {//Note: 'user' might not be needed
+        const res = await fetch(`${process.env.REACT_APP_REST_API}/create/event`, {//Note: 'user' might not be needed
             method:"POST",
             headers:{"Content-Type": "application/json"},
             body: JSON.stringify({
@@ -145,7 +145,7 @@ export const fetchAttendees = async (event_id)=>{
 
         const data = await response.json();
         // setAttendees(data.response.value);
-        console.log("Fetch request:",data.response.value)
+        console.log("Fetch request - attendees:", data.event.attendees)
     } catch (error) {
         console.log(error);
     }

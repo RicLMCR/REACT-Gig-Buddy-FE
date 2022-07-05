@@ -21,7 +21,7 @@ export const createUser = async (username, email, password, setImageUrl, setUser
         await setImageUrl(data.newUser.username)
         console.log("the string image url after set", imageUrl)  
         console.log("succesfully created:", data.newUser.imageUrl);
-        imageUrl = data.newUser.imageUrl;
+        setImageUrl(data.newUser.imageUrl)
 
     
         

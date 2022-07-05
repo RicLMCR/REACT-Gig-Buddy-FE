@@ -20,7 +20,7 @@ import Profile from './pages/Profile/Profile';
 
 function App() {
 
-  
+const [imageUrl, setImageUrl] = useState("steve");
  const [value, setValue] = useState("");
  const [apiData, setApiData] = useState([])
 
@@ -41,9 +41,9 @@ const [displayEvent, setDisplayEvent] =useState ([])
     <>
       {/* <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} /> */}
       <Routes>
-        <Route path="/" element={ <Home  />} />
+        <Route path="/" element={ <Home  imageUrl={imageUrl} setImageUrl={setImageUrl} />} />
         <Route path="/messages" element={ <Messages />}  />
-        <Route path="/profile" element={ <Profile  />}  />
+        <Route path="/profile" element={ <Profile imageUrl={imageUrl} setImageUrl={setImageUrl}  />}  />
         {/* <Route path="/login" element={ <LogOrSign />}  /> */}
         <Route path="/event" element={ <EventList displayEvent={displayEvent} />}  />
         <Route path="/buddySwipe" element={ <BuddySwipe/>} />

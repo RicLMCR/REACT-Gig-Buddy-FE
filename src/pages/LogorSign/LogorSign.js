@@ -3,15 +3,18 @@ import './LogorSign.css'
 import { createUser, logInUser, deleteUser} from '../../utils/fetchReq'
 
 //login or sign up user
-export const LogOrSign = ({setUser}) => {
+export const LogOrSign = ({setUser, setImageUrl, imageUrl}) => {
+
+    const [urlInput, setUrlInput] = useState();
 
     const [username, setUserName] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+
     
     const submitHandlerCreate=(e)=>{
         e.preventDefault();
-        createUser(username, email, password, setUser);
+        createUser(username, email, password, setImageUrl, setUser, urlInput, imageUrl);
     };
 
     const submitHandlerLogin = (e)=>{
@@ -41,6 +44,7 @@ export const LogOrSign = ({setUser}) => {
                         <input placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
                         <input placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
                         <input placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
+                        <input placeholder ="Enter url for profile picture" type="url"onChange={(e) => setUrlInput(e.target.value, console.log(setImageUrl))} ></input>
                         <div className="btnContainer">
                             <button className="loginButton" type="submit">Submit</button>
                             <button className="switchButton" onClick={(e)=>{setlogSwitch(true)}}>Log In</button>

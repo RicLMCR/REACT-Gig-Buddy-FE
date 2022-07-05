@@ -3,14 +3,16 @@ import { ProfileImageUploader } from '../../components/profileImageUploader/prof
 // import '../index.css'
 import './profile.css'
 
-const Profile = () => {
+const Profile = ({imageUrl}) => {
+
+    console.log("profile component:", imageUrl)
 return (
     <>
     <div className='profile-page-container'>
 
         <section className='profile-page-top'>
             <div className='profile-picture-div'>
-                <ProfileImageUploader />
+                <ProfileImageUploader imageUrl={imageUrl} />
             </div>
             <div className='profile-buddies'>
                 <h2 className='buddies-header'>Buddies</h2>

@@ -9,9 +9,8 @@ const Home = () => {
     const [value, setValue] = useState("");
     const [displayEvent, setDisplayEvent] =useState ([])
     const [apiData, setApiData] = useState([])
-
     const [user, setUser]=useState();
-
+    const [imageUrl, setImageUrl] = useState("steve");
 return (
     <>
     {/* <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} /> */}
@@ -25,7 +24,7 @@ return (
                 {/* <BuddySwipe/> */}
             </div>
             :
-                <LogOrSign user={user} setUser={setUser}/>
+                <LogOrSign imageUrl={imageUrl} setImageUrl={setImageUrl}  user={user} setUser={setUser}/>
         }
     </>
 )

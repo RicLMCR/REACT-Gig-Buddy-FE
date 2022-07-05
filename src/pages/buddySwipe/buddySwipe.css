@@ -21,7 +21,6 @@
 
 img{
     object-fit: cover;
-    
 }
 
 .swipeButton {
@@ -29,5 +28,10 @@ img{
     z-index: 1;
     width: 150px;
     border:1px solid red;
-    background-color: rgba(33, 33, 33, 0)  ;
+    background-color: rgba(247, 0, 0, 0.224)  ;
+    transition: color .5s;
+}
+
+.swipeButton:active{
+    background-color: rgb(255, 255, 255);
 }

@@ -1,28 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
-
-.text{ 
-    font-family: "Roboto", sans-serif;
-    color: #08ac4b;
-    background-color: #FFFFFF;
-    background-image: none;
-    text-transform: uppercase;
-    margin: auto; 
-    padding: 10px;
-}
-
-.smallText { 
-    font-family: "Roboto", sans-serif;
-    color: #08ac4b;
-    background-color: #FFFFFF;
-    background-image: none;
-    font-size: 15px;
-    margin: auto; 
-    align-items: center;
-    padding: 2px;
-}
-
-
 .flex{ 
     display: flex;
     padding: 5px;
@@ -54,7 +31,7 @@
     padding: 10px;
 
 }
-.input { 
+.logorsign-input { 
     margin: 5px;
     min-width: 50px;
     font-family: "Roboto";

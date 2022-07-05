@@ -7,7 +7,7 @@
 }
 
 /* Gig buddy 'logo' */
-.Navbar-title {
+.gigbuddy-title {
     font-size: 4rem;
     position: relative;
     bottom: 5px;
@@ -23,13 +23,13 @@
     top:10px
 }
 
-.navbarHeader > input {
+/* .navbar-header > input {
     padding: .4rem 2rem;
     height: 2rem;
     min-width: 20rem;
     border-radius: 2px;
     border: 0;
-}
+} */
 
 .navbar {
     display: flex;

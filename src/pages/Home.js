@@ -16,7 +16,7 @@ const Home = () => {
 return (
     <>
     {/* <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} /> */}
-    <h1>Home Page</h1>
+    <h1>Home Page Section</h1>
 
     {user ? <div>
                 <h1>Gig Buddy</h1>

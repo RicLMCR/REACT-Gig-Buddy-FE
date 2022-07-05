@@ -133,19 +133,37 @@ export const trendingEvent = async (setTrendingEvents) => {
     }
 }
 
-
-// fetch attendees for gig
-export const fetchAttendees = async (event_id, setAttendees)=>{
-    console.log("Fetch Req.js", event_id)
+   // fetch attendees for gig
+   export const fetchAttendees = async (event_id, setAttendees)=>{
+    console.log("Fetch Req.js event ID is:", event_id)
     try {
         const response = await fetch(`${process.env.REACT_APP_REST_API}event/:${event_id}`,{
             method: 'GET',
             headers: {"Content-Type": "application/json"}
         })
         const data = await response.json();
-        console.log("Fetch request.js:",data);
-        setAttendees(data.attendees);
+        console.log("Fetch request data is:",data);
+        // setAttendees(data.attendees);//
+        console.log("fetch req, attendees are:", data.attendees)
+        return data;
     } catch (error) {
         console.log(error);
     }
   }
+
+export const fetchAttendeeProfile = async (username)=>{
+    //username, image, bio
+    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!")
+    try {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}profile/${username}`,{
+            method: 'GET',
+            headers: {"Content-Type": "application/json"}
+        })
+        const data = await response.json();
+        return data;
+
+    } catch (error){
+        console.log(error);
+    }
+}
+

@@ -17,22 +17,14 @@ import Profile from './pages/Profile/Profile';
 import { PopularEvents } from './components/popularEvents/popularEvents';
 import { LogOrSign, LogOut, DeleteUser } from './components/LogorSign/LogorSign';
 
-
-
 function App() {
-
   
  const [value, setValue] = useState("");
  const [apiData, setApiData] = useState([])
  const [trendingEvents, setTrendingEvents] = useState([])
 const [displayEvent, setDisplayEvent] =useState ([])
 
-
-
-
-
-
-
+const [user, setUser]=useState();
 
 
   useEffect (() => {
@@ -55,9 +47,12 @@ const [displayEvent, setDisplayEvent] =useState ([])
         <Route path="/buddySwipe" element={ <BuddySwipe />} />
         <Route path="/popular" element={ <PopularEvents setDisplayEvent={setDisplayEvent} setValue={setValue} trendingEvents={trendingEvents}/>} />
        </Routes>
+       
     </>
 
 
+
+  
       </div>
 
   );

@@ -2,6 +2,28 @@ import { useState } from "react";
 import './LogorSign.css'
 import { createUser, logInUser, deleteUser} from '../../utils/fetchReq'
 
+//login screen
+export const LogInPanel = ()=>{
+    const [user, setUser]=useState();   
+
+
+    return (<div>
+        {user ? <div>
+            <h1>Gig Buddy</h1>
+            <h1>{user}</h1>
+            <DeleteUser user={user} setUser={setUser}/>
+            <LogOut user={user} setUser={setUser}/>
+            {/* <BuddySwipe/> */}
+        </div>
+        :
+            <LogOrSign user={user} setUser={setUser}/>
+    }</div>
+    )
+}
+
+export default LogInPanel;
+
+
 //login or sign up user
 export const LogOrSign = ({setUser}) => {
 

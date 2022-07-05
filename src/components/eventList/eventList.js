@@ -6,7 +6,6 @@ import { createEvent, fetchAttendees } from "../../utils/fetchReq";
 
 import { useNavigate } from "react-router-dom";
 
-
 export const EventList = ({value, setValue, apiData, setDisplayEvent, displayEvent}) => {
 const user = {
     user: "sdsdsds"

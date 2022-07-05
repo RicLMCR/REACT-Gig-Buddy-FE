@@ -10,10 +10,7 @@ const BuddySwipe=()=> {
 //add images -- img: img1,
 //add got ticket 
     const [attendees, setAttendees]=useState([
-        { username: "Luka",  liked: false, key:1},
-        { username: "Deivydas", liked: false,  key:2},
-        { username: "Markus", liked: false,  key:3},
-        { username: "Jessica", liked: false,  key:4},
+
       ]);
 
     //we need to ensure that, once user swipes on a potential buddy, the buddy's profile does not appear again - should the user return in another session 
@@ -43,17 +40,17 @@ const BuddySwipe=()=> {
         //remove from attendees list 
     }
 
-    if (attendees[num].username === false){
-        console.log("No more users");
-    }
+    // if (attendees[num].username === false){
+    //     console.log("No more users");
+    // }
 
 return (
     <div className="buddySwipeWrap">
         <button className="swipeButton" onClick={swipeLeftOnBuddy}>No</button>
         <div className="buddyProfile">
-            <h1>{num}</h1>
-            <h1>{attendees[num].username}</h1>
-            <img src={attendees[num].img} alt="buddy"/>
+            {/* <h1>{num}</h1>
+            <h2>{attendees[num]}</h2>
+            <img src={attendees[num].img} alt="buddy"/> */}
         </div>
         <button className="swipeButton" onClick={(e)=>{swipeRightOnBuddy([attendees[num]])}}>Yes</button>
     </div>

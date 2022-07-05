@@ -3,7 +3,7 @@ import "./eventList.css"
 import { GoLocation } from "react-icons/go";
 import { TbCalendarEvent } from "react-icons/tb";
 import { createEvent, fetchAttendees } from "../../utils/fetchReq";
-
+import { useState , useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 
 
@@ -11,15 +11,17 @@ export const EventList = ({value, setValue, apiData, setDisplayEvent, displayEve
 const user = {
     user: "sdsdsds"
 }
-
+const [attendees, setAttendees] = useState("")
 const navigate = useNavigate()
 
 const addEvent =(item) => {
 createEvent(item, "Deivydas");
-fetchAttendees(item);
+fetchAttendees(item , setAttendees );
 navigate("/buddySwipe")
+console.log(attendees, "in event page")
 
 }
+
 
 return ( 
 <div className="event-list">

@@ -29,9 +29,9 @@ export const LogOrSign = ({setUser, setImageUrl, imageUrl}) => {
             <div className="formContainer">
                 { logSwitch ? 
                <form className="logIn form" onSubmit={submitHandlerLogin}>
-                    <h1>Log In</h1>
-                        <input placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
-                        <input placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
+                    <h1 className="logorsign-header">Log In</h1>
+                        <input className="logorsign-input" placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
+                        <input className="logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
                         <div className="btnContainer">
                             <button className="loginButton" type="submit">Submit</button>
                             <button className="switchButton" onClick={(e)=>{setlogSwitch()}}>Sign Up</button>
@@ -39,12 +39,12 @@ export const LogOrSign = ({setUser, setImageUrl, imageUrl}) => {
                 </form>
                 :
                 <form className="signUp form" onSubmit={submitHandlerCreate}>
-                    <h1>Create Profile</h1>
+                    <h1 className="logorsign-header">Create Profile</h1>
                     
-                        <input placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
-                        <input placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
-                        <input placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
-                        <input placeholder ="Enter url for profile picture" type="url"onChange={(e) => setUrlInput(e.target.value, console.log(setImageUrl))} ></input>
+                        <input className="logorsign-input" placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
+                        <input className="logorsign-input" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
+                        <input className="logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
+                        <input className="logorsign-input" placeholder ="Enter url for profile picture" type="url"onChange={(e) => setUrlInput(e.target.value, console.log(setImageUrl))} ></input>
                         <div className="btnContainer">
                             <button className="loginButton" type="submit">Submit</button>
                             <button className="switchButton" onClick={(e)=>{setlogSwitch(true)}}>Log In</button>

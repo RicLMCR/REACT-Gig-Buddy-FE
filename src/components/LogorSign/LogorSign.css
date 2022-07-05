@@ -1,10 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
-/* *{ 
-    background-color: #328f8a;
-    background-image:linear-gradient(45deg,#328f8a,#08ac4b);
-    
-} */
 
 .text{ 
     font-family: "Roboto", sans-serif;
@@ -26,16 +21,10 @@
     align-items: center;
     padding: 2px;
 }
-/* 
-.bigContainer { 
-  margin: auto;
-  height: ;
-  border: 2px orange solid;
-} */
+
 
 .flex{ 
     display: flex;
-    /* margin: 10px; */
     padding: 5px;
     
 }
@@ -50,11 +39,11 @@
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     border-radius: 10px;
-    /* border: solid orange 2px; */
+
 }
 
 .smallContainer { 
-    /* border: solid 2px purple; */
+
     background-color: #FFFFFF;
     background-image: none;
     padding: 2px;
@@ -63,7 +52,7 @@
 .test { 
     border: #08ac4b solid 2px;
     padding: 10px;
-    /* min-width: 50%; */
+
 }
 .input { 
     margin: 5px;
@@ -92,9 +81,6 @@
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
     cursor: pointer;
-
-    /* align-items: center;
-    justify-content: center; */
 }
 .loginButton { 
     border-radius: 5px;

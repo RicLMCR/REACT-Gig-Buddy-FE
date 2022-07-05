@@ -6,13 +6,11 @@
     
 } */
 
-h1{ 
+.logorsign-header{ 
     font-family: "Roboto", sans-serif;
     color: #08ac4b;
-    background-color: #FFFFFF;
     background-image: none;
-    text-transform: uppercase;
-    margin: auto; 
+    text-transform: uppercase; 
     padding: 10px;
 }
 
@@ -60,7 +58,7 @@ h1{
 }
 
 
-input { 
+.logorsign-input { 
     margin: 5px;
     width: 75%;
     font-family: "Roboto";

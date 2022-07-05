@@ -2,9 +2,24 @@ import { SearchBar } from "../search/search"
 import "./eventList.css"
 import { GoLocation } from "react-icons/go";
 import { TbCalendarEvent } from "react-icons/tb";
+import { createEvent, fetchAttendees } from "../../utils/fetchReq";
+
+import { useNavigate } from "react-router-dom";
 
 
 export const EventList = ({value, setValue, apiData, setDisplayEvent, displayEvent}) => {
+const user = {
+    user: "sdsdsds"
+}
+
+const navigate = useNavigate()
+
+const addEvent =(item) => {
+createEvent(item, "Deivydas");
+fetchAttendees(item);
+navigate("/buddySwipe")
+
+}
 
 return ( 
 <div className="event-list">
@@ -23,6 +38,7 @@ return(
  <div><GoLocation color='red'/>{item.address}</div>
         <div>{item.postcode}</div>
         <div> {item.town}</div>
+        <button  onClick={()=>{addEvent(item.id)} }value={item.id}>{item.id} </button>
      </div></div>
 )
         })}
@@ -37,3 +53,8 @@ return(
 </div>
 )
 }
+       
+     
+    
+
+  

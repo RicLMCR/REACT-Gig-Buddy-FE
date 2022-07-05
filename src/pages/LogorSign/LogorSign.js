@@ -29,9 +29,11 @@ export const LogOrSign = ({setUser, setImageUrl, imageUrl}) => {
             <div className="formContainer">
                 { logSwitch ? 
                <form className="logIn form" onSubmit={submitHandlerLogin}>
+
                     <h1 className="logorsign-header">Log In</h1>
                         <input className="logorsign-input" placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
                         <input className="logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
+
                         <div className="btnContainer">
                             <button className="loginButton" type="submit">Submit</button>
                             <button className="switchButton" onClick={(e)=>{setlogSwitch()}}>Sign Up</button>

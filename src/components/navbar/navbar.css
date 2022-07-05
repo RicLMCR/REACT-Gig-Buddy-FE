@@ -1,4 +1,4 @@
-.Navbar-header {
+.navbar-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -7,8 +7,7 @@
 }
 
 /* Gig buddy 'logo' */
-.Navbar-title {
-    color: white;
+.gigbuddy-title {
     font-size: 4rem;
     position: relative;
     bottom: 5px;
@@ -24,21 +23,21 @@
     top:10px
 }
 
-.navbarHeader > input {
+/* .navbar-header > input {
     padding: .4rem 2rem;
     height: 2rem;
     min-width: 20rem;
     border-radius: 2px;
     border: 0;
-}
+} */
 
-nav {
+.navbar {
     display: flex;
     align-items: center;
     padding: 10px;
 }
 
-ul {
+.navbar-links {
     display: flex;
     justify-content: flex-end;
     align-items: center;

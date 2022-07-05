@@ -7,15 +7,15 @@ import { SearchBar } from '../search/search';
 
 const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData}) => {
     return (
-    <header className='navbarHeader'>
-            <h1><Link style={{textDecoration: 'none', color: 'white'}} to="/">Gig Buddy</Link></h1>
+    <header className='navbar-header'>
+            <Link style={{textDecoration: 'none', color: 'black'}} to="/"><h1 className='gigbuddy-title'>Gig Buddy</h1></Link>
 
 
 
             {/* Basic input bar */}
             <SearchBar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData}/>
-        <nav>
-            <ul>
+        <nav className='navbar'>
+            <ul className='navbar-links'>
                 {/* Calling the message icon from React icons */}
                 <li><Link to="/messages"><MdMessage size={40} className='message-icon' color='white' /></Link></li>
                 {/* Placeholder image that will be the user profile picture */}

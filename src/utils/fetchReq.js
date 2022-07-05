@@ -137,14 +137,14 @@ export const trendingEvent = async (setTrendingEvents) => {
    export const fetchAttendees = async (event_id, setAttendees)=>{
     console.log("Fetch Req.js event ID is:", event_id)
     try {
-        const response = await fetch(`${process.env.REACT_APP_REST_API}event/:${event_id}`,{
+        const response = await fetch(`${process.env.REACT_APP_REST_API}event/${event_id}`,{
             method: 'GET',
             headers: {"Content-Type": "application/json"}
         })
         const data = await response.json();
         console.log("Fetch request data is:",data);
         // setAttendees(data.attendees);//
-        console.log("fetch req, attendees are:", data.attendees)
+        // console.log("fetch req, attendees are:", data.event.attendees)
         return data;
     } catch (error) {
         console.log(error);
@@ -153,15 +153,15 @@ export const trendingEvent = async (setTrendingEvents) => {
 
 export const fetchAttendeeProfile = async (username)=>{
     //username, image, bio
-    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!")
+    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!", username)
     try {
         const response = await fetch(`${process.env.REACT_APP_REST_API}profile/${username}`,{
             method: 'GET',
             headers: {"Content-Type": "application/json"}
         })
         const data = await response.json();
+        console.log("fetch attendees ffffff", data)
         return data;
-
     } catch (error){
         console.log(error);
     }

@@ -4,6 +4,7 @@ import { BiFirstPage } from "react-icons/bi";
 import {useState} from "react"
 import { useNavigate } from "react-router-dom";
 import { IoHeartOutline } from "react-icons/io5";
+import Navbar from "../navbar/NavBar";
 
 
 export const PopularEvents = ({trendingEvents, setDisplayEvent, setValue}) => {
@@ -28,6 +29,7 @@ const onSearch = (searchTerm, item) => {
   setValue("")
 };
 return( 
+
 <div className="pop-container">
         <h2>Popular events</h2>
     <h1>Live Events in Manchester</h1>
@@ -82,5 +84,6 @@ return(
 <button onClick={()=> pageChange (16, 12, 12)} className="next-btn">4</button>
 <button onClick={()=> pageChange (20, 16, 16)} className="next-btn">5</button></div>
 </div>
+
 )
 }

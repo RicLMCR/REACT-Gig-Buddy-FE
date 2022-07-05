@@ -11,14 +11,20 @@ export const EventList = ({value, setValue, apiData, setDisplayEvent, displayEve
 const user = {
     user: "sdsdsds"
 }
-const [attendees, setAttendees] = useState("")
+const [attendees, setAttendees] = useState([])
 const navigate = useNavigate()
 
-const addEvent =(item) => {
+const addEvent = async (item) => {
 createEvent(item, "Deivydas");
-fetchAttendees(item , setAttendees );
-navigate("/buddySwipe")
-console.log(attendees, "in event page")
+const data = await fetchAttendees(item , setAttendees );
+
+const newArray = [...attendees, ...data.attendees]
+console.log("newArr", newArray)
+// setAttendees(newArray)
+setAttendees((attendees) => [...attendees, ...newArray])
+console.log( "attendees",attendees)
+// navigate("/buddySwipe")
+
 
 }
 

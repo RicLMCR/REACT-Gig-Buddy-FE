@@ -46,13 +46,13 @@ const [displayEvent, setDisplayEvent] =useState ([])
     <>
       {/* <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} /> */}
       <Routes>
-        <Route path="/" element={ <Home />} />
+        <Route path="/" element={ <LogOrSign />} />
         <Route path="/messages" element={ <Messages />}  />
         <Route path="/profile" element={ <Profile />}  />
-        {/* <Route path="/login" element={ <LogOrSign />}  /> */}
+        <Route path="/login" element={ <LogOrSign />}  />
         <Route path="/event" element={ <EventList displayEvent={displayEvent} />}  />
         <Route path="/buddySwipe" element={ <BuddySwipe />} />
-        <Route path="/popular" element={ <PopularEvents setDisplayEvent={setDisplayEvent} setValue={setValue} trendingEvents={trendingEvents}/>} />
+        
        </Routes>
     </>
 

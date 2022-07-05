@@ -8,15 +8,11 @@ import { TestFetch } from './TestFetch/TestFetch';
 
 const Home = () => {
 
-    const [value, setValue] = useState("");
-    const [displayEvent, setDisplayEvent] =useState ([])
-    const [apiData, setApiData] = useState([])
-
     const [user, setUser]=useState();
 
 return (
     <>
-    {/* <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} /> */}
+   
     <h1>Home Page</h1>
 
     {user ? <div>
@@ -25,7 +21,7 @@ return (
                 <DeleteUser user={user} setUser={setUser}/>
                 <LogOut user={user} setUser={setUser}/>
                 <TestFetch />
-                {/* <BuddySwipe/> */}
+            
             </div>
             :
                 <LogOrSign user={user} setUser={setUser}/>

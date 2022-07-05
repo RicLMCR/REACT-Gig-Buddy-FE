@@ -68,7 +68,7 @@ export const deleteUser = async (username, setUser)=>{
                     const res = await fetch(`https://www.skiddle.com/api/v1/events/search/?api_key=${process.env.REACT_APP_API_KEY}&latitude=53.4839&longitude=-2.2446&radius=5&eventcode=LIVE&order=distance&description=1&limit=100&offset=${item}`);
 
                 const data = await res.json();
-console.log(data)
+
             data.results.forEach(async(item, index) => {
 
                 const eventObj = {
@@ -126,7 +126,7 @@ export const trendingEvent = async (setTrendingEvents) => {
 
      const res = await fetch("https://www.skiddle.com/api/v1/events/search/?api_key=9eca984fc063066727406327c285fb75&latitude=53.4839&longitude=-2.2446&radius=5&eventcode=LIVE&order=trending&description=1&limit=100");
      const data = await res.json();
-     console.log(data, "trend")
+    //  console.log(data, "trend")
         setTrendingEvents(data.results)
     } catch (error) {
         console.log(error)
@@ -147,9 +147,9 @@ export const fetchAttendees = async (eventId, setAttendees)=>{
             })
             console.log(response,"rer")
         const data = await response.json();
-        setAttendees(data);
-        console.log("Fetch request:",data)
-        
+        // setAttendees(data);
+        // console.log("Fetch request:",data)
+        return data
     } catch (error) {
         console.log(error);
     }

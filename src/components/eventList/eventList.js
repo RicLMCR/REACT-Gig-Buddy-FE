@@ -3,7 +3,7 @@ import "./eventList.css"
 import { GoLocation } from "react-icons/go";
 import { TbCalendarEvent } from "react-icons/tb";
 import { createEvent, fetchAttendees } from "../../utils/fetchReq";
-
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
@@ -11,14 +11,19 @@ export const EventList = ({value, setValue, apiData, setDisplayEvent, displayEve
 const user = {
     user: "sdsdsds"
 }
-
+const [attendees, setAttendees] = useState([])
 const navigate = useNavigate()
 
-const addEvent =(item) => {
-createEvent(item, "Deivydas");
-fetchAttendees(item);
-navigate("/buddySwipe")
-
+const addEvent = async (item) => {
+    createEvent(item, "Deivydas");
+    const data = await fetchAttendees(item , setAttendees );
+    
+    const newArray = [...attendees, ...data.attendees]
+    console.log("newArr", newArray)
+    // setAttendees(newArray)
+    setAttendees((attendees) => [...attendees, ...newArray])
+    console.log( "attendees",attendees)
+    navigate("/buddySwipe")
 }
 
 return ( 

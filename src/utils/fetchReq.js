@@ -41,6 +41,7 @@ export const logInUser = async (username, password, setUser)=>{
                 password: password
             }),
         });
+        console.log("response", res)
         const data = await res.json();
         console.log("user", username, "logged in", data.user.username);
         setUser(data.user.username);

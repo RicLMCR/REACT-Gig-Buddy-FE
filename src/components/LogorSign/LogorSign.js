@@ -1,9 +1,10 @@
 import { useState } from "react";
 import './LogorSign.css'
+import { useNavigate } from "react-router-dom";
 import { createUser, logInUser, deleteUser} from '../../utils/fetchReq'
-
+import { PopularEvents } from "../popularEvents/popularEvents";
 //login or sign up user
-export const LogOrSign = () => {
+export const LogOrSign = ({setDisplayEvent, setValue, trendingEvents}) => {
     const [user, setUser]=useState();
     const [username, setUserName] = useState();
     const [email, setEmail] = useState();
@@ -13,25 +14,22 @@ export const LogOrSign = () => {
         e.preventDefault();
         createUser(username, email, password, setUser);
     };
-
+    const navigate =  useNavigate()
     const submitHandlerLogin = (e)=>{
         e.preventDefault();
-        logInUser(username, password, setUser);
+       logInUser(username, password, setUser);
+       if(user){
+        navigate("/popular")
+       }
+       
+        
     };
 
     try { 
         // switch between log in page and sign up page
         const [logSwitch, setlogSwitch] = useState(true);
         return(<>
-            {user ? <div>
-                <h1>Gig Buddy</h1>
-                <h1>{user}</h1>
-                <DeleteUser user={user} setUser={setUser}/>
-                <LogOut user={user} setUser={setUser}/>
-            
-                {/* <BuddySwipe/> */}
-            </div>
-            :
+           
             <div>
                 { logSwitch ? 
                 <div className="formContainer">
@@ -61,7 +59,7 @@ export const LogOrSign = () => {
                 </form>
                 </div>
                 }
-            </div>} </>
+            </div> </>
         )
     } catch (error){ 
         console.log (error)

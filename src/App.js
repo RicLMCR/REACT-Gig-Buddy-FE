@@ -11,7 +11,7 @@ import {EventList} from "./components/eventList/eventList";
 
 import {fetchEvents, fetchArtist, trendingEvent} from "./utils/fetchReq"
 
-import Home from './pages/Home';
+
 import Messages from './pages/Messages';
 import Profile from './pages/Profile/Profile';
 import { PopularEvents } from './components/popularEvents/popularEvents';
@@ -48,7 +48,7 @@ const [attendees, setAttendees]=useState([]);
     <>
       <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} />
       <Routes>
-        <Route path="/" element={ <Home  />} />
+        <Route path="/" element={ <LogOrSign  />} />
         <Route path="/messages" element={ <Messages />}  />
         <Route path="/profile" element={ <Profile  />}  />
         {/* <Route path="/login" element={ <LogOrSign />}  /> */}

@@ -144,20 +144,37 @@ export const trendingEvent = async (setTrendingEvents) => {
     }
 }
 
-
-// fetch attendees for gig. NOTE: Need the gigname - speak to Deivydas 
-export const fetchAttendees = async (event_id)=>{
-    console.log("Fetch Req.js", event_id)
+   // fetch attendees for gig
+   export const fetchAttendees = async (event_id, setAttendees)=>{
+    console.log("Fetch Req.js event ID is:", event_id)
     try {
-        const response = await fetch(`${process.env.REACT_APP_REST_API}event/:${event_id}`,{
+        const response = await fetch(`${process.env.REACT_APP_REST_API}event/${event_id}`,{
             method: 'GET',
             headers: {"Content-Type": "application/json"}
         })
-
         const data = await response.json();
-        // setAttendees(data.response.value);
-        console.log("Fetch request:",data.response.value)
+        console.log("Fetch request data is:",data);
+        // setAttendees(data.attendees);//
+        // console.log("fetch req, attendees are:", data.event.attendees)
+        return data;
     } catch (error) {
         console.log(error);
     }
   }
+
+export const fetchAttendeeProfile = async (username)=>{
+    //username, image, bio
+    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!", username)
+    try {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}profile/${username}`,{
+            method: 'GET',
+            headers: {"Content-Type": "application/json"}
+        })
+        const data = await response.json();
+        console.log("fetch attendees ffffff", data)
+        return data;
+    } catch (error){
+        console.log(error);
+    }
+}
+

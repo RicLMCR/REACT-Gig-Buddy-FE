@@ -3,13 +3,13 @@ import { useEffect, useState} from 'react';
 import { logInUser } from './utils/fetchReq';
 import { Routes, Route } from 'react-router-dom';
 
-import TestFunc from './components/test';
+
 import BuddySwipe from './pages/buddySwipe/buddySwipe';
 import Navbar from './components/navbar/NavBar';
 import {SearchBar} from "./components/search/search" ;
 import {EventList} from "./components/eventList/eventList";
 
-import {fetchEvents, fetchArtist, trendingEvent} from "./utils/fetchReq"
+import {fetchEvents, fetchArtist, trendingEvent, fetchAttendees} from "./utils/fetchReq"
 
 import Home from './pages/Home';
 import Messages from './pages/Messages';
@@ -17,25 +17,19 @@ import Profile from './pages/Profile/Profile';
 import { PopularEvents } from './components/popularEvents/popularEvents';
 import { LogOrSign, LogOut, DeleteUser } from './components/LogorSign/LogorSign';
 
-
-
 function App() {
-
   
  const [value, setValue] = useState("");
  const [apiData, setApiData] = useState([])
  const [trendingEvents, setTrendingEvents] = useState([])
 const [displayEvent, setDisplayEvent] =useState ([])
-const [attendees, setAttendees]=useState([]);
 
-
-
+const [user, setUser]=useState();
 
 
   useEffect (() => {
     fetchEvents(setApiData)
     trendingEvent(setTrendingEvents)
-
   }, [])
 
   try {
@@ -43,8 +37,7 @@ const [attendees, setAttendees]=useState([]);
   return (
     
     <div className="App">
-      
-      
+
     <>
       <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} />
       <Routes>
@@ -56,6 +49,7 @@ const [attendees, setAttendees]=useState([]);
         <Route path="/buddySwipe" element={ <BuddySwipe />} />
         <Route path="/popular" element={ <PopularEvents setDisplayEvent={setDisplayEvent} setValue={setValue} trendingEvents={trendingEvents}/>} />
        </Routes>
+       
     </>
 
 

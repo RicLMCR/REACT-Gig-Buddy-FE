@@ -1,6 +1,6 @@
 //Importing the CSS-file, with the react icons
 import './navbar.css';
-import { Link , Outlet} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { BiSearchAlt } from 'react-icons/bi';
 import { MdMessage } from 'react-icons/md';
 import { SearchBar } from '../search/search';
@@ -24,7 +24,7 @@ const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData}) => {
             <button className='logout-btn'>Log Out</button>
         </nav>
     </header>
-    <Outlet/>
+
     </section>
     );
 }

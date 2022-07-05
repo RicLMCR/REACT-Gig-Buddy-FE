@@ -11,7 +11,7 @@ import {EventList} from "./components/eventList/eventList";
 
 import {fetchEvents, fetchAttendees, trendingEvent} from "./utils/fetchReq"
 
-import Home from './pages/Home';
+
 import Messages from './pages/Messages';
 import Profile from './pages/Profile/Profile';
 import { PopularEvents } from './components/popularEvents/popularEvents';
@@ -52,8 +52,7 @@ const [displayEvent, setDisplayEvent] =useState ([])
         <Route path="/login" element={ <LogOrSign />}  />
         <Route path="/event" element={ <EventList displayEvent={displayEvent} />}  />
         <Route path="/buddySwipe" element={ <BuddySwipe />} />
-        
-       </Routes>
+        <Route path="/popular" element={ <PopularEvents setDisplayEvent={setDisplayEvent} setValue={setValue} trendingEvents={trendingEvents}/>} />       </Routes>
     </>
 
 

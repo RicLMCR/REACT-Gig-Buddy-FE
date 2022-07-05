@@ -20,7 +20,7 @@ return (
                 <h1>{user}</h1>
                 <DeleteUser user={user} setUser={setUser}/>
                 <LogOut user={user} setUser={setUser}/>
-                <TestFetch />
+             
             
             </div>
             :

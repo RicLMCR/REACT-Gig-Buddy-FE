@@ -3,8 +3,8 @@ import './LogorSign.css'
 import { createUser, logInUser, deleteUser} from '../../utils/fetchReq'
 
 //login or sign up user
-export const LogOrSign = ({setUser}) => {
-
+export const LogOrSign = () => {
+    const [user, setUser]=useState();
     const [username, setUserName] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
@@ -22,10 +22,19 @@ export const LogOrSign = ({setUser}) => {
     try { 
         // switch between log in page and sign up page
         const [logSwitch, setlogSwitch] = useState(true);
-        return(
+        return(<>
+            {user ? <div>
+                <h1>Gig Buddy</h1>
+                <h1>{user}</h1>
+                {/* <DeleteUser user={user} setUser={setUser}/>
+                <LogOut user={user} setUser={setUser}/> */}
+             
+            
+            </div>
+            :
             <div className="formContainer">
                 { logSwitch ? 
-               <form className="logIn form" onSubmit={submitHandlerLogin}>
+               <form className="logInform" onSubmit={submitHandlerLogin}>
                     <h1 className="login-title">Log In</h1>
                         <input placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
                         <input placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
@@ -35,7 +44,7 @@ export const LogOrSign = ({setUser}) => {
                     </div>
                 </form>
                 :
-                <form className="signUp form" onSubmit={submitHandlerCreate}>
+                <form className="signUpform" onSubmit={submitHandlerCreate}>
                     <h1>Create Profile</h1>
                     
                         <input placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
@@ -47,7 +56,7 @@ export const LogOrSign = ({setUser}) => {
                         </div>
                 </form>
                 }
-            </div> 
+            </div> }</>
         )
     } catch (error){ 
         console.log (error)

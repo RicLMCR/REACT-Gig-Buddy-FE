@@ -20,7 +20,7 @@ export const createUser = async (username, email, password, setUser)=>{
 };
 
 //login fetch request
-export const logInUser = async (username, password, setUser)=>{
+export const logInUser = async (username, password, setUser, user)=>{
     try {
         const res = await fetch(`${process.env.REACT_APP_REST_API}login`, {
             method: "POST",
@@ -31,8 +31,9 @@ export const logInUser = async (username, password, setUser)=>{
             }),
         });
         const data = await res.json();
-        console.log("user", username, "logged in", data.user.username);
+        console.log("user", username, "logged in", data);
         setUser(data.user.username);
+        console.log("user", user)
     } catch (error) {
         console.log(error);
     }

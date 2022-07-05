@@ -1,22 +1,30 @@
 import { useState } from "react";
 import './LogorSign.css'
 import { createUser, logInUser, deleteUser} from '../../utils/fetchReq'
-
+import { useNavigate } from "react-router-dom";
 //login or sign up user
-export const LogOrSign = ({setUser}) => {
-
+export const LogOrSign = () => {
+    const [user, setUser]=useState();
     const [username, setUserName] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     
+
+
     const submitHandlerCreate=(e)=>{
         e.preventDefault();
         createUser(username, email, password, setUser);
     };
 
+    const navigate = useNavigate()
+
     const submitHandlerLogin = (e)=>{
         e.preventDefault();
         logInUser(username, password, setUser);
+        if(user){
+            navigate("/popular")
+
+        }
     };
 
     try { 
@@ -29,7 +37,7 @@ export const LogOrSign = ({setUser}) => {
                <form className="logIn" onSubmit={submitHandlerLogin}>
                     <h1 className="text">Log In</h1>
                     <input placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
-                    <input classname = "input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>                  
+                    <input className = "input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>                  
                     <button className="loginButton">Submit</button>
                     <div className="flex">
                         <h3 className="smallText">Don't have an account?</h3>
@@ -42,7 +50,7 @@ export const LogOrSign = ({setUser}) => {
                 <form className="signUp" onSubmit={submitHandlerCreate}>
                     <h1 className="text">Create Profile</h1>
                     <input placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
-                    <input classname = "input" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
+                    <input className = "input" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
                     <input placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
                     <button className="loginButton" type="submit">Submit</button>
                     <div className="flex">

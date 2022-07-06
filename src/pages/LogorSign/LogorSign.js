@@ -9,7 +9,7 @@ export const LogInPanel = ()=>{
 
     return (<div>
         {user ? <div>
-            <h1>Gig aaaaaaaaaaa</h1>
+            <h1>Gig Buddy - You've Signed In!</h1>
             <h1>{user}</h1>
             <DeleteUser user={user} setUser={setUser}/>
             <LogOut user={user} setUser={setUser}/>
@@ -20,9 +20,6 @@ export const LogInPanel = ()=>{
     }</div>
     )
 }
-
-
-
 
 //login or sign up user
 const LogOrSign = ({setUser}) => {

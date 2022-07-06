@@ -5,6 +5,8 @@ import { fetchAttendeeProfile, fetchAttendees } from '../../utils/fetchReq';
 
 export const BuddySwipe=()=> {
 
+    const [profileObject, setMyProfileObject]=useState({});
+
     const [attendees, setAttendees]=useState([]);
 
     const [attendeeProfile, setAttendeeProfile]=useState([]);
@@ -31,6 +33,8 @@ export const BuddySwipe=()=> {
         })();
       },[])
 
+
+    
     //on swipe right, displayed person is added to potential buddy list and increment counter increases by one
     const swipeRightOnBuddy = (attendee)=>{
         
@@ -42,16 +46,17 @@ export const BuddySwipe=()=> {
                 }
     }
 
-    //trigger another fetchRequest to user table's 'liked counter' (PUT)
-    //add the value '1' to the value existing already
+    //OPTIONAL: trigger another fetchRequest to user table's 'liked counter' (PUT)
+    //OPTIONAL: add the value '1' to the value existing already
     //send an array object with my user profile details to another column in table called 'users who liked me'(image, name, link to profile)
 
 
-    //fetch request on load of page (useEffect) to show counter of how many unread alerts that user has
+    //fetch request on load of page (useEffect) to show counter of how many likes OR unread alerts that user has
     //dropdown list showing profiles of users who have swiped right
-    //when one profile is selected further fetch request to 'liked counter' to remove '1' from the value and update the onscreen counter on return
-    //when a prodike is selected, taje the user back to the swipe buddy screen and load that profile up immediately - before any others are loaded
+    //OPTIONAL: when one profile is selected further fetch request to 'liked counter' to remove '1' from the value and update the onscreen counter on return
+    //when a profile is selected, take the user back to the swipe buddy screen and load that profile up immediately - before any others are loaded OR load a new version of the swipe buddy screen that only shows users who have swiped right on you
     //if the user swipes right then you are a match - how to do this?
+    //
     //add 'buddy' to profile screen list
 
     //fetch request 
@@ -63,9 +68,12 @@ export const BuddySwipe=()=> {
         if (numCount => attendees.length+1){
         console.log("No more attendees")   
         }
-        const myProfileObj = {username:user, imageUrl:"notsureyet"}
-        fetchSwipeRight(attendees[numCount], 1, myProfileObj)
+        const myProfileObject = {username:"richard", imageUrl:"notsureyet"}
+        setMyProfileObject(myProfileObject)
+        // fetchSwipeRight(attendees[numCount], 1, myProfileObject)
     }
+
+
 
     try {
         return (

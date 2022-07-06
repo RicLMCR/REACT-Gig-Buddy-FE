@@ -21,11 +21,11 @@ export const LogInPanel = ()=>{
     )
 }
 
-export default LogInPanel;
+
 
 
 //login or sign up user
-export const LogOrSign = ({setUser}) => {
+const LogOrSign = ({setUser}) => {
 
     const [username, setUserName] = useState();
     const [email, setEmail] = useState();
@@ -84,7 +84,7 @@ export const LogOrSign = ({setUser}) => {
 
 
 //logout user function
-export const LogOut = ({user, setUser})=>{
+const LogOut = ({user, setUser})=>{
     try {
     // set's user value to Null to remove all user data
     const submitHandler = (e)=>{
@@ -100,7 +100,7 @@ export const LogOut = ({user, setUser})=>{
 } 
 
 //delete user profile and logout
-export const DeleteUser = ({user, setUser})=>{
+const DeleteUser = ({user, setUser})=>{
     try {
         const submitHandler = (e)=>{
             e.preventDefault();
@@ -113,6 +113,7 @@ export const DeleteUser = ({user, setUser})=>{
     } catch (error) {
         console.log(error);
     }
-
-
 }
+
+
+export default LogInPanel;

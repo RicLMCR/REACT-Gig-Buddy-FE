@@ -19,7 +19,7 @@ return (
     <h1>Home Page Section</h1>
 
     {user ? <div>
-                <h1>Gig Buddy</h1>
+                <h1>AAAAAA</h1>
                 <h1>{user}</h1>
                 <DeleteUser user={user} setUser={setUser}/>
                 <LogOut user={user} setUser={setUser}/>

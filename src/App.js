@@ -30,6 +30,8 @@ const [user, setUser]=useState({
   imageUrl:""
 });
 
+const [eventId, setEventId] = useState ("")
+
 
 
 
@@ -54,8 +56,8 @@ const [user, setUser]=useState({
         <Route path="/messages" element={ <Messages />}  />
         <Route path="/profile" element={ <Profile user={user} />}  />
 
-        <Route path="/event" element={ <EventList displayEvent={displayEvent} user={user} />}  />
-        <Route path="/buddySwipe" element={ <BuddySwipe user={user}/>} />
+        <Route path="/event" element={ <EventList setEventId={setEventId} eventId={eventId} displayEvent={displayEvent} user={user} />}  />
+        <Route path="/buddySwipe" element={ <BuddySwipe user={user} setEventId={setEventId} eventId={eventId} />} />
         <Route path="/popular" element={ <PopularEvents setDisplayEvent={setDisplayEvent} setValue={setValue} trendingEvents={trendingEvents}/>} />
       
        </Routes>

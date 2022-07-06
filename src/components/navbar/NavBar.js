@@ -5,7 +5,7 @@ import { BiSearchAlt } from 'react-icons/bi';
 import { MdMessage } from 'react-icons/md';
 import { SearchBar } from '../search/search';
 
-const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData, setUser}) => {
+export const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData, setUser}) => {
 
     const submitHandler = (e)=>{
         e.preventDefault();
@@ -36,4 +36,4 @@ const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData, setUse
     );
 }
 
-export default Navbar;
+// export default Navbar;

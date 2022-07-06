@@ -4,23 +4,22 @@ import { useNavigate } from "react-router-dom";
 import { createUser, logInUser, deleteUser} from '../../utils/fetchReq'
 
 //login or sign up user
-export const LogOrSign = ({setDisplayEvent, setValue, trendingEvents}) => {
-    const [user, setUser]=useState();
+export const LogOrSign = ({user, setUser}) => {
     const [username, setUserName] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [imageUrl, setImageUrl] = useState("steve");
     const submitHandlerCreate=(e)=>{
         e.preventDefault();
-        createUser(username, email, password, setUser);
+        createUser(username, email, password, setUser, user);
     };
     const navigate =  useNavigate()
     const submitHandlerLogin = (e)=>{
         e.preventDefault();
-       logInUser(username, password, setUser);
-       if(user){
-        navigate("/popular")
-       }
+       logInUser(username, password, setUser, user);
+    //    if(user){
+    //     navigate("/popular")
+    //    }
        
         
     };

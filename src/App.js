@@ -24,7 +24,10 @@ function App() {
  const [trendingEvents, setTrendingEvents] = useState([])
 const [displayEvent, setDisplayEvent] =useState ([])
 
-const [user, setUser]=useState();
+const [user, setUser]=useState({
+  username:"",
+  token:"",
+});
 
 
   useEffect (() => {
@@ -39,17 +42,24 @@ const [user, setUser]=useState();
     <div className="App">
 
     <>
-      <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} />
-      <Routes>
-        <Route path="/" element={ <LogOrSign  />} />
+   {user.token ?<>
+   <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData}  user={user} />
+    <Routes>
+        <Route path="/" element={<PopularEvents setDisplayEvent={setDisplayEvent} setValue={setValue} trendingEvents={trendingEvents}/>} />
         <Route path="/messages" element={ <Messages />}  />
         <Route path="/profile" element={ <Profile  />}  />
 
         <Route path="/event" element={ <EventList displayEvent={displayEvent} />}  />
         <Route path="/buddySwipe" element={ <BuddySwipe />} />
         <Route path="/popular" element={ <PopularEvents setDisplayEvent={setDisplayEvent} setValue={setValue} trendingEvents={trendingEvents}/>} />
+      
        </Routes>
-       
+   </>
+  
+   :
+   <LogOrSign user={user} setUser={setUser} />
+     
+       }
     </>
 
 

@@ -4,23 +4,22 @@ import { useNavigate } from "react-router-dom";
 import { createUser, logInUser, deleteUser} from '../../utils/fetchReq'
 
 //login or sign up user
-export const LogOrSign = ({setDisplayEvent, setValue, trendingEvents}) => {
-    const [user, setUser]=useState();
+export const LogOrSign = ({user, setUser}) => {
     const [username, setUserName] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [imageUrl, setImageUrl] = useState("steve");
     const submitHandlerCreate=(e)=>{
         e.preventDefault();
-        createUser(username, email, password, setUser);
+        createUser(username, email, password, setUser, user);
     };
     const navigate =  useNavigate()
     const submitHandlerLogin = (e)=>{
         e.preventDefault();
-       logInUser(username, password, setUser);
-       if(user){
-        navigate("/popular")
-       }
+       logInUser(username, password, setUser, user);
+    //    if(user){
+    //     navigate("/popular")
+    //    }
        
         
     };
@@ -35,8 +34,8 @@ export const LogOrSign = ({setDisplayEvent, setValue, trendingEvents}) => {
                 <div className="formContainer">
                <form className="login-form" onSubmit={submitHandlerLogin}>
                     <h1 className="text">Log In</h1>
-                    <input placeholder="Username" className="logorsign-input" onChange={(e)=>setUserName(e.target.value)}/>
-                    <input className = "logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>                  
+                    <input type="text" className="logorsign-input" placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
+                    <input type="password" className = "logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>                  
                     <button className="loginButton">Submit</button>
                     <h3 className="smallText">Don't have an account?</h3>
                     <button className = "loginButton" onClick={(e)=>{setlogSwitch()}}>Sign Up</button>
@@ -47,9 +46,9 @@ export const LogOrSign = ({setDisplayEvent, setValue, trendingEvents}) => {
                 <div className="formContainer">
                 <form className="login-form" onSubmit={submitHandlerCreate}>
                     <h1 className="text">Create Profile</h1>
-                    <input placeholder="Username" className="logorsign-input" onChange={(e)=>setUserName(e.target.value)}/>
-                    <input className="logorsign-input" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
-                    <input className="logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
+                    <input type="text" className="logorsign-input" placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
+                    <input type="email" className="logorsign-input" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
+                    <input type="password" className="logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
                     <button className="loginButton" type="submit">Submit</button>
                    
                         <h3 className="smallText">Already have an account?</h3>                

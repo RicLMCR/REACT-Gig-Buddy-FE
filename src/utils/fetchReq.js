@@ -1,10 +1,11 @@
-//create user fetch request setImageUrl, urlInput, imageUrl
-export const createUser = async (username, email, password, setUser, user )=>{
 
-    
+
+//create user fetch request 
+export const createUser = async (username, email, password, setUser, user )=>{//setImageUrl, urlInput, imageUrl
+
     console.log("fetch hit", username);
     try {
-        const res = await fetch(`${process.env.REACT_APP_REST_API}user`, {//Note: 'user' might not be needed
+        const res = await fetch(`${process.env.REACT_APP_REST_API}user`, {
             method:"POST",
             headers:{"Content-Type": "application/json"},
             body: JSON.stringify({
@@ -16,14 +17,13 @@ export const createUser = async (username, email, password, setUser, user )=>{
         });
         const data = await res.json();
         // console.log(data)
-        // console.log("set image url:", setImageUrl)
         console.log("setuser trigger", username)
         console.log("data is", data)
         await setUser({
             ...user,
             username: data.newUser.username,
             token:data.token,
-            imageUrl:data.user.imageUrl
+            // imageUrl:data.user.imageUrl
         });
         // console.log("image url before set", imageUrl)
         // await setImageUrl(data.newUser.username)
@@ -168,7 +168,7 @@ export const trendingEvent = async (setTrendingEvents) => {
         const data = await response.json();
         console.log("Fetch request data is:",data);
         setAttendees(data.attendees);//
-        // console.log("fetch req, attendees are:", data.event.attendees)
+        console.log("fetch req, attendees are:", data.event.attendees)
         return data;
     } catch (error) {
         console.log(error);
@@ -221,7 +221,7 @@ export const fetchCheckLikes = async (username)=>{
         headers: {"Content-Type": "application/json"}
     })
     const data = await response.json();
-    console.log("AAAAAAAAAAAAAA", data)
+    console.log("fetchCheckLikes:", data)
     return data;
     
     try {

@@ -13,16 +13,16 @@ export const LogOrSign = ({user, setUser}) => {
     const submitHandlerCreate=(e)=>{
         console.log("submit handler", username)
         e.preventDefault();
-        createUser(username, email, password, setUser, user);
+        createUser(username, email, password, setUser, user);//
     };
     const navigate =  useNavigate()
 
     const submitHandlerLogin = (e)=>{
         e.preventDefault();
        logInUser(username, password, setUser, user);
-    //    if(user){
-    //     navigate("/popular")
-    //    }
+       if(user){
+        navigate("/popular")
+       }
        
         
     };

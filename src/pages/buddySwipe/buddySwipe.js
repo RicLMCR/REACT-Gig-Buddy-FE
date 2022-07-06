@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import React from 'react';
 import './buddySwipe.css';
-import { fetchAttendeeProfile, fetchAttendees } from '../../utils/fetchReq';
+import { fetchAttendeeProfile, fetchAttendees, fetchSwipeRight } from '../../utils/fetchReq';
 
 export const BuddySwipe=()=> {
 
@@ -11,10 +11,10 @@ export const BuddySwipe=()=> {
 
     const [attendeeProfile, setAttendeeProfile]=useState([]);
 
-     //increment value for counter
+     //increment value for 'swipeRightOn...' counter
      const [numCount, setNumCount]=useState(0);
 
-    //load attendee array and trigger fetch requests to pull back user profiles
+    //load 'attendee' array and trigger fetch requests to pull back user profiles
      useEffect (() => {
         (async()=>{
            const data = await fetchAttendees(123456, setAttendees);
@@ -33,17 +33,19 @@ export const BuddySwipe=()=> {
         })();
       },[])
 
-
-    
     //on swipe right, displayed person is added to potential buddy list and increment counter increases by one
     const swipeRightOnBuddy = (attendee)=>{
-        
+        console.log("buddySwipe: swiped right");
         setNumCount(numCount+1);
-        console.log("Add to potential likes")
-        if (numCount => attendees.length+1){
-            console.log("No more attendees")
-            return 
-                }
+        fetchSwipeRight(attendeeProfile[numCount].profile.username, 'ted - test user', 'tedimageurl' )
+        console.log("buddySwipe: ",attendeeProfile[numCount].profile.username," has been notified of your like")
+        // fetchSwipeRight(attendee[numCount], "richard", "myimageurl")
+        // if (numCount => attendees.length+1){
+        //     console.log("No more attendees")
+        //     return 
+                // }
+        
+        
     }
 
     //OPTIONAL: trigger another fetchRequest to user table's 'liked counter' (PUT)
@@ -55,8 +57,7 @@ export const BuddySwipe=()=> {
     //dropdown list showing profiles of users who have swiped right
     //OPTIONAL: when one profile is selected further fetch request to 'liked counter' to remove '1' from the value and update the onscreen counter on return
     //when a profile is selected, take the user back to the swipe buddy screen and load that profile up immediately - before any others are loaded OR load a new version of the swipe buddy screen that only shows users who have swiped right on you
-    //if the user swipes right then you are a match - how to do this?
-    //
+    //if the user swipes right then you are a match - how to do this???
     //add 'buddy' to profile screen list
 
     //fetch request 
@@ -65,12 +66,9 @@ export const BuddySwipe=()=> {
     const swipeLeftOnBuddy = (e)=>{
         e.preventDefault()
         setNumCount(numCount+1);
-        if (numCount => attendees.length+1){
-        console.log("No more attendees")   
-        }
-        const myProfileObject = {username:"richard", imageUrl:"notsureyet"}
-        setMyProfileObject(myProfileObject)
-        // fetchSwipeRight(attendees[numCount], 1, myProfileObject)
+        // if (numCount => attendees.length+1){
+        // console.log("No more attendees")   
+        // }
     }
 
 

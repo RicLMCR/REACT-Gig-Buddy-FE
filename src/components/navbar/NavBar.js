@@ -1,9 +1,27 @@
 //Importing the CSS-file, with the react icons
 import './navbar.css';
+import { useEffect } from 'react';
 import { Link , Outlet} from 'react-router-dom';
 import { BiSearchAlt } from 'react-icons/bi';
 import { MdMessage } from 'react-icons/md';
 import { SearchBar } from '../search/search';
+import { fetchCheckLikes } from '../../utils/fetchReq';
+
+import ReactDOM from "react-dom/client";
+
+const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData, user}) => {
+
+   useEffect(() => {
+        checkLikes();
+    },[])
+
+    const checkLikes = async ()=>{
+        console.log(user.username, "navbar fetch")
+        await fetchCheckLikes(user.username);
+    }
+
+
+
 
 export const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData, setUser}) => {
 
@@ -19,6 +37,7 @@ export const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData,
     <header className='navbar-header'>
             <Link style={{textDecoration: 'none', color: 'black'}} to="/"><h1 className='gigbuddy-title'>Gig Buddy</h1></Link>
 
+
             {/* Basic input bar */}
             <SearchBar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData}/>
         <nav className='navbar'>
@@ -27,6 +46,7 @@ export const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData,
                 <li><Link to="/messages"><MdMessage size={40} className='message-icon' color='white' /></Link></li>
                 {/* Placeholder image that will be the user profile picture */}
                 <li><Link to="/profile"><img src='https://www.fillmurray.com/40/40' className='nav-profile-pic' alt='Murray' /></Link></li>
+                <li>Link to drop down list showing people who like you</li>
             </ul>
             <button className='logout-btn' onClick={(e)=>submitHandler(e)}>Log Out</button>
         </nav>

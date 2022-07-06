@@ -111,15 +111,15 @@ console.log(data)
 
 
 
-export const createEvent = async (eventId, username)=>{
+export const createEvent = async (event_id, username)=>{
  
     try {
         const res = await fetch(`${process.env.REACT_APP_REST_API}event`, {//Note: 'user' might not be needed
             method:"POST",
             headers:{"Content-Type": "application/json"},
             body: JSON.stringify({
-                eventId: eventId,
-                username: username
+                event_id: event_id,
+                attendees: username
             }),
         });
         const data = await res.json();

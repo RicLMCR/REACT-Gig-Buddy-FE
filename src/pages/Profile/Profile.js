@@ -45,6 +45,7 @@ return (
                 <img className='gig-friend-image' src="https://www.fillmurray.com/36/36" alt="friend" />
                 <img className='gig-friend-image' src="https://www.fillmurray.com/36/36" alt="friend" />
                 <img className='gig-friend-image' src="https://www.fillmurray.com/36/36" alt="friend" />
+                <h1>Event ID:</h1>
                 </div>
                 <p className='see-more-text'>See more...</p>
                 </div>

@@ -38,6 +38,7 @@ return(
         <div>{item.postcode}</div>
         <div> {item.town}</div>
         <button  onClick={()=>{addEvent(item.id)} }value={item.id}>{item.id} </button>
+        {console.log(item)}
      </div></div>
 )
         })}

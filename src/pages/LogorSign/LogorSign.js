@@ -1,78 +1,67 @@
 import { useState } from "react";
 import './LogorSign.css'
+import { useNavigate } from "react-router-dom";
 import { createUser, logInUser, deleteUser} from '../../utils/fetchReq'
 
-//login screen
-export const LogInPanel = ()=>{
-    const [user, setUser]=useState();   
-
-
-    return (<div>
-        {user ? <div>
-            <h1>Gig Buddy - You've Signed In!</h1>
-            <h1>{user}</h1>
-            <DeleteUser user={user} setUser={setUser}/>
-            <LogOut user={user} setUser={setUser}/>
-            {/* <BuddySwipe/> */}
-        </div>
-        :
-            <LogOrSign user={user} setUser={setUser}/>
-    }</div>
-    )
-}
-
 //login or sign up user
-const LogOrSign = ({setUser}) => {
-
+export const LogOrSign = ({user, setUser}) => {
     const [username, setUserName] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
-    
+    const [imageUrl, setImageUrl] = useState("steve");
+
     const submitHandlerCreate=(e)=>{
+        console.log("submit handler", username)
         e.preventDefault();
-        createUser(username, email, password, setUser);
+        createUser(username, email, password, setUser, user);
     };
+    const navigate =  useNavigate()
 
     const submitHandlerLogin = (e)=>{
         e.preventDefault();
-        logInUser(username, password, setUser);
+       logInUser(username, password, setUser, user);
+    //    if(user){
+    //     navigate("/popular")
+    //    }
+       
+        
     };
 
     try { 
         // switch between log in page and sign up page
         const [logSwitch, setlogSwitch] = useState(true);
-        return(
-            <div>
+        return(<>
+           
+            <div className="body">
                 { logSwitch ? 
                 <div className="formContainer">
-               <form className="logIn" onSubmit={submitHandlerLogin}>
+               <form className="login-form" onSubmit={submitHandlerLogin}>
                     <h1 className="text">Log In</h1>
-                    <input placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
-                    <input classname = "input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>                  
+                    <input placeholder="Username" className="logorsign-input" onChange={(e)=>setUserName(e.target.value)}/>
+                    <input className = "logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>                  
                     <button className="loginButton">Submit</button>
-                    <div className="flex">
-                        <h3 className="smallText">Don't have an account?</h3>
-                        <button className = "switchButton" onClick={(e)=>{setlogSwitch()}}>Sign Up</button>
-                    </div>
+                    <h3 className="smallText">Don't have an account?</h3>
+                    <button className = "loginButton" onClick={(e)=>{setlogSwitch()}}>Sign Up</button>
+                   
                 </form>
                 </div>
                 :
                 <div className="formContainer">
-                <form className="signUp" onSubmit={submitHandlerCreate}>
+                <form className="login-form" onSubmit={submitHandlerCreate}>
                     <h1 className="text">Create Profile</h1>
-                    <input placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
-                    <input classname = "input" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
-                    <input placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
+                    <input placeholder="Username" className="logorsign-input" onChange={(e)=>setUserName(e.target.value)}/>
+                    <input className="logorsign-input" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
+                    <input className="logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
                     <button className="loginButton" type="submit">Submit</button>
-                    <div className="flex">
+                   
                         <h3 className="smallText">Already have an account?</h3>                
                         <button className = "switchButton"onClick={(e)=>{setlogSwitch(true)}}>Log In</button>
                        
-                    </div>
+                  
                 </form>
                 </div>
                 }
-            </div> 
+            </div> </>
         )
     } catch (error){ 
         console.log (error)
@@ -81,7 +70,7 @@ const LogOrSign = ({setUser}) => {
 
 
 //logout user function
-const LogOut = ({user, setUser})=>{
+export const LogOut = ({user, setUser})=>{
     try {
     // set's user value to Null to remove all user data
     const submitHandler = (e)=>{
@@ -97,7 +86,7 @@ const LogOut = ({user, setUser})=>{
 } 
 
 //delete user profile and logout
-const DeleteUser = ({user, setUser})=>{
+export const DeleteUser = ({user, setUser})=>{
     try {
         const submitHandler = (e)=>{
             e.preventDefault();
@@ -110,7 +99,6 @@ const DeleteUser = ({user, setUser})=>{
     } catch (error) {
         console.log(error);
     }
+
+
 }
-
-
-export default LogInPanel;

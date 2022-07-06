@@ -35,13 +35,17 @@ export const BuddySwipe=()=> {
 
     //on swipe right, displayed person is added to potential buddy list and increment counter increases by one
     const swipeRightOnBuddy = (attendee)=>{
-        
+        console.log("buddySwipe: swiped right");
         setNumCount(numCount+1);
-        if (numCount => attendees.length+1){
-            console.log("No more attendees")
-            return 
-                }
-        console.log("buddySwipe: ", attendee[numCount]," has been notified of your like")
+        fetchSwipeRight(attendeeProfile[numCount].profile.username, 'ted - test user', 'tedimageurl' )
+        console.log("buddySwipe: ",attendeeProfile[numCount].profile.username," has been notified of your like")
+        // fetchSwipeRight(attendee[numCount], "richard", "myimageurl")
+        // if (numCount => attendees.length+1){
+        //     console.log("No more attendees")
+        //     return 
+                // }
+        
+        
     }
 
     //OPTIONAL: trigger another fetchRequest to user table's 'liked counter' (PUT)
@@ -62,10 +66,9 @@ export const BuddySwipe=()=> {
     const swipeLeftOnBuddy = (e)=>{
         e.preventDefault()
         setNumCount(numCount+1);
-        if (numCount => attendees.length+1){
-        console.log("No more attendees")   
-        }
-        fetchSwipeRight(attendees[numCount], "richard - test user", "myimageurl" )
+        // if (numCount => attendees.length+1){
+        // console.log("No more attendees")   
+        // }
     }
 
 

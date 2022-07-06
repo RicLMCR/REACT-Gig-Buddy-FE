@@ -1,19 +1,28 @@
 //Importing the CSS-file, with the react icons
 import './navbar.css';
-import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
+import { Link , Outlet} from 'react-router-dom';
 import { BiSearchAlt } from 'react-icons/bi';
 import { MdMessage } from 'react-icons/md';
 import { SearchBar } from '../search/search';
+import { fetchCheckLikes } from '../../utils/fetchReq';
 
-const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData}) => {
+import ReactDOM from "react-dom/client";
 
-    useEffect(() => {
-        // checkSwipes();
+const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData, user}) => {
+
+   useEffect(() => {
+        checkLikes();
     },[])
 
+    const checkLikes = async ()=>{
+        console.log(user.username, "navbar fetch")
+        await fetchCheckLikes(user.username);
+    }
 
-    return (
+
+
+    return (<section>
     <header className='navbar-header'>
             <Link style={{textDecoration: 'none', color: 'black'}} to="/"><h1 className='gigbuddy-title'>Gig Buddy</h1></Link>
 
@@ -33,6 +42,8 @@ const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData}) => {
             <button className='logout-btn'>Log Out</button>
         </nav>
     </header>
+    <Outlet/>
+    </section>
     );
 }
 

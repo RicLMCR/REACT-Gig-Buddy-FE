@@ -3,11 +3,15 @@ import "./eventList.css"
 import { GoLocation } from "react-icons/go";
 import { TbCalendarEvent } from "react-icons/tb";
 import { createEvent, fetchAttendees } from "../../utils/fetchReq";
+import { useState } from "react";
+
 
 import { useNavigate } from "react-router-dom";
 
 export const EventList = ({user, displayEvent}) => {
 
+
+const [eventId, setEventId]=useState();
 
 const navigate = useNavigate()
 
@@ -15,7 +19,8 @@ const addEvent =(item) => {
 createEvent(item, user.username);
 fetchAttendees(item);
 navigate("/buddySwipe")
-
+setEventId(item);
+console.log("add event AAAAAAAAAA:", item)
 }
 
 return ( 

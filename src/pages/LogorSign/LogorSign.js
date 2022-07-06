@@ -34,8 +34,8 @@ export const LogOrSign = ({user, setUser}) => {
                 <div className="formContainer">
                <form className="login-form" onSubmit={submitHandlerLogin}>
                     <h1 className="text">Log In</h1>
-                    <input placeholder="Username" className="logorsign-input" onChange={(e)=>setUserName(e.target.value)}/>
-                    <input className = "logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>                  
+                    <input type="text" className="logorsign-input" placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
+                    <input type="password" className = "logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>                  
                     <button className="loginButton">Submit</button>
                     <h3 className="smallText">Don't have an account?</h3>
                     <button className = "loginButton" onClick={(e)=>{setlogSwitch()}}>Sign Up</button>
@@ -46,9 +46,9 @@ export const LogOrSign = ({user, setUser}) => {
                 <div className="formContainer">
                 <form className="login-form" onSubmit={submitHandlerCreate}>
                     <h1 className="text">Create Profile</h1>
-                    <input placeholder="Username" className="logorsign-input" onChange={(e)=>setUserName(e.target.value)}/>
-                    <input className="logorsign-input" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
-                    <input className="logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
+                    <input type="text" className="logorsign-input" placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
+                    <input type="email" className="logorsign-input" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
+                    <input type="password" className="logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
                     <button className="loginButton" type="submit">Submit</button>
                    
                         <h3 className="smallText">Already have an account?</h3>                

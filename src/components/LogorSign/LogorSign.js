@@ -30,7 +30,7 @@ export const LogOrSign = ({setDisplayEvent, setValue, trendingEvents}) => {
         const [logSwitch, setlogSwitch] = useState(true);
         return(<>
            
-            <div>
+            <div className="body">
                 { logSwitch ? 
                 <div className="formContainer">
                <form className="login-form" onSubmit={submitHandlerLogin}>

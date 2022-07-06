@@ -27,7 +27,7 @@ function App() {
  const [trendingEvents, setTrendingEvents] = useState([])
 const [displayEvent, setDisplayEvent] =useState ([])
 const [attendees, setAttendees]=useState([]);
-
+const [jwt, setJwt] = useState (false)
 
 
 

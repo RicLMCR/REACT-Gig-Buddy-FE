@@ -5,10 +5,13 @@
     padding: 5px;
     
 }
+.body{
+    
+}
 .formContainer{ 
     position: relative;
     z-index: 1;
-    background: #FFFFFF;
+    background: #ffffff8b;
     background-image: none;
     max-width: 50%;
     margin: 100px auto 100px auto;

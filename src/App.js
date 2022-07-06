@@ -2,7 +2,7 @@ import './App.css';
 import { useEffect, useState} from 'react';
 import { logInUser } from './utils/fetchReq';
 import { Routes, Route } from 'react-router-dom';
-
+import { LogOrSign } from './pages/LogorSign/LogorSign';
 
 import BuddySwipe from './pages/buddySwipe/buddySwipe';
 import Navbar from './components/navbar/NavBar';
@@ -11,7 +11,7 @@ import {EventList} from "./components/eventList/eventList";
 
 import {fetchEvents, fetchArtist, trendingEvent, fetchAttendees} from "./utils/fetchReq"
 
-import Home from './pages/Home';
+
 import Messages from './pages/Messages';
 import Profile from './pages/Profile/Profile';
 import { PopularEvents } from './components/popularEvents/popularEvents';
@@ -41,10 +41,10 @@ const [user, setUser]=useState();
     <>
       <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} />
       <Routes>
-        <Route path="/" element={ <Home  />} />
+        <Route path="/" element={ <LogOrSign  />} />
         <Route path="/messages" element={ <Messages />}  />
         <Route path="/profile" element={ <Profile  />}  />
-        {/* <Route path="/login" element={ <LogOrSign />}  /> */}
+
         <Route path="/event" element={ <EventList displayEvent={displayEvent} />}  />
         <Route path="/buddySwipe" element={ <BuddySwipe />} />
         <Route path="/popular" element={ <PopularEvents setDisplayEvent={setDisplayEvent} setValue={setValue} trendingEvents={trendingEvents}/>} />

@@ -8,10 +8,10 @@ import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
-export const EventList = ({user, displayEvent}) => {
+export const EventList = ({user, displayEvent, setEventId}) => {
 
 
-const [eventId, setEventId]=useState();
+
 
 const navigate = useNavigate()
 

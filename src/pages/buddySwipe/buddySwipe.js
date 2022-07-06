@@ -4,7 +4,7 @@ import './buddySwipe.css';
 import { fetchAttendeeProfile, fetchAttendees, fetchSwipeRight } from '../../utils/fetchReq';
 import { EventList } from "../../components/eventList/eventList";
 
-export const BuddySwipe=({user})=> {
+export const BuddySwipe=({user, eventId})=> {
 
     const [profileObject, setMyProfileObject]=useState({});
 
@@ -20,8 +20,9 @@ export const BuddySwipe=({user})=> {
     //load attendee array and trigger fetch requests to pull back user profiles
      useEffect (() => {
         (async()=>{
-           const data = await fetchAttendees(123456, setAttendees);
+           const data = await fetchAttendees(eventId, setAttendees);
            console.log("!!!!!", data)
+           console.log("eventsssssssss",eventId)
            setAttendees(()=>[...data.event.attendees]);
 
            const attendeeProfilesArr = [];

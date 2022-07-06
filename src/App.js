@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import { LogOrSign } from './pages/LogorSign/LogorSign';
 
 import BuddySwipe from './pages/buddySwipe/buddySwipe';
-import Navbar from './components/navbar/NavBar';
+import { Navbar} from './components/navbar/NavBar';
 import {SearchBar} from "./components/search/search" ;
 import {EventList} from "./components/eventList/eventList";
 
@@ -54,8 +54,8 @@ const [user, setUser]=useState({
         <Route path="/messages" element={ <Messages />}  />
         <Route path="/profile" element={ <Profile user={user} />}  />
 
-        <Route path="/event" element={ <EventList displayEvent={displayEvent} user={user}/>}  />
-        <Route path="/buddySwipe" element={ <BuddySwipe />} />
+        <Route path="/event" element={ <EventList displayEvent={displayEvent} user={user} />}  />
+        <Route path="/buddySwipe" element={ <BuddySwipe user={user}/>} />
         <Route path="/popular" element={ <PopularEvents setDisplayEvent={setDisplayEvent} setValue={setValue} trendingEvents={trendingEvents}/>} />
       
        </Routes>

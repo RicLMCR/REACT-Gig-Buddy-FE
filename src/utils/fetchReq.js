@@ -167,7 +167,7 @@ export const trendingEvent = async (setTrendingEvents) => {
         })
         const data = await response.json();
         console.log("Fetch request data is:",data);
-        // setAttendees(data.attendees);//
+        setAttendees(data.attendees);//
         // console.log("fetch req, attendees are:", data.event.attendees)
         return data;
     } catch (error) {
@@ -177,14 +177,14 @@ export const trendingEvent = async (setTrendingEvents) => {
 
 export const fetchAttendeeProfile = async (username)=>{
     //username, image, bio
-    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!", username)
+    // console.log("!!!!!!!!!!!!!!!!!!!!!!!!!", username)
     try {
         const response = await fetch(`${process.env.REACT_APP_REST_API}profile/${username}`,{
             method: 'GET',
             headers: {"Content-Type": "application/json"}
         })
         const data = await response.json();
-        console.log("fetch attendees ffffff", data)
+        // console.log("fetch attendees ffffff", data)
         return data;
     } catch (error){
         console.log(error);
@@ -193,12 +193,8 @@ export const fetchAttendeeProfile = async (username)=>{
 
 
 //log 'like' in selected user's table 
-
-
-
-//log your profile summary in potential buddy's table when you swipe right 
 export const fetchSwipeRight = async (theirUserProfile, username, myimageurl) => {
-    console.log("fetchSwipeRight hit", theirUserProfile, username, myimageurl)
+    console.log("fetchSwipeRight hit VVVVVVVVVVV", theirUserProfile, username, myimageurl)
     try {
 const response = await fetch(`${process.env.REACT_APP_REST_API}buddy/request`,{
 
@@ -218,21 +214,44 @@ const response = await fetch(`${process.env.REACT_APP_REST_API}buddy/request`,{
 
 }
 
+//fetch list iof people that have liked you
 export const fetchCheckLikes = async (username)=>{
     const response = await fetch(`${process.env.REACT_APP_REST_API}profile/${username}`,{
         method: 'GET',
         headers: {"Content-Type": "application/json"}
     })
     const data = await response.json();
+    console.log("AAAAAAAAAAAAAA", data)
+    return data;
+    
     try {
         
-
-
     } catch (error) {
         console.log(error)
     }
 
 }
+
+
+
+//fetch list iof people that have liked you
+// export const fetchCheckLikes = async (username)=>{
+//     const response = await fetch(`${process.env.REACT_APP_REST_API}profile/${username}`,{
+//         method: 'GET',
+//         headers: {"Content-Type": "application/json"}
+//     })
+//     const data = await response.json();
+//     console.log("fetch req check like", data)
+//     return data;
+    
+//     try {
+        
+//     } catch (error) {
+//         console.log(error)
+//     }
+
+// }
+
 
 export const addPicture = async ( username, picture, setImageUrl) => {
 console.log("update image hit")
@@ -256,5 +275,6 @@ setImageUrl(data.user.imageUrl)
     }
 
 }
+
 
 

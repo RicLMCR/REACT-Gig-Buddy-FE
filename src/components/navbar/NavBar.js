@@ -20,7 +20,7 @@ export const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData,
         console.log(user.username, "navbar fetch")
         await fetchCheckLikes(user.username);
         // const notifications = await fetchCheckLikes(data)
-        // console.log("nav bar fetchcheck buddies are:", notifications)
+        // console.log("nav bar fetchcheck buddies are:", notifications)))
     }
 
     const submitHandler = (e)=>{
@@ -59,4 +59,3 @@ export const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData,
     );
 }
 
-// export default Navbar;

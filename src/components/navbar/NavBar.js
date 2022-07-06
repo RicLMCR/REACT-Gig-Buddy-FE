@@ -9,6 +9,7 @@ import { fetchCheckLikes } from '../../utils/fetchReq';
 
 import ReactDOM from "react-dom/client";
 
+
 export const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData, user, setUser}) => {
 
 
@@ -23,6 +24,9 @@ export const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData,
         // console.log("nav bar fetchcheck buddies are:", notifications)
     }
 
+const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData, setUser, user}) => {
+
+
     const submitHandler = (e)=>{
         e.preventDefault();
         setUser({
@@ -31,9 +35,14 @@ export const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData,
     });
     }
 
-  
 
-    
+    useEffect(() => {
+        checkLikes();
+    },[])
+
+    const checkLikes = async ()=>{
+        await fetchCheckLikes(user.username);
+    }
 
 
     return (<section>
@@ -48,7 +57,7 @@ export const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData,
                 {/* Calling the message icon from React icons */}
                 <li><Link to="/messages"><MdMessage size={40} className='message-icon' color='white' /></Link></li>
                 {/* Placeholder image that will be the user profile picture */}
-                <li><Link to="/profile"><img src='https://www.fillmurray.com/40/40' className='nav-profile-pic' alt='Murray' /></Link></li>
+                <li><Link to="/profile"><img src={user.imageUrl}  className='nav-profile-pic' alt='Murray' /></Link></li>
                 <li>Link to drop down list showing people who like you</li>
             </ul>
             <button className='logout-btn' onClick={(e)=>submitHandler(e)}>Log Out</button>

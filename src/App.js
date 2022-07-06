@@ -15,7 +15,7 @@ import Home from './pages/Home';
 import Messages from './pages/Messages';
 import Profile from './pages/Profile/Profile';
 import { PopularEvents } from './components/popularEvents/popularEvents';
-import { LogOrSign, LogOut, DeleteUser } from './components/LogorSign/LogorSign';
+;
 
 function App() {
   

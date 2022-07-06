@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
+
 import './index.css'
-import { LogOrSign, LogOut, DeleteUser } from './LogorSign/LogorSign';
+import { LogInPanel, LogOut, DeleteUser } from './LogorSign/LogorSign';
 // import Navbar from '../components/navbar/NavBar';
 
 
@@ -16,17 +17,9 @@ return (
     <>
     {/* <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} /> */}
     <h1>Home Page Section</h1>
+    <LogInPanel />
 
-    {user ? <div>
-                <h1>AAAAAA</h1>
-                <h1>{user}</h1>
-                <DeleteUser user={user} setUser={setUser}/>
-                <LogOut user={user} setUser={setUser}/>
-                {/* <BuddySwipe/> */}
-            </div>
-            :
-                <LogOrSign imageUrl={imageUrl} setImageUrl={setImageUrl}  user={user} setUser={setUser}/>
-        }
+
     </>
 )
 }

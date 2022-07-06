@@ -1,7 +1,8 @@
-//create user fetch request , setImageUrl, urlInput, imageUrl
-export const createUser = async (username, email, password, setUser, user)=>{
+//create user fetch request setImageUrl, urlInput, imageUrl
+export const createUser = async (username, email, password, setUser, user )=>{
+
     
-    console.log("fetch hit", username, email, password);
+    console.log("fetch hit", username);
     try {
         const res = await fetch(`${process.env.REACT_APP_REST_API}user`, {//Note: 'user' might not be needed
             method:"POST",
@@ -16,6 +17,8 @@ export const createUser = async (username, email, password, setUser, user)=>{
         const data = await res.json();
         // console.log(data)
         // console.log("set image url:", setImageUrl)
+        console.log("setuser trigger", username)
+        console.log("data is", data)
         await setUser({
             ...user,
             username: data.newUser.username,
@@ -185,20 +188,46 @@ export const fetchAttendeeProfile = async (username)=>{
     }
 }
 
+
 //log 'like' in selected user's table 
 export const fetchSwipeRight = async (theirUserProfile, username, myimageurl) => {
     try {
 const response = await fetch(`${process.env.REACT_APP_REST_API}profile/${theirUserProfile}`,{
+
+//log your profile summary in potential buddy's table when you swipe right 
+export const fetchSwipeRight = async (theirProfile, username, myimageurl) => {
+    console.log("fetchSwipeRight hit", theirProfile, username, myimageurl)
+    try {
+const response = await fetch(`${process.env.REACT_APP_REST_API}buddy/request`,{
+
     method: "PUT",
             headers:{"Content-Type": "application/json"},
             body: JSON.stringify({
                 username: username,
                 imageUrl: myimageurl,
                 potentialBuddy: theirUserProfile,
+
             }),
         })
         const data = await response.json();
     } catch (error) {
         console.log(error)
     }
+
+}
+
+export const fetchCheckLikes = async (username)=>{
+    const response = await fetch(`${process.env.REACT_APP_REST_API}profile/${username}`,{
+        method: 'GET',
+        headers: {"Content-Type": "application/json"}
+    })
+    const data = await response.json();
+    try {
+        
+
+
+    } catch (error) {
+        console.log(error)
+    }
+
 }

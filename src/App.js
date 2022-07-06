@@ -43,13 +43,13 @@ const [user, setUser]=useState({
 
     <>
    {user.token ?<>
-   <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData}  user={user} />
+   <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData}  user={user} setUser={setUser}/>
     <Routes>
         <Route path="/" element={<PopularEvents setDisplayEvent={setDisplayEvent} setValue={setValue} trendingEvents={trendingEvents}/>} />
         <Route path="/messages" element={ <Messages />}  />
         <Route path="/profile" element={ <Profile  />}  />
 
-        <Route path="/event" element={ <EventList displayEvent={displayEvent} />}  />
+        <Route path="/event" element={ <EventList user={user} displayEvent={displayEvent} />}  />
         <Route path="/buddySwipe" element={ <BuddySwipe />} />
         <Route path="/popular" element={ <PopularEvents setDisplayEvent={setDisplayEvent} setValue={setValue} trendingEvents={trendingEvents}/>} />
       

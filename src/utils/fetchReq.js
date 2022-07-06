@@ -1,7 +1,7 @@
 //create user fetch request
-export const createUser = async (username, email, password, setUser, user, setImageUrl, urlInput, imageUrl)=>{
+export const createUser = async (username, email, password, setUser, user )=>{
     
-    console.log("fetch hit", username, email, password);
+    console.log("fetch hit", username);
     try {
         const res = await fetch(`${process.env.REACT_APP_REST_API}user`, {//Note: 'user' might not be needed
             method:"POST",
@@ -10,22 +10,24 @@ export const createUser = async (username, email, password, setUser, user, setIm
                 username: username,
                 email: email,
                 password: password,
-                imageUrl: urlInput,
+                // imageUrl: urlInput,
             }),
         });
         const data = await res.json();
         // console.log(data)
         // console.log("set image url:", setImageUrl)
+        console.log("setuser trigger", username)
+        console.log("data is", data)
         await setUser({
             ...user,
-            username: data.user.username,
+            username: data.newUser.username,
             token:data.token,
         });
         // console.log("image url before set", imageUrl)
-        await setImageUrl(data.newUser.username)
+        // await setImageUrl(data.newUser.username)
         // console.log("the string image url after set", imageUrl)  
         // console.log("succesfully created:", data.newUser.imageUrl);
-        imageUrl = data.newUser.imageUrl;
+        // imageUrl = data.newUser.imageUrl;
 
     
         
@@ -33,7 +35,6 @@ export const createUser = async (username, email, password, setUser, user, setIm
         console.log(error);
     }
 };
-
 //login fetch request
 export const logInUser = async (username, password, setUser, user)=>{
     try {
@@ -46,7 +47,7 @@ export const logInUser = async (username, password, setUser, user)=>{
             }),
         });
         const data = await res.json();
-        console.log("user", username, "logged in", data.user.username);
+        console.log("user", username, "logged in", data);
         console.log(data)
         await setUser({
             ...user,
@@ -123,7 +124,7 @@ console.log(data)
 export const createEvent = async (eventId, username)=>{
  
     try {
-        const res = await fetch(`${process.env.REACT_APP_REST_API}event`, {//Note: 'user' might not be needed
+        const res = await fetch(`${process.env.REACT_APP_REST_API}event/create`, {//Note: 'user' might not be needed
             method:"POST",
             headers:{"Content-Type": "application/json"},
             body: JSON.stringify({
@@ -163,7 +164,7 @@ export const trendingEvent = async (setTrendingEvents) => {
         })
         const data = await response.json();
         console.log("Fetch request data is:",data);
-        // setAttendees(data.attendees);//
+        setAttendees(data.attendees);//
         // console.log("fetch req, attendees are:", data.event.attendees)
         return data;
     } catch (error) {

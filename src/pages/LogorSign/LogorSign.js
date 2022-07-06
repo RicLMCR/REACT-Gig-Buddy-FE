@@ -9,11 +9,14 @@ export const LogOrSign = ({user, setUser}) => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [imageUrl, setImageUrl] = useState("steve");
+
     const submitHandlerCreate=(e)=>{
+        console.log("submit handler", username)
         e.preventDefault();
         createUser(username, email, password, setUser, user);
     };
     const navigate =  useNavigate()
+
     const submitHandlerLogin = (e)=>{
         e.preventDefault();
        logInUser(username, password, setUser, user);

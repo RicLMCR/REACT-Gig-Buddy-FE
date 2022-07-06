@@ -15,7 +15,8 @@ import {fetchEvents, fetchArtist, trendingEvent, fetchAttendees} from "./utils/f
 import Messages from './pages/Messages';
 import Profile from './pages/Profile/Profile';
 import { PopularEvents } from './components/popularEvents/popularEvents';
-;
+
+import ReactDOM from "react-dom/client";
 
 function App() {
   
@@ -28,6 +29,8 @@ const [user, setUser]=useState({
   username:"",
   token:"",
 });
+
+
 
 
   useEffect (() => {

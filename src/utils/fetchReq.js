@@ -1,5 +1,5 @@
-//create user fetch request
-export const createUser = async (username, email, password, setUser, user, setImageUrl, urlInput, imageUrl)=>{
+//create user fetch request , setImageUrl, urlInput, imageUrl
+export const createUser = async (username, email, password, setUser, user)=>{
     
     console.log("fetch hit", username, email, password);
     try {
@@ -10,7 +10,7 @@ export const createUser = async (username, email, password, setUser, user, setIm
                 username: username,
                 email: email,
                 password: password,
-                imageUrl: urlInput,
+                // imageUrl: urlInput,
             }),
         });
         const data = await res.json();
@@ -18,14 +18,14 @@ export const createUser = async (username, email, password, setUser, user, setIm
         // console.log("set image url:", setImageUrl)
         await setUser({
             ...user,
-            username: data.user.username,
+            username: data.newUser.username,
             token:data.token,
         });
         // console.log("image url before set", imageUrl)
-        await setImageUrl(data.newUser.username)
+        // await setImageUrl(data.newUser.username)
         // console.log("the string image url after set", imageUrl)  
         // console.log("succesfully created:", data.newUser.imageUrl);
-        imageUrl = data.newUser.imageUrl;
+        // imageUrl = data.newUser.imageUrl;
 
     
         
@@ -88,7 +88,6 @@ export const deleteUser = async (username, setUser)=>{
                     const res = await fetch(`https://www.skiddle.com/api/v1/events/search/?api_key=${process.env.REACT_APP_API_KEY}&latitude=53.4839&longitude=-2.2446&radius=5&eventcode=LIVE&order=distance&description=1&limit=100&offset=${item}`);
 
                 const data = await res.json();
-console.log(data)
             data.results.forEach(async(item, index) => {
 
                 const eventObj = {
@@ -123,7 +122,7 @@ console.log(data)
 export const createEvent = async (eventId, username)=>{
  
     try {
-        const res = await fetch(`${process.env.REACT_APP_REST_API}event`, {//Note: 'user' might not be needed
+        const res = await fetch(`${process.env.REACT_APP_REST_API}event/create`, {//Note: 'user' might not be needed
             method:"POST",
             headers:{"Content-Type": "application/json"},
             body: JSON.stringify({
@@ -146,7 +145,6 @@ export const trendingEvent = async (setTrendingEvents) => {
 
      const res = await fetch("https://www.skiddle.com/api/v1/events/search/?api_key=9eca984fc063066727406327c285fb75&latitude=53.4839&longitude=-2.2446&radius=5&eventcode=LIVE&order=trending&description=1&limit=100");
      const data = await res.json();
-     console.log(data, "trend")
         setTrendingEvents(data.results)
     } catch (error) {
         console.log(error)

@@ -8,11 +8,18 @@
 .search-container{
 
 display: flex;
-min-width: 400px;
+min-width: 500px;
 align-items: center;
 justify-content:center;
-flex-direction: column;
+/* flex-direction: column; */
 
+}
+
+.search-input {
+    min-width: 400px;
+    padding: 10px 25px;
+    border-radius: 10px;
+    border: 0;
 }
 
 .dropdown-row{

@@ -33,15 +33,17 @@ const [user, setUser]=useState();
   }, [])
 
   try {
-
+  
   return (
+    
     <div className="App">
+
     <>
-      {/* <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} /> */}
+      <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData} />
       <Routes>
-        <Route path="/" element={ <Home />} />
+        <Route path="/" element={ <Home  />} />
         <Route path="/messages" element={ <Messages />}  />
-        <Route path="/profile" element={ <Profile />}  />
+        <Route path="/profile" element={ <Profile  />}  />
         {/* <Route path="/login" element={ <LogOrSign />}  /> */}
         <Route path="/event" element={ <EventList displayEvent={displayEvent} />}  />
         <Route path="/buddySwipe" element={ <BuddySwipe />} />
@@ -51,9 +53,6 @@ const [user, setUser]=useState();
     </>
 
 
-
-
-  
       </div>
 
   );

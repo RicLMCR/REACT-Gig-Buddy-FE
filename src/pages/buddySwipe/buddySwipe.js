@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import React from 'react';
 import './buddySwipe.css';
 import { fetchAttendeeProfile, fetchAttendees, fetchSwipeRight } from '../../utils/fetchReq';
-import { EventList } from "../../components/eventList/eventList";
+// import { EventList } from "../../components/eventList/eventList";
 
 export const BuddySwipe=({user, eventId})=> {
 
@@ -20,9 +20,9 @@ export const BuddySwipe=({user, eventId})=> {
     //load attendee array and trigger fetch requests to pull back user profiles
      useEffect (() => {
         (async()=>{
-           const data = await fetchAttendees(eventId, setAttendees);
+           const data = await fetchAttendees(123456, setAttendees);//****************** */
            console.log("!!!!!", data)
-           console.log("eventsssssssss",eventId)
+           console.log("eventsssssssss")//****************************** ,eventId*/
            setAttendees(()=>[...data.event.attendees]);
 
            const attendeeProfilesArr = [];
@@ -85,7 +85,7 @@ export const BuddySwipe=({user, eventId})=> {
     try {
         return (
             <div className="buddySwipeWrap">
-                {/* <EventList eventID={eventID} /> */}
+                {/* <EventList eventId={eventId} /> */}
                 <button className="swipeButton" onClick={(e)=>swipeLeftOnBuddy(e)}>No</button>
                 {attendeeProfile[numCount] ? 
                 <div className="buddyProfile">

@@ -84,7 +84,6 @@ export const BuddySwipe=({user})=> {
     try {
         return (
             <div className="buddySwipeWrap">
-            <EventList eventId={eventId}/>
                 {/* <EventList eventID={eventID} /> */}
                 <button className="swipeButton" onClick={(e)=>swipeLeftOnBuddy(e)}>No</button>
                 {attendeeProfile[numCount] ? 

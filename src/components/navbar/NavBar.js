@@ -10,22 +10,9 @@ import { fetchCheckLikes } from '../../utils/fetchReq';
 import ReactDOM from "react-dom/client";
 
 
-export const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData, user, setUser}) => {
 
-
-    useEffect(() => {
-            checkLikes();
-    },[])
-
-    const checkLikes = async ()=>{
-        console.log(user.username, "navbar fetch")
-        await fetchCheckLikes(user.username);
-        // const notifications = await fetchCheckLikes(data)
-        // console.log("nav bar fetchcheck buddies are:", notifications)))
-    }
 
 const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData, setUser, user}) => {
-
 
     const submitHandler = (e)=>{
         e.preventDefault();
@@ -34,7 +21,6 @@ const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData, setUse
             token:"",
     });
     }
-
 
     useEffect(() => {
         checkLikes();
@@ -68,3 +54,4 @@ const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData, setUse
     );
 }
 
+export default Navbar;

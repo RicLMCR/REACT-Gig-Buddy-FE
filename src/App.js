@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import { LogOrSign } from './pages/LogorSign/LogorSign';
 
 import BuddySwipe from './pages/buddySwipe/buddySwipe';
-import { Navbar} from './components/navbar/NavBar';
+import Navbar from './components/navbar/NavBar';
 import {SearchBar} from "./components/search/search" ;
 import {EventList} from "./components/eventList/eventList";
 

@@ -39,7 +39,7 @@ return(
     return( 
     <div className="pop-events-big-image" key= {index}>
         
-        <img  src={item.largeimageurl}  alt="" height={250}  />
+        <img  src={item.xlargeimageurl}  alt="" height={250}  />
       
  <div className="pop-events-big-image-description"> 
  

@@ -5,34 +5,58 @@
     padding: 5px;
     
 }
-.body{
-    
+
+.bg-image {
+    background-image: url(./images/bg-image-logorsign.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%
 }
-.formContainer{ 
-    position: relative;
-    z-index: 1;
-    background: #ffffff8b;
-    background-image: none;
-    max-width: 50%;
-    margin: 100px auto 100px auto;
-    padding: 45px;
+
+.gigbuddy-logorsign-title {
     text-align: center;
+    font-size: 12em;
+    border: 10px solid black;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    padding: 10px;
+}
+
+.description-container {
+    max-width: 50%;
+    border: 2px solid black;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.bottom-container-right {
+    margin-left: auto;
+    color: #f2f2f2;
+    background-color: rgba(34, 34, 34, 0.564);
+}
+
+.page-description {
+    font-size: 5em;
+}
+
+.find-buddy-text {
+    font-size: 4em;
+    text-align: center;
+}
+
+.formContainer{
+    background: #ffffff8b;
+    max-width: 800px;
+    margin: 100px auto 0 auto;
+    padding: 45px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     border-radius: 10px;
-  
-
 }
+
 .login-form{
     display: flex;
     flex-direction: column;
     align-items:center
 
-}
-.smallContainer { 
-
-    background-color: #FFFFFF;
-
-    
 }
 
 .logorsign-input { 
@@ -48,7 +72,7 @@
     width: 50%;
 }
 
-.switchButton { 
+.form-btn { 
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     background-color: #328f8a;
@@ -56,22 +80,6 @@
     width: 50%;
     border: none;
     border-radius: 5px;
-    margin: 5px 0 0 0;
-    padding: 10px;
-    color: #FFFFFF;
-    font-size: 14px;
-    -webkit-transition: all 0.3 ease;
-    transition: all 0.3 ease;
-    cursor: pointer;
-}
-.loginButton { 
-    border-radius: 5px;
-    font-family: "Roboto", sans-serif;
-    text-transform: uppercase;
-    background-color: #328f8a;
-    background-image: linear-gradient(45deg,#328f8a,#08ac4b);
-    width: 50%;
-    border: none;
     margin: 5px 0 0 0;
     padding: 10px;
     color: #FFFFFF;

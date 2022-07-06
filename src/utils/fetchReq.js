@@ -23,7 +23,7 @@ export const createUser = async (username, email, password, setUser, user )=>{
             ...user,
             username: data.newUser.username,
             token:data.token,
-            imageUrl:data.user.imageUrl
+            // imageUrl:data.user.imageUrl
         });
         // console.log("image url before set", imageUrl)
         // await setImageUrl(data.newUser.username)

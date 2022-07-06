@@ -30,38 +30,54 @@ export const LogOrSign = ({user, setUser}) => {
     try { 
         // switch between log in page and sign up page
         const [logSwitch, setlogSwitch] = useState(true);
-        return(<>
-           
-            <div className="body">
-                { logSwitch ? 
-                <div className="formContainer">
-               <form className="login-form" onSubmit={submitHandlerLogin}>
+        return(
+        <>
+            
+                { logSwitch ?
+        <div className="bg-image">
+            <h1 className="gigbuddy-logorsign-title">Gig Buddy</h1>
+            <section className="description-container top-container-left">
+                <h2 className="page-description">People going to gigs, but do not have friends with similar music taste and therefore have to go alone,</h2>
+                </section>
+                <section className="description-container bottom-container-right">
+                <h2 className="page-description">or people who were planning on going with someone else to a gig, but dropped out at the last minute.</h2>
+                </section>
+            <div className="formContainer">
+                <form className="login-form" onSubmit={submitHandlerLogin}>
                     <h1 className="text">Log In</h1>
                     <input type="text" className="logorsign-input" placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
                     <input type="password" className = "logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>                  
-                    <button className="loginButton">Submit</button>
+                    <button className="form-btn">Submit</button>
                     <h3 className="smallText">Don't have an account?</h3>
-                    <button className = "loginButton" onClick={(e)=>{setlogSwitch()}}>Sign Up</button>
-                   
+                    <button className = "form-btn" onClick={(e)=>{setlogSwitch()}}>Sign Up</button>
                 </form>
                 </div>
+            </div>
                 :
+            <div className="bg-image">
+                <h1 className="gigbuddy-logorsign-title">Gig Buddy</h1>
+                <section className="description-container">
+                    <h2 className="page-description">People going to gigs, but do not have friends with similar music taste and therefore have to go alone,</h2>
+                </section>
+                <section className="description-container bottom-container-right">
+                    <h2 className="page-description">or people who were planning on going with someone else to a gig, but dropped out at the last minute.</h2>
+                </section>
                 <div className="formContainer">
+                <h3 className="find-buddy-text">Find your Gig Buddy</h3>
                 <form className="login-form" onSubmit={submitHandlerCreate}>
                     <h1 className="text">Create Profile</h1>
                     <input type="text" className="logorsign-input" placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
                     <input type="email" className="logorsign-input" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
                     <input type="password" className="logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
-                    <button className="loginButton" type="submit">Submit</button>
-                   
+                    <button className="form-btn" type="submit">Submit</button>
+                
                         <h3 className="smallText">Already have an account?</h3>                
-                        <button className = "switchButton"onClick={(e)=>{setlogSwitch(true)}}>Log In</button>
-                       
-                  
+                        <button className = "form-btn"onClick={(e)=>{setlogSwitch(true)}}>Log In</button>
                 </form>
                 </div>
-                }
-            </div> </>
+            </div>
+                } 
+                </>
         )
     } catch (error){ 
         console.log (error)

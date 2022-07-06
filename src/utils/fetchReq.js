@@ -180,19 +180,19 @@ export const fetchAttendeeProfile = async (username)=>{
 }
 
 //log 'like' in selected user's table 
-// export const fetchSwipeRight = async (username, counter, myProfileObj) => {
-//     try {
-// const response = await fetch(`${process.env.REACT_APP_REST_API}profile/${username}`,{
-//     method: "POST",
-//             headers:{"Content-Type": "application/json"},
-//             body: JSON.stringify({
-//                 username: username,
-//                 imageUrl: myimageurl,
-//                 oustandingNotificatons: counter,
-//             }),
-//         })
-//         const data = await response.json();
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
+export const fetchSwipeRight = async (theirUserProfile, username, myimageurl) => {
+    try {
+const response = await fetch(`${process.env.REACT_APP_REST_API}profile/${theirUserProfile}`,{
+    method: "PUT",
+            headers:{"Content-Type": "application/json"},
+            body: JSON.stringify({
+                username: username,
+                imageUrl: myimageurl,
+                potentialBuddy: theirUserProfile,
+            }),
+        })
+        const data = await response.json();
+    } catch (error) {
+        console.log(error)
+    }
+}

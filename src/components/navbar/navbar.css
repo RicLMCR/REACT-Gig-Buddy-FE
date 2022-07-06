@@ -55,6 +55,8 @@
     border-radius: 50%;
     position: relative;
     top: 5px;
+    height: 35px;
+    width: 35px;
 }
 
 .logout-btn {

@@ -2,17 +2,37 @@ import React from 'react';
 import { ProfileImageUploader } from '../../components/profileImageUploader/profileImageUploader';
 // import '../index.css'
 import './profile.css'
+import { useState } from 'react';
+import { Avatar } from '@mui/material';
+import { addPicture } from '../../utils/fetchReq';
 
-const Profile = ({imageUrl}) => {
 
-    console.log("profile component:", imageUrl)
+const Profile = ({ user}) => {
+const [imageUrl, setImageUrl]= useState ("")
+
+
+
+
+
+
+    const submitHandlerLogin = (e)=>{
+        e.preventDefault();
+       addPicture(user.username, imageUrl, setImageUrl);}
 return (
+
+
+
+
     <>
     <div className='profile-page-container'>
 
         <section className='profile-page-top'>
             <div className='profile-picture-div'>
-                <ProfileImageUploader imageUrl={imageUrl} />
+            <Avatar alt="Profile" src={user.imageUrl} sx={{ width: 338, height: 338 }} />
+            <form onSubmit={submitHandlerLogin}>
+    <input type="text" placeholder="Upload image url" onChange={(e)=>setImageUrl(e.target.value)} name='profileImage' />
+    <button type="Submit"  >Submit</button>
+    </form>
             </div>
             <div className='profile-buddies'>
                 <h2 className='buddies-header'>Buddies</h2>

@@ -23,6 +23,7 @@ export const createUser = async (username, email, password, setUser, user )=>{
             ...user,
             username: data.newUser.username,
             token:data.token,
+            imageUrl:data.user.imageUrl
         });
         // console.log("image url before set", imageUrl)
         // await setImageUrl(data.newUser.username)
@@ -45,16 +46,18 @@ export const logInUser = async (username, password, setUser, user)=>{
             headers:{"Content-Type": "application/json"},
             body: JSON.stringify({
                 username: username,
-                password: password
+                password: password,
+                
             }),
         });
         const data = await res.json();
         console.log("user", username, "logged in", data.user.username);
-        console.log(data)
+        console.log( "user da",data)
         await setUser({
             ...user,
             username: data.user.username,
             token:data.token,
+            imageUrl:data.user.imageUrl,
         });
     } catch (error) {
         console.log(error);
@@ -190,13 +193,12 @@ export const fetchAttendeeProfile = async (username)=>{
 
 
 //log 'like' in selected user's table 
-export const fetchSwipeRight = async (theirUserProfile, username, myimageurl) => {
-    try {
-const response = await fetch(`${process.env.REACT_APP_REST_API}profile/${theirUserProfile}`,{
+
+
 
 //log your profile summary in potential buddy's table when you swipe right 
-export const fetchSwipeRight = async (theirProfile, username, myimageurl) => {
-    console.log("fetchSwipeRight hit", theirProfile, username, myimageurl)
+export const fetchSwipeRight = async (theirUserProfile, username, myimageurl) => {
+    console.log("fetchSwipeRight hit", theirUserProfile, username, myimageurl)
     try {
 const response = await fetch(`${process.env.REACT_APP_REST_API}buddy/request`,{
 
@@ -231,3 +233,28 @@ export const fetchCheckLikes = async (username)=>{
     }
 
 }
+
+export const addPicture = async ( username, picture, setImageUrl) => {
+console.log("update image hit")
+    try {
+const response = await fetch(`${process.env.REACT_APP_REST_API}picture`,{
+
+    method: "PUT",
+            headers:{"Content-Type": "application/json"},
+            body: JSON.stringify({
+                username: username,
+                imageUrl:picture,
+            
+
+            }),
+        })
+        const data = await response.json();
+        console.log( "message", data.user.imageUrl)
+setImageUrl(data.user.imageUrl)
+    } catch (error) {
+        console.log(error)
+    }
+
+}
+
+

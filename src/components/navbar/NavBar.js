@@ -9,21 +9,12 @@ import { fetchCheckLikes } from '../../utils/fetchReq';
 
 import ReactDOM from "react-dom/client";
 
-const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData, user}) => {
-
-   useEffect(() => {
-        checkLikes();
-    },[])
-
-    const checkLikes = async ()=>{
-        console.log(user.username, "navbar fetch")
-        await fetchCheckLikes(user.username);
-    }
 
 
 
 
-const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData, setUser}) => {
+
+const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData, setUser, user}) => {
 
     const submitHandler = (e)=>{
         e.preventDefault();
@@ -32,6 +23,15 @@ const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData, setUse
             token:"",
     });
     }
+
+    useEffect(() => {
+        checkLikes();
+    },[])
+
+    const checkLikes = async ()=>{
+        await fetchCheckLikes(user.username);
+    }
+
 
     return (<section>
     <header className='navbar-header'>
@@ -45,7 +45,7 @@ const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData, setUse
                 {/* Calling the message icon from React icons */}
                 <li><Link to="/messages"><MdMessage size={40} className='message-icon' color='white' /></Link></li>
                 {/* Placeholder image that will be the user profile picture */}
-                <li><Link to="/profile"><img src='https://www.fillmurray.com/40/40' className='nav-profile-pic' alt='Murray' /></Link></li>
+                <li><Link to="/profile"><img src={user.imageUrl}  className='nav-profile-pic' alt='Murray' /></Link></li>
                 <li>Link to drop down list showing people who like you</li>
             </ul>
             <button className='logout-btn' onClick={(e)=>submitHandler(e)}>Log Out</button>

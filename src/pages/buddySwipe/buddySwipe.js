@@ -55,8 +55,7 @@ export const BuddySwipe=()=> {
     //dropdown list showing profiles of users who have swiped right
     //OPTIONAL: when one profile is selected further fetch request to 'liked counter' to remove '1' from the value and update the onscreen counter on return
     //when a profile is selected, take the user back to the swipe buddy screen and load that profile up immediately - before any others are loaded OR load a new version of the swipe buddy screen that only shows users who have swiped right on you
-    //if the user swipes right then you are a match - how to do this?
-    //
+    //if the user swipes right then you are a match - how to do this???
     //add 'buddy' to profile screen list
 
     //fetch request 
@@ -70,7 +69,7 @@ export const BuddySwipe=()=> {
         }
         const myProfileObject = {username:"richard", imageUrl:"notsureyet"}
         setMyProfileObject(myProfileObject)
-        // fetchSwipeRight(attendees[numCount], 1, myProfileObject)
+        // fetchSwipeRight(attendees[numCount], myProfileObject)
     }
 
 

@@ -1,12 +1,12 @@
 //Importing the CSS-file, with the react icons
 import './navbar.css';
-import { Link } from 'react-router-dom';
+import { Link , Outlet} from 'react-router-dom';
 import { BiSearchAlt } from 'react-icons/bi';
 import { MdMessage } from 'react-icons/md';
 import { SearchBar } from '../search/search';
 
 const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData}) => {
-    return (
+    return (<section>
     <header className='navbar-header'>
             <Link style={{textDecoration: 'none', color: 'black'}} to="/"><h1 className='gigbuddy-title'>Gig Buddy</h1></Link>
 
@@ -24,6 +24,8 @@ const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData}) => {
             <button className='logout-btn'>Log Out</button>
         </nav>
     </header>
+    <Outlet/>
+    </section>
     );
 }
 

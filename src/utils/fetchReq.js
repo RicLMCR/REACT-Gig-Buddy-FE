@@ -43,6 +43,7 @@ export const logInUser = async (username, password, setUser)=>{
         });
         const data = await res.json();
         console.log("user", username, "logged in", data.user.username);
+        console.log(data)
         setUser(data.user.username);
     } catch (error) {
         console.log(error);

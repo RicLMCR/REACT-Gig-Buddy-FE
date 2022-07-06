@@ -52,7 +52,7 @@ const [user, setUser]=useState({
         <Route path="/messages" element={ <Messages />}  />
         <Route path="/profile" element={ <Profile  />}  />
 
-        <Route path="/event" element={ <EventList displayEvent={displayEvent} />}  />
+        <Route path="/event" element={ <EventList displayEvent={displayEvent} user={user}/>}  />
         <Route path="/buddySwipe" element={ <BuddySwipe />} />
         <Route path="/popular" element={ <PopularEvents setDisplayEvent={setDisplayEvent} setValue={setValue} trendingEvents={trendingEvents}/>} />
       

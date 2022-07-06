@@ -22,11 +22,20 @@ const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData, user})
 
 
 
+
+const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData, setUser}) => {
+
+    const submitHandler = (e)=>{
+        e.preventDefault();
+        setUser({
+            username:"",
+            token:"",
+    });
+    }
+
     return (<section>
     <header className='navbar-header'>
             <Link style={{textDecoration: 'none', color: 'black'}} to="/"><h1 className='gigbuddy-title'>Gig Buddy</h1></Link>
-
-
 
 
             {/* Basic input bar */}
@@ -39,7 +48,7 @@ const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData, user})
                 <li><Link to="/profile"><img src='https://www.fillmurray.com/40/40' className='nav-profile-pic' alt='Murray' /></Link></li>
                 <li>Link to drop down list showing people who like you</li>
             </ul>
-            <button className='logout-btn'>Log Out</button>
+            <button className='logout-btn' onClick={(e)=>submitHandler(e)}>Log Out</button>
         </nav>
     </header>
     <Outlet/>

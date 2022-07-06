@@ -1,5 +1,6 @@
 //create user fetch request setImageUrl, urlInput, imageUrl
 export const createUser = async (username, email, password, setUser, user )=>{
+
     
     console.log("fetch hit", username);
     try {
@@ -90,7 +91,6 @@ export const deleteUser = async (username, setUser)=>{
                     const res = await fetch(`https://www.skiddle.com/api/v1/events/search/?api_key=${process.env.REACT_APP_API_KEY}&latitude=53.4839&longitude=-2.2446&radius=5&eventcode=LIVE&order=distance&description=1&limit=100&offset=${item}`);
 
                 const data = await res.json();
-console.log(data)
             data.results.forEach(async(item, index) => {
 
                 const eventObj = {
@@ -148,7 +148,6 @@ export const trendingEvent = async (setTrendingEvents) => {
 
      const res = await fetch("https://www.skiddle.com/api/v1/events/search/?api_key=9eca984fc063066727406327c285fb75&latitude=53.4839&longitude=-2.2446&radius=5&eventcode=LIVE&order=trending&description=1&limit=100");
      const data = await res.json();
-     console.log(data, "trend")
         setTrendingEvents(data.results)
     } catch (error) {
         console.log(error)
@@ -189,23 +188,32 @@ export const fetchAttendeeProfile = async (username)=>{
     }
 }
 
+
+//log 'like' in selected user's table 
+export const fetchSwipeRight = async (theirUserProfile, username, myimageurl) => {
+    try {
+const response = await fetch(`${process.env.REACT_APP_REST_API}profile/${theirUserProfile}`,{
+
 //log your profile summary in potential buddy's table when you swipe right 
 export const fetchSwipeRight = async (theirProfile, username, myimageurl) => {
     console.log("fetchSwipeRight hit", theirProfile, username, myimageurl)
     try {
 const response = await fetch(`${process.env.REACT_APP_REST_API}buddy/request`,{
+
     method: "PUT",
             headers:{"Content-Type": "application/json"},
             body: JSON.stringify({
                 username: username,
                 imageUrl: myimageurl,
-                potentialBuddy: theirProfile
+                potentialBuddy: theirUserProfile,
+
             }),
         })
         const data = await response.json();
     } catch (error) {
         console.log(error)
     }
+
 }
 
 export const fetchCheckLikes = async (username)=>{
@@ -221,4 +229,5 @@ export const fetchCheckLikes = async (username)=>{
     } catch (error) {
         console.log(error)
     }
+
 }

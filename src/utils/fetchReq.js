@@ -178,9 +178,9 @@ export const fetchAttendeeProfile = async (username)=>{
     }
 }
 
-//log 'like' in selected user's table 
+//log your profile summary in potential buddy's table when you swipe right 
 export const fetchSwipeRight = async (theirProfile, username, myimageurl) => {
-    console.log("fetchSwipeRight hit", myProfileObj)
+    console.log("fetchSwipeRight hit", theirProfile, username, myimageurl)
     try {
 const response = await fetch(`${process.env.REACT_APP_REST_API}profile/${theirProfile}`,{
     method: "PUT",

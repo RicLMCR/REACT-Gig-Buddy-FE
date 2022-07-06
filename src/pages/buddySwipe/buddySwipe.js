@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import React from 'react';
 import './buddySwipe.css';
-import { fetchAttendeeProfile, fetchAttendees } from '../../utils/fetchReq';
+import { fetchAttendeeProfile, fetchAttendees, fetchSwipeRight } from '../../utils/fetchReq';
 
 export const BuddySwipe=()=> {
 
@@ -11,10 +11,10 @@ export const BuddySwipe=()=> {
 
     const [attendeeProfile, setAttendeeProfile]=useState([]);
 
-     //increment value for counter
+     //increment value for 'swipeRightOn...' counter
      const [numCount, setNumCount]=useState(0);
 
-    //load attendee array and trigger fetch requests to pull back user profiles
+    //load 'attendee' array and trigger fetch requests to pull back user profiles
      useEffect (() => {
         (async()=>{
            const data = await fetchAttendees(123456, setAttendees);
@@ -33,17 +33,15 @@ export const BuddySwipe=()=> {
         })();
       },[])
 
-
-    
     //on swipe right, displayed person is added to potential buddy list and increment counter increases by one
     const swipeRightOnBuddy = (attendee)=>{
         
         setNumCount(numCount+1);
-        console.log("Add to potential likes")
         if (numCount => attendees.length+1){
             console.log("No more attendees")
             return 
                 }
+        console.log("buddySwipe: ", attendee[numCount]," has been notified of your like")
     }
 
     //OPTIONAL: trigger another fetchRequest to user table's 'liked counter' (PUT)
@@ -67,9 +65,7 @@ export const BuddySwipe=()=> {
         if (numCount => attendees.length+1){
         console.log("No more attendees")   
         }
-        const myProfileObject = {username:"richard", imageUrl:"notsureyet"}
-        setMyProfileObject(myProfileObject)
-        // fetchSwipeRight(attendees[numCount], myProfileObject)
+        fetchSwipeRight(attendees[numCount], "richard - test user", "myimageurl" )
     }
 
 

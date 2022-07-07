@@ -1,4 +1,4 @@
-.buddySwipeWrap {
+.buddy-swipe-wrap {
     
     margin-left: auto;
     margin-right: auto;
@@ -10,7 +10,7 @@
     justify-content: center;
 }
 
-.buddyProfile{
+.buddy-profile{
     position: absolute;
     z-index: -1;
     display:flex;
@@ -23,7 +23,7 @@ img{
     object-fit: cover;
 }
 
-.swipeButton {
+.swipe-button {
     position: relative;
     z-index: 1;
     width: 150px;
@@ -32,6 +32,6 @@ img{
     transition: color .5s;
 }
 
-.swipeButton:active{
+.swipe-button:active{
     background-color: rgb(255, 255, 255);
 }

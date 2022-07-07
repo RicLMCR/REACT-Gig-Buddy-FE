@@ -12,7 +12,7 @@ import {EventList} from "./components/eventList/eventList";
 import {fetchEvents, fetchArtist, trendingEvent, fetchAttendees, createUser} from "./utils/fetchReq"
 
 
-import Messages from './pages/Messages';
+import Messages from './pages/Messages/Messages';
 import Profile from './pages/Profile/Profile';
 import { PopularEvents } from './components/popularEvents/popularEvents';
 import { findAllUsers } from './utils/fetchReq';
@@ -46,7 +46,7 @@ const [eventId, setEventId] = useState ("")
     fetchEvents(setApiData)
     trendingEvent(setTrendingEvents)
     findAllUsers(setAllUsers)
-   console.log("all users", trendingEvents)
+  //  console.log("all users", trendingEvents)
 
 //    setEventIdPass(eventId)
 // console.log("App: EventIdPass is:", eventIdPass)
@@ -61,8 +61,6 @@ const [eventId, setEventId] = useState ("")
     <div className="App">
 
     <EventIdPass.Provider value={eventId}>
-
-      <BuddyList user={user} setUser={setUser} />
 
    {user.token ?
    <>

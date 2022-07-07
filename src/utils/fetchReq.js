@@ -154,6 +154,7 @@ export const trendingEvent = async (setTrendingEvents) => {
      const res = await fetch("https://www.skiddle.com/api/v1/events/search/?api_key=9eca984fc063066727406327c285fb75&latitude=53.4839&longitude=-2.2446&radius=5&eventcode=LIVE&order=trending&description=1&limit=100");
      const data = await res.json();
         setTrendingEvents(data.results)
+        console.log(data.result)
     } catch (error) {
         console.log(error)
     }

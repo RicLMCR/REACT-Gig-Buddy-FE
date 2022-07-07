@@ -55,7 +55,7 @@ const Navbar = ({ imageUrl,displayEvent, setDisplayEvent, value, setValue, apiDa
             <button className='logout-btn' onClick={(e)=>submitHandler(e)}>Log Out</button>
         </nav>
     </header>
-    <Outlet/>
+ 
     </section>
     );
 }

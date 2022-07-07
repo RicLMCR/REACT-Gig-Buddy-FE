@@ -18,6 +18,7 @@ import { PopularEvents } from './components/popularEvents/popularEvents';
 
 import ReactDOM from "react-dom/client";
 import {EventIdPass} from './utils/EventIDPass';
+import { BuddyList } from './components/buddyList/BuddyList';
 
 function App() {
   
@@ -59,6 +60,7 @@ console.log("App: EventId is:", eventId)
     <div className="App">
 
     <EventIdPass.Provider value={eventId}>
+      <BuddyList user={user} setUser={setUser} />
    {user.token ?<>
    <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData}  user={user} />
     <Routes>

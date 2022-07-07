@@ -7,7 +7,7 @@ import { EventIdPass } from "../../utils/EventIDPass";
 
 export const BuddySwipe=({user})=> {
     const eventIdGen = useContext(EventIdPass);
-    console.log(eventIdGen)
+    console.log(eventIdGen);
 
     const [attendees, setAttendees]=useState([]);
     const [attendeeProfile, setAttendeeProfile]=useState([]);
@@ -18,9 +18,9 @@ export const BuddySwipe=({user})=> {
     //load attendee array and trigger fetch requests to pull back user profiles
      useEffect (() => {
         (async()=>{
-           const data = await fetchAttendees(eventIdGen, setAttendees);//****************** */
-           console.log("!!!!!", data)
-           console.log("buddySwipe: eventId is",eventIdGen)//****************************** ,eventId*/
+           const data = await fetchAttendees(eventIdGen, setAttendees);
+           console.log("!!!!!", data);
+           console.log("buddySwipe: eventId is",eventIdGen);
            if (data.event.attendees == ""){
             data.event.attendees = ["0"];
             console.log("buddyswipe: returned data is null");
@@ -39,8 +39,6 @@ export const BuddySwipe=({user})=> {
         })();
       },[])
 
-
-    
     //on swipe right, displayed person is added to potential buddy list and increment counter increases by one
     const swipeRightOnBuddy = (attendee)=>{
         setNumCount(numCount+1);
@@ -49,10 +47,9 @@ export const BuddySwipe=({user})=> {
         fetchSwipeRight(attendeeProfile[numCount].profile.username, user.username, user.imageUrl)//*********** */
         // console.log("Add to potential likes")
         if (numCount => attendees.length+1){
-            console.log("No more attendees")
+            console.log("No more attendees");
             return 
                 }
-        
     }
 
     //OPTIONAL: trigger another fetchRequest to user table's 'liked counter' (PUT)

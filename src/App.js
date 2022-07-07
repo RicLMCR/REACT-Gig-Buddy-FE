@@ -30,18 +30,15 @@ const [user, setUser]=useState({
   username:"",
   token:"",
   imageUrl:"",
-  eventsAttending:[]
+  eventsAttending:[],
+  buddyRequests: []
 });
 
 const [imageUrl, setImageUrl] = useState("");
 
-
 const [eventId, setEventId] = useState ("")
 
 // const [eventIdPass, setEventIdPass]=useState()
-
-
-
 
 
   useEffect (() => {

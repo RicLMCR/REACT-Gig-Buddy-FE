@@ -27,9 +27,10 @@ const [displayEvent, setDisplayEvent] =useState ([])
 const [user, setUser]=useState({
   username:"",
   token:"",
-  imageUrl:""
+  imageUrl:"",
+  eventsAttending:[]
 });
-
+console.log(user)
 
 
 

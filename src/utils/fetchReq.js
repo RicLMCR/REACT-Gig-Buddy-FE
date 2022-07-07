@@ -12,6 +12,7 @@ export const createUser = async (username, email, password, setUser, user )=>{
                 email: email,
                 password: password,
                 // imageUrl: urlInput,
+            
             }),
         });
         const data = await res.json();
@@ -23,7 +24,9 @@ export const createUser = async (username, email, password, setUser, user )=>{
             ...user,
             username: data.newUser.username,
             token:data.token,
-            imageUrl:data.user.imageUrl
+            imageUrl:data.user.imageUrl,
+            eventsAttending: data.user.eventsAttending
+
         });
         // console.log("image url before set", imageUrl)
         // await setImageUrl(data.newUser.username)
@@ -58,6 +61,7 @@ export const logInUser = async (username, password, setUser, user)=>{
             username: data.user.username,
             token:data.token,
             imageUrl:data.user.imageUrl,
+            eventsAttending: data.user.eventsAttending
         });
     } catch (error) {
         console.log(error);
@@ -257,4 +261,18 @@ setImageUrl(data.user.imageUrl)
 
 }
 
+export const fetchSingleEvent = async (eventId, setUserEvents, user) => {
+    try {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}event/${eventId}`,{
+            method: 'GET',
+            headers: {"Content-Type": "application/json"}
+        })
+        const data = await response.json();
+        console.log(user)
+        console.log(`fetch single event:`, data, eventId)
+        setUserEvents((prev)=> [...prev, data.event]) 
+    } catch (error) {
+        console.log(error)
+    }
 
+}

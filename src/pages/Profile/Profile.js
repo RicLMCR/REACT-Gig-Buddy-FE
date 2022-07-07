@@ -2,14 +2,26 @@ import React from 'react';
 import { ProfileImageUploader } from '../../components/profileImageUploader/profileImageUploader';
 // import '../index.css'
 import './profile.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Avatar } from '@mui/material';
 import { addPicture } from '../../utils/fetchReq';
+import { fetchSingleEvent } from '../../utils/fetchReq';
+
 
 
 const Profile = ({ user}) => {
 const [imageUrl, setImageUrl]= useState ("")
+const [userEvents, setUserEvents] = useState([]);
 
+useEffect(() => {
+    (async() => { 
+        for(let eventId in user.eventsAttending) {
+            await fetchSingleEvent(eventId, setUserEvents)
+        }
+    })()
+},[])
+
+console.log(user)
 
 
 
@@ -55,17 +67,18 @@ return (
             <div className='mygigs-div'>
                 <h2 className='mygigs-header'>My Gigs</h2>
                 <div className="gig-images">
+                {/* <img className="mygig-image" src="https://www.fillmurray.com/194/194" alt="gig" />
                 <img className="mygig-image" src="https://www.fillmurray.com/194/194" alt="gig" />
                 <img className="mygig-image" src="https://www.fillmurray.com/194/194" alt="gig" />
                 <img className="mygig-image" src="https://www.fillmurray.com/194/194" alt="gig" />
-                <img className="mygig-image" src="https://www.fillmurray.com/194/194" alt="gig" />
-                <img className="mygig-image" src="https://www.fillmurray.com/194/194" alt="gig" />
-                <div className='gig-friend-image-group'>
+                <img className="mygig-image" src="https://www.fillmurray.com/194/194" alt="gig" /> */}
+                {user.eventsAttending.map((item,index) => (<p key={index}>{item}</p>))}
+                {/* <div className='gig-friend-image-group'>
                 <img className='gig-friend-image' src="https://www.fillmurray.com/36/36" alt="friend" />
                 <img className='gig-friend-image' src="https://www.fillmurray.com/36/36" alt="friend" />
                 <img className='gig-friend-image' src="https://www.fillmurray.com/36/36" alt="friend" />
                 <img className='gig-friend-image' src="https://www.fillmurray.com/36/36" alt="friend" />
-                </div>
+                </div> */}
                 <p className='see-more-text'>See more...</p>
                 </div>
             </div>

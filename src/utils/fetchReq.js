@@ -218,6 +218,7 @@ const response = await fetch(`${process.env.REACT_APP_REST_API}buddy/request`,{
 
 //fetch list iof people that have liked you
 export const fetchCheckLikes = async (username, SetProfileThumbs)=>{
+    console.log("fetchCheckLikes username is:", username)
     try {
     const response = await fetch(`${process.env.REACT_APP_REST_API}profile/${username}`,{
         method: 'GET',
@@ -225,6 +226,7 @@ export const fetchCheckLikes = async (username, SetProfileThumbs)=>{
     })
     const data = await response.json();
     console.log("fetchCheckLikes are:", data)
+    // SetProfileThumbs(data);//image here
     return data;
     } catch (error) {
         console.log(error)

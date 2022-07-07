@@ -9,7 +9,6 @@ import {
 import { AiOutlineLike } from "react-icons/ai";
 import { AiOutlineDislike } from "react-icons/ai";
 import { EventIdPass } from "../../utils/EventIDPass";
-
 import { green } from "@mui/material/colors";
 
 export const BuddySwipe = ({ user, allUsers }) => {

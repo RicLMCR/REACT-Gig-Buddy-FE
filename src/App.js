@@ -18,6 +18,7 @@ import { PopularEvents } from './components/popularEvents/popularEvents';
 import { findAllUsers } from './utils/fetchReq';
 import ReactDOM from "react-dom/client";
 import {EventIdPass} from './utils/EventIDPass';
+import { BuddyList } from './components/buddyList/BuddyList';
 
 function App() {
   
@@ -60,9 +61,13 @@ const [eventId, setEventId] = useState ("")
     <div className="App">
 
     <EventIdPass.Provider value={eventId}>
+
+      <BuddyList user={user} setUser={setUser} />
+
    {user.token ?
    <>
    <Navbar imageUrl={imageUrl} displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData}  user={user} />
+
     <Routes>
         <Route path="/" element={<PopularEvents setDisplayEvent={setDisplayEvent} setValue={setValue} trendingEvents={trendingEvents}/>} />
         <Route path="/messages" element={ <Messages />}  />

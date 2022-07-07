@@ -19,6 +19,7 @@ const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData, setUse
         setUser({
             username:"",
             token:"",
+            
     });
     }
 

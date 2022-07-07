@@ -27,7 +27,8 @@ const [displayEvent, setDisplayEvent] =useState ([])
 const [user, setUser]=useState({
   username:"",
   token:"",
-  imageUrl:""
+  imageUrl:"",
+  eventsAttending:[]
 });
 
 const [eventId, setEventId] = useState ("")
@@ -38,7 +39,7 @@ const [eventId, setEventId] = useState ("")
   useEffect (() => {
     fetchEvents(setApiData)
     trendingEvent(setTrendingEvents)
-   console.log("eventai", apiData.id)
+   console.log("eventai", user.eventsAttending)
     
   }, [])
 
@@ -54,7 +55,7 @@ const [eventId, setEventId] = useState ("")
     <Routes>
         <Route path="/" element={<PopularEvents setDisplayEvent={setDisplayEvent} setValue={setValue} trendingEvents={trendingEvents}/>} />
         <Route path="/messages" element={ <Messages />}  />
-        <Route path="/profile" element={ <Profile user={user} />}  />
+        <Route path="/profile" element={ <Profile user={user} trendingEvents={trendingEvents} apiData={apiData}/>}  />
 
         <Route path="/event" element={ <EventList setEventId={setEventId} eventId={eventId} displayEvent={displayEvent} user={user} />}  />
         <Route path="/buddySwipe" element={ <BuddySwipe user={user} setEventId={setEventId} eventId={eventId} />} />

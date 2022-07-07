@@ -23,63 +23,41 @@ console.log("user image",user.imageUrl)
   };
   return (
     <>
-      <div className="profile-page-container">
-        <section className="profile-page-top">
-          <div className="profile-picture-div">
-            <Avatar
-              alt="Profile"
-              src={imageUrl ? imageUrl : user.imageUrl }
-              sx={{ width: 200, height: 200 }}
-            />
+
+   
+    <div className='profile-page-container'>
+        <div></div>
+        <section className='profile-page-top'>
+            <div className='profile-picture-div'>
+            <Avatar className="avatar-box" alt="Profile" src={user.imageUrl} sx={{ width: 250, height: 250 }} />
             <form onSubmit={submitHandlerLogin}>
-              <input
-                type="text"
-                placeholder="Upload image url"
-                onChange={(e) => setImageUrl(e.target.value)}
-                name="profileImage"
-              />
-              <button type="Submit">Submit</button>
-            </form>
-          </div>
-          <div className="profile-buddies">
-            <h2 className="buddies-header">Buddies</h2>
-            <div className="buddy-images">
-              <img
-                className="buddy-image"
-                src="https://www.fillmurray.com/136/136"
-                alt="buddy1"
-              />
-              <img
-                className="buddy-image"
-                src="https://www.fillmurray.com/136/136"
-                alt="buddy2"
-              />
-              <img
-                className="buddy-image"
-                src="https://www.fillmurray.com/136/136"
-                alt="buddy3"
-              />
-              <img
-                className="buddy-image"
-                src="https://www.fillmurray.com/136/136"
-                alt="buddy4"
-              />
-              <p className="see-more-text">See more...</p>
+    <input className="image-upload-box" type="text" placeholder="Upload image url" onChange={(e)=>setImageUrl(e.target.value)} name='profileImage' />
+    <button   className="submit-btn"type="Submit"  >Submit</button>
+  
+    </form>
+            </div>
+            <div className='profile-buddies'>             
+                <div className='buddy-images'>
+                <h2 className='buddies-header'>Buddies</h2>
+                    <img className='buddy-image' src='https://www.fillmurray.com/136/136' alt='buddy1' />
+                    <img className='buddy-image' src='https://www.fillmurray.com/136/136' alt='buddy2' />
+                    <img className='buddy-image' src='https://www.fillmurray.com/136/136' alt='buddy3' />
+                    <img className='buddy-image' src='https://www.fillmurray.com/136/136' alt='buddy4' />
+                    <p className='see-more-text'>See more...</p>
+               
             </div>
           </div>
         </section>
         <section className="profile-page-bottom">
-          <div className="profile-bio">
-            <h2 className="bio-header">Profile</h2>
-            <div className="bio-container">
-              <p className="bio-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Adipisci est dolor temporibus quos minima, sed consequatur!
-                Accusantium facere, labore ipsam, quas voluptates sit provident
-                minima expedita sapiente hic consequuntur voluptatem.
-              </p>
+
+            <div className='profile-bio'>
+
+                <div className='bio-container'>
+                    <h2>Profile</h2>
+                    <p className='bio-text'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci est dolor temporibus quos minima, sed consequatur! Accusantium facere, labore ipsam, quas voluptates sit provident minima expedita sapiente hic consequuntur voluptatem.</p>
+                </div>
             </div>
-          </div>
+         
           <div className="mygigs-div">
             <h2 className="mygigs-header">My Gigs</h2>
             <div className="my-gigs-images">

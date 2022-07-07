@@ -116,7 +116,7 @@ export const BuddySwipe = ({ user, allUsers , trendingEvents, imageUrl}) => {
                   <div className="like"> <AiOutlineLike size={35} color="green" />
                   </div>
                 </button>
-                 <img  className="empty-profile-image"  key={index} src={imageUrl ? imageUrl : user.imageUrl} alt="profile picture" />
+                 <img  className="empty-profile-image"  key={index} src={imageUrl ? imageUrl : item.imageUrl} alt="profile picture" />
 
                 
                 <div className="low-profile">

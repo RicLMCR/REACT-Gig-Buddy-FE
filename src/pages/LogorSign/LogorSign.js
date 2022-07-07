@@ -35,45 +35,46 @@ export const LogOrSign = ({user, setUser}) => {
             
                 { logSwitch ?
         <div className="bg-image">
+            {/* <h1 className="gigbuddy-logorsign-title">Gig Buddy</h1> */}
+            <div className="content-flex">
+            <div className="form-container">
             <h1 className="gigbuddy-logorsign-title">Gig Buddy</h1>
-            <section className="description-container top-container-left">
-                <h2 className="page-description">People going to gigs, but do not have friends with similar music taste and therefore have to go alone,</h2>
-                </section>
-                <section className="description-container bottom-container-right">
-                <h2 className="page-description">or people who were planning on going with someone else to a gig, but dropped out at the last minute.</h2>
-                </section>
-            <div className="formContainer">
                 <form className="login-form" onSubmit={submitHandlerLogin}>
                     <h1 className="text">Log In</h1>
                     <input type="text" className="logorsign-input" placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
                     <input type="password" className = "logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>                  
                     <button className="form-btn">Submit</button>
-                    <h3 className="smallText">Don't have an account?</h3>
+                    <h3 className="small-text">Don't have an account?</h3>
                     <button className = "form-btn" onClick={(e)=>{setlogSwitch()}}>Sign Up</button>
                 </form>
+                </div>
+                    <div className="description-container">
+                        <h2 className="page-description">People going to gigs, but do not have friends with similar music taste and therefore have to go alone,</h2>
+                        <h2 className="page-description">or people who were planning on going with someone else to a gig, but dropped out at the last minute.</h2>
+                    </div>
                 </div>
             </div>
                 :
             <div className="bg-image">
+                {/* <h1 className="gigbuddy-logorsign-title">Gig Buddy</h1> */}
+                <div className="content-flex">
+                <section className="form-container">
                 <h1 className="gigbuddy-logorsign-title">Gig Buddy</h1>
-                <section className="description-container">
-                    <h2 className="page-description">People going to gigs, but do not have friends with similar music taste and therefore have to go alone,</h2>
-                </section>
-                <section className="description-container bottom-container-right">
-                    <h2 className="page-description">or people who were planning on going with someone else to a gig, but dropped out at the last minute.</h2>
-                </section>
-                <div className="formContainer">
-                <h3 className="find-buddy-text">Find your Gig Buddy</h3>
-                <form className="login-form" onSubmit={submitHandlerCreate}>
-                    <h1 className="text">Create Profile</h1>
+                <form className="login-form" onSubmit={submitHandlerLogin}>
+                    <h1 className="find-buddy-text">Find your Gig Buddy</h1>
+                    <h1 className="text">Create Account</h1>
                     <input type="text" className="logorsign-input" placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
-                    <input type="email" className="logorsign-input" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
-                    <input type="password" className="logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
-                    <button className="form-btn" type="submit">Submit</button>
-                
-                        <h3 className="smallText">Already have an account?</h3>                
-                        <button className = "form-btn"onClick={(e)=>{setlogSwitch(true)}}>Log In</button>
+                    <input type="password" className = "logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>                  
+                    <button className="form-btn">Submit</button>
+                    <h3 className="small-text">Already have an account?</h3>
+                    <button className = "form-btn" onClick={(e)=>{setlogSwitch(true)}}>Sign Up</button>
                 </form>
+                </section>
+
+                    <div className="description-container">
+                        <h2 className="page-description">People going to gigs, but do not have friends with similar music taste and therefore have to go alone,</h2>
+                        <h2 className="page-description">or people who were planning on going with someone else to a gig, but dropped out at the last minute.</h2>
+                    </div>
                 </div>
             </div>
                 } 

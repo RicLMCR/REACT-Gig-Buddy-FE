@@ -45,7 +45,7 @@ return(
  
  <div>
     <div className="date-time"> {`${item.date} Doors open: ${item.openingtimes.doorsopen}`}</div>
-    <div className="big-image-event-name">{item.eventname}</div>
+    <div className="big-image-event-name"><p>{item.eventname}</p></div>
 </div>
 <button  onClick={() => onSearch(item.eventname, item)} className="pop-events-btn"><AiOutlineArrowRight size={20} color="white"/></button>
  </div>

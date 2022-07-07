@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 50px;
 }
 
 .pop-events{
@@ -30,11 +30,11 @@
 .pop-events-big-image img {
     height: 500px;
 }
+
 .pop-events-small-image{
     height: 100px;
     display: flex;
     flex-direction: row;
-    
 }
 .small-image-list-flex{
     display: flex;
@@ -58,12 +58,12 @@
 
 .pop-events-big-image-description{
     padding: 5px;
-    height: 50px;
-    width: 230px;
+    height: 70px;
+    width: 260px;
     background-color: rgba(255, 255, 255, 0.831);
     position: relative;
     margin: auto;
-    margin-top: -60px;
+    margin-top: -80px;
     display: flex;
     justify-content: space-between;
     line-height: 14px;
@@ -77,6 +77,7 @@
 
 .big-image-event-name{
     font-size: 25px;
+    line-height: .8;
     text-overflow: ellipsis;
 }
 
@@ -98,7 +99,7 @@
 .event-buttons{
     display: flex;
     gap: 10px;
-    margin: 20px auto;
+    margin: 30px auto;
 }
 
 .pop-events-btn-small{

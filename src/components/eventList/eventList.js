@@ -20,7 +20,7 @@ createEvent(item, user.username);
 fetchAttendees(item);
 navigate("/buddySwipe")
 setEventId(item);
-console.log("add event AAAAAAAAAA:", item)
+console.log("eventlist eventid is:", item)
 }
 
 return ( 

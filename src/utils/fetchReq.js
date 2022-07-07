@@ -278,3 +278,39 @@ export const findAllUsers = async (setAllUsers)=>{
 }
 
 
+export const fetchSingleUser = async (username)=>{
+    //username, image, bio
+    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!", username)
+    try {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}profile/${username}`,{
+            method: 'GET',
+            headers: {"Content-Type": "application/json"}
+        })
+        const data = await response.json();
+        console.log("data", data)
+        return data;
+    } catch (error){
+        console.log(error);
+    }
+}
+
+export const fetchConfirmBuddy = async (username, buddyname)=>{
+    console.log("CONFRIM BUDDY!!!!", username)
+    try {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}confirmBuddies`,{//profile/${username}
+            method: 'PUT',
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                username: username,
+                buddyname:buddyname
+            }),
+
+        })
+        const data = await response.json();
+        console.log("confirm buddy data", data)
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
+
+}

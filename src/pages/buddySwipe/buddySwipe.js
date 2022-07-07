@@ -85,18 +85,18 @@ export const BuddySwipe=({user})=> {
 
     try {
         return (
-            <div className="buddySwipeWrap">
+            <div className="buddy-swipe-wrap">
                 {/* <EventList eventId={eventId} /> */}
                 <h1>Event Id Pass is: {eventIdGen}</h1>
-                <button className="swipeButton" onClick={(e)=>swipeLeftOnBuddy(e)}>No</button>
+                <button className="swipe-button" onClick={(e)=>swipeLeftOnBuddy(e)}>No</button>
                 {attendeeProfile[numCount] ? 
-                <div className="buddyProfile">
+                <div className="buddy-profile">
                     <h1>{attendeeProfile[numCount].profile.username}</h1>
                 </div> : 
-                <div className="buddyProfile">
+                <div className="buddy-profile">
                     <h1>No More Profiles!</h1>
                 </div>}
-                <button className="swipeButton" onClick={(e)=>{swipeRightOnBuddy([attendeeProfile[numCount]])}}>Yes</button>
+                <button className="swipe-button" onClick={(e)=>{swipeRightOnBuddy([attendeeProfile[numCount]])}}>Yes</button>
             </div>
         );
         } catch (error) {

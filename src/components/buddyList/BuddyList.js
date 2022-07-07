@@ -2,11 +2,14 @@ import { useState, useEffect } from "react";
 import React from 'react';
 import { fetchCheckLikes, fetchSingleUser, fetchConfirmBuddy } from '../../utils/fetchReq';
 import { display } from "@mui/system";
+import { MdThumbUpOffAlt } from "react-icons/md";
 
 export const BuddyList = ({user})=>{
     const [profileThumbs, setProfileThumbs] = useState([]);
 
     const [switchTrue, setSwitchTrue]= useState(false);
+
+    const [buddyPrompt, setBuddyPrompt]=useState()
 
     const notificationSwitch = (e)=>{
         setSwitchTrue(true);
@@ -38,7 +41,8 @@ export const BuddyList = ({user})=>{
         console.log("handshake", username)
         //fetch request to both users to confirm they are buddies
         const confirmedBuddy = fetchConfirmBuddy(username, buddyname)
-        console.log(`Congrats  ${buddyname}  and you are now Gig Buddies!`)
+        const buddyPrompt = (`Congrats  ${buddyname}  and you are now Gig Buddies!`)
+        console.log(buddyPrompt)
     }
 
 

@@ -8,15 +8,12 @@
     background-position: center;
     max-width: 1600px;
 min-height: 750px;
-
-
-
-    
 }
 
 .content-flex {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     height: 100vh;
 }
 
@@ -122,12 +119,10 @@ min-height: 750px;
 
 .small-text {
     font-size: 16px;
-    margin-top: 100px;
+    margin-top: 30px;
     font-family: 'Roboto', sans-serif;
+    color: white;
 }
-
-
-
 
 .bottom-container-right {
     color: #f2f2f2;
@@ -135,7 +130,8 @@ min-height: 750px;
 }
 
 .page-description {
-    font-size: 4em;
+    font-size: 6em;
+    font-weight: 900;
 
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bolder;
@@ -149,4 +145,7 @@ min-height: 750px;
 
 .text{
     font-family: 'Roboto', sans-serif;
+    color: white;
 }
+
+

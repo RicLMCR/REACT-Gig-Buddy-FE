@@ -52,12 +52,13 @@ export const logInUser = async (username, password, setUser, user)=>{
         });
         const data = await res.json();
         console.log("user", username, "logged in", data.user.username);
-        console.log( "user da",data)
+        console.log( "user data",data)
         await setUser({
             ...user,
             username: data.user.username,
             token:data.token,
             imageUrl:data.user.imageUrl,
+            eventsAttending:data.user.eventsAttending,
         });
     } catch (error) {
         console.log(error);
@@ -221,7 +222,11 @@ export const fetchCheckLikes = async (username)=>{
         headers: {"Content-Type": "application/json"}
     })
     const data = await response.json();
+
+    
+
     console.log("fetchCheckLikes:", data)
+
     return data;
     
     try {

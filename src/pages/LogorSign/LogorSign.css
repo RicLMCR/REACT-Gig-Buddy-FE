@@ -2,11 +2,10 @@
 
 
 .bg-image {
-    justify-content: space-between;
     background-image: url(./images/bg-image-logorsign.jpg);
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    height: 100%;
 }
 
 .content-flex {
@@ -25,9 +24,9 @@
     display: flex;
     flex-direction: column;
     row-gap: 12em;
-    align-items: center;
+    height: 100vh;
     background: #ffffff8b;
-    padding: 45px 180px;
+    padding: 45px 180px 0 180px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     border-radius: 10px;
 }
@@ -84,7 +83,7 @@
 .description-container {
     max-width: 50%;
     color: #f2f2f2;
-    height: 100vh;
+    height: 100%;
     margin-top: 100px;
 }
 
@@ -95,6 +94,7 @@
 }
 
 .page-description {
-    font-size: 5em;
+    font-size: 4em;
     margin-bottom: 41px;
+    font-family: "Roboto", sans-serif;
 }

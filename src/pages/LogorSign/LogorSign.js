@@ -64,6 +64,7 @@ export const LogOrSign = ({user, setUser}) => {
                     <h1 className="find-buddy-text">Find your Gig Buddy</h1>
                     <h1 className="text">Create Account</h1>
                     <input type="text" className="logorsign-input" placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
+                    <input type="emil" className = "logorsign-input" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
                     <input type="password" className = "logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>                  
                     <button className="form-btn">Submit</button>
                     <h3 className="small-text">Already have an account?</h3>

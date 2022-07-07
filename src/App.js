@@ -30,7 +30,8 @@ const [user, setUser]=useState({
   username:"",
   token:"",
   imageUrl:"",
-  eventsAttending:[]
+  eventsAttending:[],
+  buddyRequests: []
 });
 console.log("App: user is:", user)
 

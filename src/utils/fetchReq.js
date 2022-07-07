@@ -59,6 +59,7 @@ export const logInUser = async (username, password, setUser, user)=>{
             token:data.token,
             imageUrl:data.user.imageUrl,
             eventsAttending:data.user.eventsAttending,
+            buddyRequests: data.user.buddyRequests
         });
     } catch (error) {
         console.log(error);

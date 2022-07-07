@@ -249,12 +249,29 @@ const response = await fetch(`${process.env.REACT_APP_REST_API}picture`,{
         })
         const data = await response.json();
         console.log( "message", data.user.imageUrl)
-setImageUrl(data.user.imageUrl)
+ setImageUrl(data.user.imageUrl)
     } catch (error) {
         console.log(error)
     }
 
 }
 
+
+export const findAllUsers = async (setAllUsers)=>{
+    //username, image, bio
+    // console.log("!!!!!!!!!!!!!!!!!!!!!!!!!", username)
+    try {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}allusers`,{
+            method: 'GET',
+            headers: {"Content-Type": "application/json"}
+        })
+        const data = await response.json();
+        setAllUsers(data)
+        console.log("data", data)
+        return data;
+    } catch (error){
+        console.log(error);
+    }
+}
 
 

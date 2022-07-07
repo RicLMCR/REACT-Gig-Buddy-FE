@@ -1,37 +1,98 @@
-.buddySwipeWrap {
+.buddy-swipe-wrap {
     
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
+   margin-top:300px;
     width: 300px;
     height: 500px;
-    border: 1px solid black;
+    
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+   
 }
 
+
 .buddyProfile{
+  
+   
+
+
     position: absolute;
     z-index: -1;
+
     display:flex;
     justify-content: center;
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.885);
     
 }
 
-img{
-    object-fit: cover;
-}
 
-.swipeButton {
+
+
+.swipeButtonLeft {
     position: relative;
     z-index: 1;
     width: 150px;
-    border:1px solid red;
-    background-color: rgba(247, 0, 0, 0.224)  ;
+    border: none;
+    background-color: rgba(247, 0, 0, 0.007)  ;
     transition: color .5s;
+    height: 500px;
+    top: -502px;
+    
 }
 
-.swipeButton:active{
+
+.swipeButtonRight {
+    position: relative;
+    z-index: 1;
+    width: 150px;
+    border: none;
+    background-color: rgba(247, 0, 0, 0.007)  ;
+    transition: color .5s;
+    height: 500px;
+    top: -502px;
+    
+}
+
+
+/* .swipeButtonRight:hover {
+    transition: all 0.4s;
+    background-color: rgba(0, 128, 0, 0.14);
+}
+.swipeButtonLeft:hover  {
+    transition: all 0.5s;
+    background-color: rgba(234, 29, 11, 0.14);
+} */
+
+
+
+.swipe-button:active{
+
     background-color: rgb(255, 255, 255);
 }
+
+.allUsersImage{
+height: 500px;
+width: 300px;
+    color: blue;
+    font-size: 32px;
+    border-radius: 15px;
+  
+    
+}
+
+.like{
+    opacity: 0.5;
+    width: 45px;
+    height: 39px;
+    background-color: rgba(255, 255, 255, 0.729);
+    border-radius: 8px;
+    margin: auto;
+}
+
+.like:hover{
+    transition: all 0.5s;
+    transform: scale(1.3);
+    opacity: 1;
+}
+

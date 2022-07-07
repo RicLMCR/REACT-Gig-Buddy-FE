@@ -34,33 +34,35 @@ export const LogOrSign = ({user, setUser}) => {
            
             <div className="body">
                 { logSwitch ? 
-                <div className="formContainer">
+                <div className="form-container">
                <form className="login-form" onSubmit={submitHandlerLogin}>
                     <h1 className="text">Log In</h1>
                     <input type="text" className="logorsign-input" placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
                     <input type="password" className = "logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>                  
-                    <button className="loginButton">Submit</button>
+                    <button className="login-button">Submit</button>
                     <h3 className="smallText">Don't have an account?</h3>
-                    <button className = "loginButton" onClick={(e)=>{setlogSwitch()}}>Sign Up</button>
+                    <button className = "login-button" onClick={(e)=>{setlogSwitch()}}>Sign Up</button>
                    
                 </form>
                 </div>
                 :
-                <div className="formContainer">
+                <div className="form-container">
                 <form className="login-form" onSubmit={submitHandlerCreate}>
                     <h1 className="text">Create Profile</h1>
                     <input type="text" className="logorsign-input" placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
                     <input type="email" className="logorsign-input" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
                     <input type="password" className="logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
-                    <button className="loginButton" type="submit">Submit</button>
+                    <button className="login-button" type="submit">Submit</button>
                    
                         <h3 className="smallText">Already have an account?</h3>                
-                        <button className = "switchButton"onClick={(e)=>{setlogSwitch(true)}}>Log In</button>
+                        <button className = "switch-button"onClick={(e)=>{setlogSwitch(true)}}>Log In</button>
                        
                   
                 </form>
                 </div>
                 }
+
+                
             </div> </>
         )
     } catch (error){ 

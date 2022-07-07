@@ -10,7 +10,12 @@ import { SearchBar } from '../search/search';
 import ReactDOM from "react-dom/client";
 import { BuddyList } from '../buddyList/BuddyList';
 
-const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData, setUser, user}) => {
+
+
+
+
+const Navbar = ({ imageUrl,displayEvent, setDisplayEvent, value, setValue, apiData, setUser, user}) => {
+
 
     const submitHandler = (e)=>{
         e.preventDefault();
@@ -33,7 +38,7 @@ const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData, setUse
                 {/* Calling the message icon from React icons */}
                 <li><Link to="/messages"><MdMessage size={40} className='message-icon' color='white' /></Link></li>
                 {/* Placeholder image that will be the user profile picture */}
-                <li><Link to="/profile"><img src={user.imageUrl}  className='nav-profile-pic' alt='Murray' /></Link></li>
+                <li><Link to="/profile"><img src={imageUrl ? imageUrl : user.imageUrl }  className='nav-profile-pic' alt='Murray' /></Link></li>
                 <li>Link to drop down list showing people who like you</li>
             </ul>
             <button className='logout-btn' onClick={(e)=>submitHandler(e)}>Log Out</button>

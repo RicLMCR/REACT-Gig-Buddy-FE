@@ -15,7 +15,7 @@ import {fetchEvents, fetchArtist, trendingEvent, fetchAttendees, createUser} fro
 import Messages from './pages/Messages';
 import Profile from './pages/Profile/Profile';
 import { PopularEvents } from './components/popularEvents/popularEvents';
-
+import { findAllUsers } from './utils/fetchReq';
 import ReactDOM from "react-dom/client";
 import {EventIdPass} from './utils/EventIDPass';
 import { BuddyList } from './components/buddyList/BuddyList';
@@ -26,7 +26,7 @@ function App() {
  const [apiData, setApiData] = useState([])
  const [trendingEvents, setTrendingEvents] = useState([])
 const [displayEvent, setDisplayEvent] =useState ([])
-
+const [allUsers, setAllUsers] = useState([])
 const [user, setUser]=useState({
   username:"",
   token:"",
@@ -34,18 +34,19 @@ const [user, setUser]=useState({
   eventsAttending:[],
   buddyRequests: []
 });
-console.log("App: user is:", user)
+
+const [imageUrl, setImageUrl] = useState("");
 
 const [eventId, setEventId] = useState ("")
-console.log("App: EventId is:", eventId)
+
 // const [eventIdPass, setEventIdPass]=useState()
 
 
   useEffect (() => {
     fetchEvents(setApiData)
     trendingEvent(setTrendingEvents)
-
-   console.log("eventai", apiData.id)
+    findAllUsers(setAllUsers)
+   console.log("all users", allUsers)
 
 //    setEventIdPass(eventId)
 // console.log("App: EventIdPass is:", eventIdPass)
@@ -60,16 +61,20 @@ console.log("App: EventId is:", eventId)
     <div className="App">
 
     <EventIdPass.Provider value={eventId}>
+
       <BuddyList user={user} setUser={setUser} />
-   {user.token ?<>
-   <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData}  user={user} />
+
+   {user.token ?
+   <>
+   <Navbar imageUrl={imageUrl} displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData}  user={user} />
+
     <Routes>
         <Route path="/" element={<PopularEvents setDisplayEvent={setDisplayEvent} setValue={setValue} trendingEvents={trendingEvents}/>} />
         <Route path="/messages" element={ <Messages />}  />
-        <Route path="/profile" element={ <Profile user={user} trendingEvents={trendingEvents} apiData={apiData}/>}  />
+        <Route path="/profile" element={ <Profile imageUrl={imageUrl} setImageUrl={setImageUrl} user={user} trendingEvents={trendingEvents} apiData={apiData}/>}  />
 
         <Route path="/event" element={ <EventList setEventId={setEventId} eventId={eventId} displayEvent={displayEvent} user={user} />}  />
-        <Route path="/buddySwipe" element={ <BuddySwipe user={user}  />} />
+        <Route path="/buddySwipe" element={ <BuddySwipe user={user}  allUsers={allUsers} />} />
         {/* setEventId={setEventId} eventId={eventId} */}
         <Route path="/popular" element={ <PopularEvents setDisplayEvent={setDisplayEvent} setValue={setValue} trendingEvents={trendingEvents}/>} />
       

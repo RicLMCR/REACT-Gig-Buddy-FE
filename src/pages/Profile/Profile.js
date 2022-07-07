@@ -44,7 +44,7 @@ console.log("user image",user.imageUrl)
                     <img className='buddy-image' src='https://www.fillmurray.com/136/136' alt='buddy3' />
                     <img className='buddy-image' src='https://www.fillmurray.com/136/136' alt='buddy4' />
                     <p className='see-more-text'>See more...</p>
-                </div>
+               
             </div>
           </div>
         </section>
@@ -57,7 +57,7 @@ console.log("user image",user.imageUrl)
                     <p className='bio-text'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci est dolor temporibus quos minima, sed consequatur! Accusantium facere, labore ipsam, quas voluptates sit provident minima expedita sapiente hic consequuntur voluptatem.</p>
                 </div>
             </div>
-          </div>
+         
           <div className="mygigs-div">
             <h2 className="mygigs-header">My Gigs</h2>
             <div className="my-gigs-images">

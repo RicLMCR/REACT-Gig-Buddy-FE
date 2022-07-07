@@ -127,3 +127,7 @@
     .bio-text {
 
     }
+
+    .pop-events-big-image img {
+        border-radius: 20px;
+    }

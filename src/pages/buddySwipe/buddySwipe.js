@@ -1,18 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import React from 'react';
 import './buddySwipe.css';
 import { fetchAttendeeProfile, fetchAttendees, fetchSwipeRight } from '../../utils/fetchReq';
-import { EventList } from "../../components/eventList/eventList";
 
-export const BuddySwipe=({user, eventId})=> {
+import { EventIdPass } from "../../utils/EventIDPass";
 
-    const [profileObject, setMyProfileObject]=useState({});
+export const BuddySwipe=({user})=> {
+    const eventIdGen = useContext(EventIdPass);
+    console.log(eventIdGen)
 
     const [attendees, setAttendees]=useState([]);
-
     const [attendeeProfile, setAttendeeProfile]=useState([]);
-
-    // const [eventID, setEventID]=useState();
 
      //increment value for counter
      const [numCount, setNumCount]=useState(0);
@@ -20,11 +18,15 @@ export const BuddySwipe=({user, eventId})=> {
     //load attendee array and trigger fetch requests to pull back user profiles
      useEffect (() => {
         (async()=>{
-           const data = await fetchAttendees(eventId, setAttendees);
+           const data = await fetchAttendees(eventIdGen, setAttendees);//****************** */
            console.log("!!!!!", data)
-           console.log("eventsssssssss",eventId)
+           console.log("buddySwipe: eventId is",eventIdGen)//****************************** ,eventId*/
+           if (data.event.attendees == ""){
+            data.event.attendees = ["0"];
+            console.log("buddyswipe: returned data is null");
+           } else {
            setAttendees(()=>[...data.event.attendees]);
-
+        }
            const attendeeProfilesArr = [];
 
            for (let i =0; i < data.event.attendees.length; i++){
@@ -33,7 +35,7 @@ export const BuddySwipe=({user, eventId})=> {
             setAttendeeProfile((prev)=>[...prev, profile]);
            }
            setAttendeeProfile([...attendeeProfilesArr]);
-           console.log("attendee profile is;", attendeeProfile);
+           console.log("buddy swipe: attendee profile is;", attendeeProfile);
         })();
       },[])
 
@@ -44,7 +46,7 @@ export const BuddySwipe=({user, eventId})=> {
         
         setNumCount(numCount+1);
         fetchSwipeRight(attendeeProfile, {user}, "myimageurl")//*********** */
-        // console.log("buddySwipe>fetchSwipeRight",attendeeProfile[numCount], {user} )
+        console.log("buddySwipe>fetchSwipeRight",attendeeProfile[numCount].username, {user} )
         // console.log("Add to potential likes")
         if (numCount => attendees.length+1){
             console.log("No more attendees")
@@ -76,8 +78,7 @@ export const BuddySwipe=({user, eventId})=> {
         console.log("No more attendees")   
         }
         const myProfileObject = {username:"richard", imageUrl:"notsureyet"}
-        setMyProfileObject(myProfileObject)
-        // fetchSwipeRight(attendees[numCount], 1, myProfileObject)
+
     }
 
 
@@ -85,7 +86,8 @@ export const BuddySwipe=({user, eventId})=> {
     try {
         return (
             <div className="buddySwipeWrap">
-                {/* <EventList eventID={eventID} /> */}
+                {/* <EventList eventId={eventId} /> */}
+                <h1>Event Id Pass is: {eventIdGen}</h1>
                 <button className="swipeButton" onClick={(e)=>swipeLeftOnBuddy(e)}>No</button>
                 {attendeeProfile[numCount] ? 
                 <div className="buddyProfile">

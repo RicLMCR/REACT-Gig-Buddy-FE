@@ -9,7 +9,7 @@ import Navbar from './components/navbar/NavBar';
 import {SearchBar} from "./components/search/search" ;
 import {EventList} from "./components/eventList/eventList";
 
-import {fetchEvents, fetchArtist, trendingEvent, fetchAttendees} from "./utils/fetchReq"
+import {fetchEvents, fetchArtist, trendingEvent, fetchAttendees, createUser} from "./utils/fetchReq"
 
 
 import Messages from './pages/Messages';
@@ -17,6 +17,7 @@ import Profile from './pages/Profile/Profile';
 import { PopularEvents } from './components/popularEvents/popularEvents';
 
 import ReactDOM from "react-dom/client";
+import {EventIdPass} from './utils/EventIDPass';
 
 function App() {
   
@@ -24,13 +25,19 @@ function App() {
  const [apiData, setApiData] = useState([])
  const [trendingEvents, setTrendingEvents] = useState([])
 const [displayEvent, setDisplayEvent] =useState ([])
+
 const [user, setUser]=useState({
   username:"",
   token:"",
   imageUrl:""
 });
+console.log("App: user is:", user)
+
 
 const [eventId, setEventId] = useState ("")
+console.log("App: EventId is:", eventId)
+// const [eventIdPass, setEventIdPass]=useState()
+
 
 
 
@@ -39,6 +46,9 @@ const [eventId, setEventId] = useState ("")
     fetchEvents(setApiData)
     trendingEvent(setTrendingEvents)
    console.log("eventai", apiData.id)
+
+//    setEventIdPass(eventId)
+// console.log("App: EventIdPass is:", eventIdPass)
     
   }, [])
 
@@ -48,7 +58,7 @@ const [eventId, setEventId] = useState ("")
     
     <div className="App">
 
-    <>
+    <EventIdPass.Provider value={eventId}>
    {user.token ?<>
    <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData}  user={user} />
     <Routes>
@@ -57,7 +67,8 @@ const [eventId, setEventId] = useState ("")
         <Route path="/profile" element={ <Profile user={user} />}  />
 
         <Route path="/event" element={ <EventList setEventId={setEventId} eventId={eventId} displayEvent={displayEvent} user={user} />}  />
-        <Route path="/buddySwipe" element={ <BuddySwipe user={user} setEventId={setEventId} eventId={eventId} />} />
+        <Route path="/buddySwipe" element={ <BuddySwipe user={user}  />} />
+        {/* setEventId={setEventId} eventId={eventId} */}
         <Route path="/popular" element={ <PopularEvents setDisplayEvent={setDisplayEvent} setValue={setValue} trendingEvents={trendingEvents}/>} />
       
        </Routes>
@@ -67,7 +78,7 @@ const [eventId, setEventId] = useState ("")
    <LogOrSign user={user} setUser={setUser} />
      
        }
-    </>
+    </EventIdPass.Provider>
 
 
       </div>

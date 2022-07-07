@@ -1,10 +1,11 @@
-//create user fetch request setImageUrl, urlInput, imageUrl
-export const createUser = async (username, email, password, setUser, user )=>{
 
-    
+
+//create user fetch request 
+export const createUser = async (username, email, password, setUser, user )=>{//setImageUrl, urlInput, imageUrl
+
     console.log("fetch hit", username);
     try {
-        const res = await fetch(`${process.env.REACT_APP_REST_API}user`, {//Note: 'user' might not be needed
+        const res = await fetch(`${process.env.REACT_APP_REST_API}user`, {
             method:"POST",
             headers:{"Content-Type": "application/json"},
             body: JSON.stringify({
@@ -16,7 +17,6 @@ export const createUser = async (username, email, password, setUser, user )=>{
         });
         const data = await res.json();
         // console.log(data)
-        // console.log("set image url:", setImageUrl)
         console.log("setuser trigger", username)
         console.log("data is", data)
         await setUser({
@@ -52,12 +52,14 @@ export const logInUser = async (username, password, setUser, user)=>{
         });
         const data = await res.json();
         console.log("user", username, "logged in", data.user.username);
-        console.log( "user da",data)
+        console.log( "user data",data)
         await setUser({
             ...user,
             username: data.user.username,
             token:data.token,
             imageUrl:data.user.imageUrl,
+            eventsAttending:data.user.eventsAttending,
+            buddyRequests: data.user.buddyRequests
         });
     } catch (error) {
         console.log(error);
@@ -152,6 +154,7 @@ export const trendingEvent = async (setTrendingEvents) => {
      const res = await fetch("https://www.skiddle.com/api/v1/events/search/?api_key=9eca984fc063066727406327c285fb75&latitude=53.4839&longitude=-2.2446&radius=5&eventcode=LIVE&order=trending&description=1&limit=100");
      const data = await res.json();
         setTrendingEvents(data.results)
+        console.log(data.result)
     } catch (error) {
         console.log(error)
     }
@@ -168,7 +171,7 @@ export const trendingEvent = async (setTrendingEvents) => {
         const data = await response.json();
         console.log("Fetch request data is:",data);
         setAttendees(data.attendees);//
-        // console.log("fetch req, attendees are:", data.event.attendees)
+        console.log("fetch req, attendees are:", data.event.attendees)
         return data;
     } catch (error) {
         console.log(error);
@@ -215,42 +218,22 @@ const response = await fetch(`${process.env.REACT_APP_REST_API}buddy/request`,{
 }
 
 //fetch list iof people that have liked you
-export const fetchCheckLikes = async (username)=>{
+export const fetchCheckLikes = async (username, SetProfileThumbs)=>{
+    console.log("fetchCheckLikes username is:", username)
+    try {
     const response = await fetch(`${process.env.REACT_APP_REST_API}profile/${username}`,{
         method: 'GET',
         headers: {"Content-Type": "application/json"}
     })
     const data = await response.json();
-    console.log("AAAAAAAAAAAAAA", data)
+    console.log("fetchCheckLikes are:", data)
+    // SetProfileThumbs(data);//image here
     return data;
-    
-    try {
-        
     } catch (error) {
         console.log(error)
     }
-
 }
 
-
-
-//fetch list iof people that have liked you
-// export const fetchCheckLikes = async (username)=>{
-//     const response = await fetch(`${process.env.REACT_APP_REST_API}profile/${username}`,{
-//         method: 'GET',
-//         headers: {"Content-Type": "application/json"}
-//     })
-//     const data = await response.json();
-//     console.log("fetch req check like", data)
-//     return data;
-    
-//     try {
-        
-//     } catch (error) {
-//         console.log(error)
-//     }
-
-// }
 
 
 export const addPicture = async ( username, picture, setImageUrl) => {
@@ -269,12 +252,29 @@ const response = await fetch(`${process.env.REACT_APP_REST_API}picture`,{
         })
         const data = await response.json();
         console.log( "message", data.user.imageUrl)
-setImageUrl(data.user.imageUrl)
+ setImageUrl(data.user.imageUrl)
     } catch (error) {
         console.log(error)
     }
 
 }
 
+
+export const findAllUsers = async (setAllUsers)=>{
+    //username, image, bio
+    // console.log("!!!!!!!!!!!!!!!!!!!!!!!!!", username)
+    try {
+        const response = await fetch(`${process.env.REACT_APP_REST_API}allusers`,{
+            method: 'GET',
+            headers: {"Content-Type": "application/json"}
+        })
+        const data = await response.json();
+        setAllUsers(data)
+        console.log("data", data)
+        return data;
+    } catch (error){
+        console.log(error);
+    }
+}
 
 

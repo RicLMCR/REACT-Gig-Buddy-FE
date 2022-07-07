@@ -1,103 +1,152 @@
-import { useEffect, useState } from "react";
-import React from 'react';
-import './buddySwipe.css';
-import { fetchAttendeeProfile, fetchAttendees, fetchSwipeRight } from '../../utils/fetchReq';
-import { EventList } from "../../components/eventList/eventList";
+import { useContext, useEffect, useState } from "react";
+import React from "react";
+import "./buddySwipe.css";
+import {
+  fetchAttendeeProfile,
+  fetchAttendees,
+  fetchSwipeRight,
+} from "../../utils/fetchReq";
+import { AiOutlineLike } from "react-icons/ai";
+import { AiOutlineDislike } from "react-icons/ai";
+import { EventIdPass } from "../../utils/EventIDPass";
+import { green } from "@mui/material/colors";
+import emptyProfile from "./blank.png"
+export const BuddySwipe = ({ user, allUsers , trendingEvents, imageUrl}) => {
+  const eventIdGen = useContext(EventIdPass);
+  console.log(eventIdGen);
 
-export const BuddySwipe=({user})=> {
+  const [attendees, setAttendees] = useState([]);
+  const [attendeeProfile, setAttendeeProfile] = useState([]);
 
-    const [profileObject, setMyProfileObject]=useState({});
+  //increment value for counter
+  const [numCount, setNumCount] = useState(0);
 
-    const [attendees, setAttendees]=useState([]);
+  //load attendee array and trigger fetch requests to pull back user profiles
+  useEffect(() => {
+    (async () => {
+      const data = await fetchAttendees(eventIdGen, setAttendees); //****************** */
+      console.log("!!!!!", data);
+      console.log("buddySwipe: eventId is", eventIdGen); //****************************** ,eventId*/
+      if (data.event.attendees == "") {
+        data.event.attendees = ["0"];
+        console.log("buddyswipe: returned data is null");
+      } else {
+        setAttendees(() => [...data.event.attendees]);
+        console.log("attendeeprofile", attendeeProfile);
+      }
+      const attendeeProfilesArr = [];
 
-    const [attendeeProfile, setAttendeeProfile]=useState([]);
+      for (let i = 0; i < data.event.attendees.length; i++) {
+        const profile = await fetchAttendeeProfile(data.event.attendees[i]);
+        attendeeProfilesArr.push(profile);
+        setAttendeeProfile((prev) => [...prev, profile]);
+      }
+      setAttendeeProfile([...attendeeProfilesArr]);
+      console.log("buddy swipe: attendee profile is;", attendeeProfile);
+    })();
+  }, []);
 
-    // const [eventID, setEventID]=useState();
+  //on swipe right, displayed person is added to potential buddy list and increment counter increases by one
+  const swipeRightOnBuddy = (attendee) => {
+    setNumCount(numCount + 1);
+    fetchSwipeRight(attendeeProfile, { user }, "myimageurl"); //*********** */
+    console.log(
+      "buddySwipe>fetchSwipeRight",
+      attendeeProfile[numCount].username,
+      { user }
+    );
+    // console.log("Add to potential likes")
+    if ((numCount) => attendees.length + 1) {
+      console.log("No more attendees");
+      return;
+    }
+  };
 
-     //increment value for counter
-     const [numCount, setNumCount]=useState(0);
+  //OPTIONAL: trigger another fetchRequest to user table's 'liked counter' (PUT)
+  //OPTIONAL: add the value '1' to the value existing already
+  //send an array object with my user profile details to another column in table called 'users who liked me'(image, name, link to profile)
 
-    //load attendee array and trigger fetch requests to pull back user profiles
-     useEffect (() => {
-        (async()=>{
-           const data = await fetchAttendees(123456, setAttendees);
-           console.log("!!!!!", data)
-           setAttendees(()=>[...data.event.attendees]);
+  //fetch request on load of page (useEffect) to show counter of how many likes OR unread alerts that user has
+  //dropdown list showing profiles of users who have swiped right
+  //OPTIONAL: when one profile is selected further fetch request to 'liked counter' to remove '1' from the value and update the onscreen counter on return
+  //when a profile is selected, take the user back to the swipe buddy screen and load that profile up immediately - before any others are loaded OR load a new version of the swipe buddy screen that only shows users who have swiped right on you
+  //if the user swipes right then you are a match - how to do this?
+  //
+  //add 'buddy' to profile screen list
 
-           const attendeeProfilesArr = [];
+  //fetch request
 
-           for (let i =0; i < data.event.attendees.length; i++){
-            const profile = await fetchAttendeeProfile(data.event.attendees[i]);
-            attendeeProfilesArr.push(profile);
-            setAttendeeProfile((prev)=>[...prev, profile]);
-           }
-           setAttendeeProfile([...attendeeProfilesArr]);
-           console.log("attendee profile is;", attendeeProfile);
-        })();
-      },[])
+  //on swipe left, displayed person is removed from attendeeProfile list and incerement counter increases by one
+  const swipeLeftOnBuddy = (e) => {
+    e.preventDefault();
+    setNumCount(numCount + 1);
+    if ((numCount) => attendees.length + 1) {
+      console.log("No more attendees");
+    }
+  };
 
-
+  try {
+    return (
+      <div className="buddy-swipe-wrap">
+        <div>{trendingEvents.map((item, index) => {
+            if(eventIdGen === item.id){
+                return(
+                    <h1 key={index}>{item.eventname}</h1>   
+               )
+                
+            }
     
-    //on swipe right, displayed person is added to potential buddy list and increment counter increases by one
-    const swipeRightOnBuddy = (attendee)=>{
-        
-        setNumCount(numCount+1);
-        fetchSwipeRight(attendeeProfile, {user}, "myimageurl")//*********** */
-        // console.log("buddySwipe>fetchSwipeRight",attendeeProfile[numCount], {user} )
-        // console.log("Add to potential likes")
-        if (numCount => attendees.length+1){
-            console.log("No more attendees")
-            return 
-                }
-
-    }
-
-    //OPTIONAL: trigger another fetchRequest to user table's 'liked counter' (PUT)
-    //OPTIONAL: add the value '1' to the value existing already
-    //send an array object with my user profile details to another column in table called 'users who liked me'(image, name, link to profile)
+        })}  </div>
 
 
-    //fetch request on load of page (useEffect) to show counter of how many likes OR unread alerts that user has
-    //dropdown list showing profiles of users who have swiped right
-    //OPTIONAL: when one profile is selected further fetch request to 'liked counter' to remove '1' from the value and update the onscreen counter on return
-    //when a profile is selected, take the user back to the swipe buddy screen and load that profile up immediately - before any others are loaded OR load a new version of the swipe buddy screen that only shows users who have swiped right on you
-    //if the user swipes right then you are a match - how to do this?
-    //
-    //add 'buddy' to profile screen list
+         {attendeeProfile[numCount] ? (
+                 
+                    <div className="buddyProfile">
 
-    //fetch request 
+{allUsers.map((item, index) => {
+          if (attendeeProfile[numCount].profile.username === item.username) {
+            
+            return (
+              <div >
+                 <button className="swipeButtonLeft"  onClick={(e) => swipeLeftOnBuddy(e)} >
+                     <div className="like"> <AiOutlineDislike size={35} color="red" /></div>
+                  </button>
 
-    //on swipe left, displayed person is removed from attendeeProfile list and incerement counter increases by one
-    const swipeLeftOnBuddy = (e)=>{
-        e.preventDefault()
-        setNumCount(numCount+1);
-        if (numCount => attendees.length+1){
-        console.log("No more attendees")   
-        }
-        const myProfileObject = {username:"richard", imageUrl:"notsureyet"}
-        setMyProfileObject(myProfileObject)
-        // fetchSwipeRight(attendees[numCount], 1, myProfileObject)
-    }
+                <button className="swipeButtonRight" onClick={(e) => { swipeRightOnBuddy([attendeeProfile[numCount]]);  }} >
+                  <div className="like"> <AiOutlineLike size={35} color="green" />
+                  </div>
+                </button>
+                 <img  className="empty-profile-image"  key={index} src={imageUrl ? imageUrl : user.imageUrl} alt="profile picture" />
+
+                
+                <div className="low-profile">
+                    <h1> {attendeeProfile[numCount].profile.username}</h1>
+                    </div>
+               
+              </div>
+            );
+            
+          }
+        })}
 
 
 
-    try {
-        return (
-            <div className="buddySwipeWrap">
-                {/* <EventList eventID={eventID} /> */}
-                <button className="swipeButton" onClick={(e)=>swipeLeftOnBuddy(e)}>No</button>
-                {attendeeProfile[numCount] ? 
-                <div className="buddyProfile">
-                    <h1>{attendeeProfile[numCount].profile.username}</h1>
-                </div> : 
-                <div className="buddyProfile">
+
+                     
+                  </div>
+                ) : (
+                  <div className="buddyProfile-low">
+                    <img src={emptyProfile} alt="profile" className="empty-profile-image" />
+                    <div className="low-profile">
                     <h1>No More Profiles!</h1>
-                </div>}
-                <button className="swipeButton" onClick={(e)=>{swipeRightOnBuddy([attendeeProfile[numCount]])}}>Yes</button>
-            </div>
-        );
-        } catch (error) {
-            console.log(error);
-        }
-    }
+                    </div>
+                 
+                  </div>
+                )}
+      </div>
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
 export default BuddySwipe;

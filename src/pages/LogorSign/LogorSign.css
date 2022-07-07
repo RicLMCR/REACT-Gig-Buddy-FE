@@ -36,11 +36,6 @@
     align-items:center;
 }
 
-/* .login-form input {
-    min-width: 400px;
-    padding: 0 10px;
-} */
-
 .logorsign-input { 
     margin: 5px;
     min-width: 400px;
@@ -52,6 +47,7 @@
     padding: 10px 30px;
     width: 50%;
 }
+
 
 .signlog-icons {
     position: relative;
@@ -79,7 +75,6 @@
     font-size: 14px;
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
-    cursor: pointer;
 }
 
 .small-text {

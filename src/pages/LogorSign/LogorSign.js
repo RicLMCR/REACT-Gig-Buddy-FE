@@ -18,16 +18,16 @@ export const LogOrSign = ({user, setUser}) => {
     const submitHandlerCreate=(e)=>{
         console.log("submit handler", username)
         e.preventDefault();
-        createUser(username, email, password, setUser, user);
+        createUser(username, email, password, setUser, user);//
     };
     const navigate =  useNavigate()
 
     const submitHandlerLogin = (e)=>{
         e.preventDefault();
        logInUser(username, password, setUser, user);
-    //    if(user){
-    //     navigate("/popular")
-    //    }
+       if(user){
+        navigate("/popular")
+       }
        
         
     };
@@ -35,6 +35,7 @@ export const LogOrSign = ({user, setUser}) => {
     try { 
         // switch between log in page and sign up page
         const [logSwitch, setlogSwitch] = useState(true);
+
         return(
         <>
             
@@ -53,6 +54,8 @@ export const LogOrSign = ({user, setUser}) => {
                     <button className="form-btn">Submit</button>
                     <h3 className="small-text">Don't have an account?</h3>
                     <button className = "form-btn" onClick={(e)=>{setlogSwitch()}}>Sign Up</button>
+
+
                 </form>
                 </div>
                     <div className="description-container">
@@ -78,6 +81,7 @@ export const LogOrSign = ({user, setUser}) => {
                     <button className="form-btn">Submit</button>
                     <h3 className="small-text">Already have an account?</h3>
                     <button className = "form-btn" onClick={(e)=>{setlogSwitch(true)}}>Log in</button>
+
                 </form>
                 </section>
 
@@ -88,6 +92,7 @@ export const LogOrSign = ({user, setUser}) => {
             </div>
                 } 
                 </>
+
         )
     } catch (error){ 
         console.log (error)

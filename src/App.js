@@ -9,14 +9,16 @@ import Navbar from './components/navbar/NavBar';
 import {SearchBar} from "./components/search/search" ;
 import {EventList} from "./components/eventList/eventList";
 
-import {fetchEvents, fetchArtist, trendingEvent, fetchAttendees} from "./utils/fetchReq"
+import {fetchEvents, fetchArtist, trendingEvent, fetchAttendees, createUser} from "./utils/fetchReq"
 
 
 import Messages from './pages/Messages';
 import Profile from './pages/Profile/Profile';
 import { PopularEvents } from './components/popularEvents/popularEvents';
-
+import { findAllUsers } from './utils/fetchReq';
 import ReactDOM from "react-dom/client";
+import {EventIdPass} from './utils/EventIDPass';
+import { BuddyList } from './components/buddyList/BuddyList';
 
 function App() {
   
@@ -24,19 +26,31 @@ function App() {
  const [apiData, setApiData] = useState([])
  const [trendingEvents, setTrendingEvents] = useState([])
 const [displayEvent, setDisplayEvent] =useState ([])
+const [allUsers, setAllUsers] = useState([])
 const [user, setUser]=useState({
   username:"",
   token:"",
-  imageUrl:""
+  imageUrl:"",
+  eventsAttending:[],
+  buddyRequests: []
 });
 
+const [imageUrl, setImageUrl] = useState("");
 
+const [eventId, setEventId] = useState ("")
+
+// const [eventIdPass, setEventIdPass]=useState()
 
 
   useEffect (() => {
     fetchEvents(setApiData)
     trendingEvent(setTrendingEvents)
-   console.log("eventai", apiData.id)
+    findAllUsers(setAllUsers)
+   console.log("all users", trendingEvents)
+
+//    setEventIdPass(eventId)
+// console.log("App: EventIdPass is:", eventIdPass)
+
     
   }, [])
 
@@ -46,16 +60,23 @@ const [user, setUser]=useState({
     
     <div className="App">
 
-    <>
-   {user.token ?<>
-   <Navbar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData}  user={user} />
+    <EventIdPass.Provider value={eventId}>
+
+      <BuddyList user={user} setUser={setUser} />
+
+   {user.token ?
+   <>
+
+   <Navbar imageUrl={imageUrl} displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData}  user={user} setUser={setUser} />
+
     <Routes>
         <Route path="/" element={<PopularEvents setDisplayEvent={setDisplayEvent} setValue={setValue} trendingEvents={trendingEvents}/>} />
         <Route path="/messages" element={ <Messages />}  />
-        <Route path="/profile" element={ <Profile user={user} />}  />
+        <Route path="/profile" element={ <Profile imageUrl={imageUrl} setImageUrl={setImageUrl} user={user} trendingEvents={trendingEvents} apiData={apiData}/>}  />
 
-        <Route path="/event" element={ <EventList displayEvent={displayEvent} user={user} />}  />
-        <Route path="/buddySwipe" element={ <BuddySwipe user={user}/>} />
+        <Route path="/event" element={ <EventList setEventId={setEventId} eventId={eventId} displayEvent={displayEvent} user={user} />}  />
+        <Route path="/buddySwipe" element={ <BuddySwipe user={user}  imageUrl= {imageUrl} allUsers={allUsers} trendingEvents={trendingEvents}/>} />
+        {/* setEventId={setEventId} eventId={eventId} */}
         <Route path="/popular" element={ <PopularEvents setDisplayEvent={setDisplayEvent} setValue={setValue} trendingEvents={trendingEvents}/>} />
       
        </Routes>
@@ -65,7 +86,7 @@ const [user, setUser]=useState({
    <LogOrSign user={user} setUser={setUser} />
      
        }
-    </>
+    </EventIdPass.Provider>
 
 
       </div>

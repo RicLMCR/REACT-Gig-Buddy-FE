@@ -12,14 +12,10 @@ ul {
 }
 
 body {
-  background-color:aliceblue;
-  background-position: center;
   box-sizing: border-box;
   font-family: 'League Gothic', sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button {
+  cursor: pointer;
 }

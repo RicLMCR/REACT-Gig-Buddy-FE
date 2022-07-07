@@ -25,9 +25,9 @@
     flex-direction: column;
     row-gap: 12em;
     height: 100vh;
-    background: #ffffff8b;
+    background: #0f93e040;
     padding: 45px 180px 0 180px;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    box-shadow: 0 0 20px 0 rgba(84, 143, 214, 0.422), 0 3px 3px 0 rgba(57, 104, 206, 0.24);
 }
 
 .login-form {

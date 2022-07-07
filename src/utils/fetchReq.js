@@ -208,6 +208,12 @@ const response = await fetch(`${process.env.REACT_APP_REST_API}buddy/request`,{
             }),
         })
         const data = await response.json();
+        if(data.error) {
+            console.log(data.error)
+            throw new Error(data.error);
+        }else{
+            console.log(data.message);
+        }
     } catch (error) {
         console.log(error)
     }

@@ -5,9 +5,10 @@ import { Link , Outlet} from 'react-router-dom';
 import { BiSearchAlt } from 'react-icons/bi';
 import { MdMessage } from 'react-icons/md';
 import { SearchBar } from '../search/search';
-import { fetchCheckLikes } from '../../utils/fetchReq';
+
 
 import ReactDOM from "react-dom/client";
+import { BuddyList } from '../buddyList/BuddyList';
 
 
 
@@ -21,26 +22,14 @@ const Navbar = ({ imageUrl,displayEvent, setDisplayEvent, value, setValue, apiDa
         setUser({
             username:"",
             token:"",
-            
     });
     }
 
-    const [profileThumbs, SetProfileThumbs] = useState();
-
-    useEffect(() => {
-        checkLikes();
-    },[])
-
-    const checkLikes = async ()=>{
-        await fetchCheckLikes(user.username, SetProfileThumbs);
-        console.log();
-    }
-
-
+  
     return (<section>
     <header className='navbar-header'>
             <Link style={{textDecoration: 'none', color: 'black'}} to="/"><h1 className='gigbuddy-title'>Gig Buddy</h1></Link>
-
+            <BuddyList user={user} setUser={setUser} />
 
             {/* Basic input bar */}
             <SearchBar displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData}/>

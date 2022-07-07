@@ -30,6 +30,7 @@ flex-direction: row;
 justify-content:flex-start;
 background-color: antiquewhite;
 border-bottom: grey solid 1px;
+z-index: 2;
 
 }
 .dropdown{
@@ -37,6 +38,7 @@ border-bottom: grey solid 1px;
     position: absolute;
     left:720px;
     top:75px;
+    z-index: 2;
 
 
 }

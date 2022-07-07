@@ -1,7 +1,7 @@
 .navbar-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     background: linear-gradient(45deg,#3c546b,#4174cd);
     box-shadow: 0 8px;
 }

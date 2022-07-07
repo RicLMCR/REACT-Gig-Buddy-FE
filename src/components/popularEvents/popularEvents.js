@@ -30,8 +30,8 @@ const onSearch = (searchTerm, item) => {
 return( 
 <div className="pop-container">
         <h2>Popular events</h2>
-    <h1>Live Events in Manchester</h1>
-  
+        <h1 className="popular-events-mancester-header">Live Events in Manchester</h1>
+
     <div className="pop-events">
 
 {trendingEvents.map((item , index) => {

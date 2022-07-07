@@ -27,7 +27,6 @@
     left:590px;
     top:75px;
     z-index: 1;
-    background: linear-gradient(45deg,#3c546b,#4174cd);
     border-radius: 10px;
 }
 
@@ -39,10 +38,10 @@
     flex-direction: row;
     gap: 5px;
     justify-content:flex-start;
-    margin-bottom: 5px;
-    background-color: rgb(212, 209, 207);
+    margin-top: 5px;
+    background: linear-gradient(45deg,#3c546b,#4174cd);
     border-radius: 10px;
-
+    color: azure;
 }
 
 .dropdown-row:hover{

@@ -36,20 +36,27 @@
     align-items:center;
 }
 
-.login-form input {
+/* .login-form input {
     min-width: 400px;
-}
+    padding: 0 10px;
+} */
 
 .logorsign-input { 
     margin: 5px;
-    min-width: 200px;
+    min-width: 400px;
     font-family: "Roboto";
     border-radius: 5px;
     height: auto;
     background-color: #f2f2f2;
     border: none;
-    padding: 10px;
+    padding: 10px 30px;
     width: 50%;
+}
+
+.signlog-icons {
+    position: relative;
+    right: 185px;
+    top: 30px;
 }
 
 .find-buddy-text {

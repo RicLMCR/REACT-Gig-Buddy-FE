@@ -28,35 +28,26 @@ return (
       {/* <SearchBar value={value} setValue={setValue} apiData={apiData} setDisplayEvent={setDisplayEvent} displayEvent={displayEvent}/> */}
     <div >
 
-        {displayEvent.map((item, index) => {
+{displayEvent.map((item, index) => {
 return(
      <div className="eventlist-container" key={index}>
- <h1 className="event-title">{item.eventname}</h1>
- <img className="event-image" src={item.largeimageurl} alt="image" />
- <div className="event-description">{item.description}</div>
- <div className="event-date"><TbCalendarEvent color='red'/>{item.date}</div>
- <div className="event-location">
- <div>{item.venuename}</div>
- <div><GoLocation color='red'/>{item.address}</div>
-        <div>{item.postcode}</div>
-        <div> {item.town}</div>
-        <button  onClick={()=>{addEvent(item.id)} }value={item.id}>{item.id} </button>
+<h1 className="event-title">{item.eventname}</h1>
+<img className="event-image" src={item.largeimageurl} alt="image" />
+<div className="event-description">{item.description}</div>
+<div className="event-date"><TbCalendarEvent color='red'/>{item.date}</div>
+<div className="event-location">
+<div>{item.venuename}</div>
+<div><GoLocation color='red'/>{item.address}</div>
+     <div>{item.postcode}</div>
+     <div> {item.town}</div>
+     <button className="attend-btn" onClick={()=>{addEvent(item.id)} }value={item.id}>Attend</button>
+        {/* <button  onClick={()=>{addEvent(item.id)} }value={item.id}>{item.id} </button> */}
      </div></div>
 )
-        })}
-       
-       
-       
-     
-    
+})}
 
-  
-   </div>
+</div>
 </div>
 )
 }
-       
-     
-    
 
-  

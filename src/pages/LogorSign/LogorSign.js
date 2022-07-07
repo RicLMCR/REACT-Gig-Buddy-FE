@@ -3,6 +3,11 @@ import './LogorSign.css'
 import { useNavigate } from "react-router-dom";
 import { createUser, logInUser, deleteUser} from '../../utils/fetchReq'
 
+//import react-icons 
+import { FaUser } from 'react-icons/fa'
+import { RiLockPasswordFill } from 'react-icons/ri'
+import { MdEmail } from 'react-icons/md'
+
 //login or sign up user
 export const LogOrSign = ({user, setUser}) => {
     const [username, setUserName] = useState();
@@ -41,7 +46,9 @@ export const LogOrSign = ({user, setUser}) => {
             <h1 className="gigbuddy-logorsign-title">Gig Buddy</h1>
                 <form className="login-form" onSubmit={submitHandlerLogin}>
                     <h1 className="text">Log In</h1>
+                    <FaUser className="signlog-icons"/>
                     <input type="text" className="logorsign-input" placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
+                    <RiLockPasswordFill className="signlog-icons" />
                     <input type="password" className = "logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>                  
                     <button className="form-btn">Submit</button>
                     <h3 className="small-text">Don't have an account?</h3>
@@ -62,8 +69,11 @@ export const LogOrSign = ({user, setUser}) => {
                 <form className="login-form" onSubmit={submitHandlerLogin}>
                     <h1 className="find-buddy-text">Find your Gig Buddy</h1>
                     <h1 className="text">Create Account</h1>
+                    <FaUser className="signlog-icons"/>
                     <input type="text" className="logorsign-input" placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
-                    <input type="emil" className = "logorsign-input" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
+                    <MdEmail className="signlog-icons"/>
+                    <input type="email" className = "logorsign-input" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
+                    <RiLockPasswordFill className="signlog-icons"/>
                     <input type="password" className = "logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>                  
                     <button className="form-btn">Submit</button>
                     <h3 className="small-text">Already have an account?</h3>

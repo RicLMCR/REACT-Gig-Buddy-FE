@@ -7,32 +7,33 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap:80px
+    gap:80px;
+    margin-top: 40px;
 }
 .eventlist-container{
     padding: 35px;
     margin-top: 10px;
-    background-image:url("./background-abstract-1064993_1920.jpg");
+    /* background-image:url("./background-abstract-1064993_1920.jpg"); */
+    background: linear-gradient(60deg,#3d556b,#4f88e9);
     width: 850px;
-    height: 500px;
+    /* height: 500px; */
     border-radius: 10px;
     display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  grid-template-areas:
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
     ". . . . content3"
     "content1 content1 content5 content5 content5"
     "content1 content1 content2 content2 content2"
     ". . . . content4";
-  grid-gap: 0.2rem;
-  
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    grid-gap: 0.2rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .event-title{
     color: white;
     font-size: 45px;
-    text-decoration: underline red;
+    /* text-decoration: underline red; */
     grid-area: content5;
     justify-self: center;
     align-self: flex-end;
@@ -40,20 +41,17 @@
 }
 
 .event-image{
-border-radius: 10px;
-grid-area: content1;
-height: 250px;
-justify-self: center;
-background-color: rgba(0, 0, 0, 0.374);
-border-bottom: red solid 3px;
-
+    border-radius: 10px;
+    grid-area: content1;
+    height: 250px;
+    justify-self: center;
+    background-color: rgba(0, 0, 0, 0.374);
 }
 .event-description{
     grid-area: content2;
-    font-size: 18px;
+    font-size: 22px;
     background-color: rgba(0, 0, 0, 0.374);
     text-align: center;
-    border-radius: 15px;
     color: rgb(220, 214, 214);
     align-self: center;
     align-self: flex-start;
@@ -76,6 +74,13 @@ border-bottom: red solid 3px;
     grid-area: content4;
     justify-self: center;
     text-align: left;
+    font-size: 22px;
+}
 
-    font-size: 16px;
+.attend-btn {
+    background: white;
+    color: black;
+    padding: 10px;
+    border: 0;
+    border-radius: 10px;
 }

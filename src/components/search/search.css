@@ -38,7 +38,7 @@
     flex-direction: row;
     gap: 5px;
     justify-content:flex-start;
-    margin-top: 5px;
+    border: 5px solid white;
     background: linear-gradient(45deg,#3c546b,#4174cd);
     border-radius: 10px;
     color: azure;

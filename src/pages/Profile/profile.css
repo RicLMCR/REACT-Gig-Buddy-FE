@@ -4,19 +4,38 @@
 }
 
 .profile-image {
-    border-radius: 50%;
+    border-radius: 10%;
+    margin-top: 5px;
+
 }
 
 .profile-buddies {
     align-self: center;
+    
 }
 
 .buddy-images {
     display: flex;
+    display: inline;
+    position: relative;
+        top: 4rem;
+        right: 10rem;
+
+
+}
+
+.avatar-box {
+   position: relative;
+   top: 7rem;
+
 }
 
 .buddy-image {
     border-radius: 50%;
+    width: 6rem;
+    display: inline-block;
+    margin: 25px 10px; 
+
 }
 
 .see-more-text {
@@ -26,10 +45,17 @@
 .profile-page-bottom {
     display: flex;
     justify-content: space-around;
+    margin-top: 5rem;
 }
 
 .bio-container {
-    max-width: 500px;
+    max-width: 400px;
+    outline: 2px;
+    
+    position: relative;
+    left:6.8rem;
+    top:6rem;
+    
 }
 
 .mygig-image {
@@ -40,20 +66,64 @@
     position: relative;
     bottom: 40px;
     z-index: 2;
+    top: 20rem;
+ 
 }
 
 .gig-friend-image {
     border-radius: 50%;
     margin-right: 3px;
+    width: 20px;
 }
 .my-gigs-images{
     height: 300px;
-    width: 850px;
+    width: 750px;
     background-color: rgba(240, 248, 255, 0.457);
     display:flex;
     flex-direction: row;
-    
-    border-radius: 14px;
+    border-radius: 20px;
     justify-content:center;
     align-items:center;
-    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;}
+    box-shadow: rgb(38, 57, 77) 0px 5px 10px -5px;}
+
+    .image-upload-box {
+        margin: 5px;
+        font-family: "Roboto";
+        border-radius: 20px;
+        height: auto;
+        color: white;
+        background-color: linear-gradient(45deg,#3c546b,#4174cd);
+       
+        border: none;
+        padding: 10px;
+        width: 75%;
+        display: inline;
+        position: relative;
+        top: 8rem;
+        left: 1.7rem;
+    }
+
+    .submit-btn {
+        border-radius: 5px;
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    background-color: #328f8a;
+    background-image: linear-gradient(45deg,#3c546b,#4174cd);
+    width: 50%;
+    border: none;
+    margin: 5px 0 0 0;
+    padding: 10px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    display: inline;
+    position: relative;
+        top: 8.5rem;
+        left: 3.5rem;
+    }
+    
+    .bio-text {
+
+    }

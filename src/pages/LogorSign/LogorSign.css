@@ -8,7 +8,7 @@
 .body{
     
 }
-.formContainer{ 
+.form-container{ 
     position: relative;
     z-index: 1;
     background: #ffffff8b;
@@ -28,7 +28,7 @@
     align-items:center
 
 }
-.smallContainer { 
+.small-container { 
 
     background-color: #FFFFFF;
 
@@ -48,7 +48,7 @@
     width: 50%;
 }
 
-.switchButton { 
+.switch-button { 
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     background-color: #328f8a;
@@ -64,7 +64,7 @@
     transition: all 0.3 ease;
     cursor: pointer;
 }
-.loginButton { 
+.login-button { 
     border-radius: 5px;
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;

@@ -52,12 +52,14 @@ export const logInUser = async (username, password, setUser, user)=>{
         });
         const data = await res.json();
         console.log("user", username, "logged in", data.user.username);
-        console.log( "user da",data)
+        console.log( "user data",data)
         await setUser({
             ...user,
             username: data.user.username,
             token:data.token,
             imageUrl:data.user.imageUrl,
+            eventsAttending:data.user.eventsAttending,
+            buddyRequests: data.user.buddyRequests
         });
     } catch (error) {
         console.log(error);
@@ -221,42 +223,20 @@ const response = await fetch(`${process.env.REACT_APP_REST_API}buddy/request`,{
 }
 
 //fetch list iof people that have liked you
-export const fetchCheckLikes = async (username)=>{
+export const fetchCheckLikes = async (username, SetProfileThumbs)=>{
+    try {
     const response = await fetch(`${process.env.REACT_APP_REST_API}profile/${username}`,{
         method: 'GET',
         headers: {"Content-Type": "application/json"}
     })
     const data = await response.json();
-    console.log("fetchCheckLikes:", data)
+    console.log("fetchCheckLikes are:", data)
     return data;
-    
-    try {
-        
     } catch (error) {
         console.log(error)
     }
-
 }
 
-
-
-//fetch list iof people that have liked you
-// export const fetchCheckLikes = async (username)=>{
-//     const response = await fetch(`${process.env.REACT_APP_REST_API}profile/${username}`,{
-//         method: 'GET',
-//         headers: {"Content-Type": "application/json"}
-//     })
-//     const data = await response.json();
-//     console.log("fetch req check like", data)
-//     return data;
-    
-//     try {
-        
-//     } catch (error) {
-//         console.log(error)
-//     }
-
-// }
 
 
 export const addPicture = async ( username, picture, setImageUrl) => {

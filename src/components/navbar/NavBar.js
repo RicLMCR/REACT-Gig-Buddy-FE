@@ -1,6 +1,6 @@
 //Importing the CSS-file, with the react icons
 import './navbar.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link , Outlet} from 'react-router-dom';
 import { BiSearchAlt } from 'react-icons/bi';
 import { MdMessage } from 'react-icons/md';
@@ -9,9 +9,6 @@ import { fetchCheckLikes } from '../../utils/fetchReq';
 
 import ReactDOM from "react-dom/client";
 
-
-
-
 const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData, setUser, user}) => {
 
     const submitHandler = (e)=>{
@@ -19,15 +16,19 @@ const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData, setUse
         setUser({
             username:"",
             token:"",
+            
     });
     }
+
+    const [profileThumbs, SetProfileThumbs] = useState();
 
     useEffect(() => {
         checkLikes();
     },[])
 
     const checkLikes = async ()=>{
-        await fetchCheckLikes(user.username);
+        await fetchCheckLikes(user.username, SetProfileThumbs);
+        console.log();
     }
 
 

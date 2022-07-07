@@ -43,16 +43,16 @@ export const BuddySwipe=({user})=> {
     
     //on swipe right, displayed person is added to potential buddy list and increment counter increases by one
     const swipeRightOnBuddy = (attendee)=>{
-        
         setNumCount(numCount+1);
-        fetchSwipeRight(attendeeProfile, {user}, "myimageurl")//*********** */
-        console.log("buddySwipe>fetchSwipeRight",attendeeProfile[numCount].username, {user} )
+        console.log ("buddy Swipe right attendee you like is:", attendeeProfile[numCount].profile.username)//, {user}
+
+        fetchSwipeRight(attendeeProfile[numCount].profile.username, user.username, user.imageUrl)//*********** */
         // console.log("Add to potential likes")
         if (numCount => attendees.length+1){
             console.log("No more attendees")
             return 
                 }
-
+        
     }
 
     //OPTIONAL: trigger another fetchRequest to user table's 'liked counter' (PUT)
@@ -78,25 +78,25 @@ export const BuddySwipe=({user})=> {
         console.log("No more attendees")   
         }
         const myProfileObject = {username:"richard", imageUrl:"notsureyet"}
-
+        
     }
 
 
 
     try {
         return (
-            <div className="buddySwipeWrap">
+            <div className="buddy-swipe-wrap">
                 {/* <EventList eventId={eventId} /> */}
                 <h1>Event Id Pass is: {eventIdGen}</h1>
-                <button className="swipeButton" onClick={(e)=>swipeLeftOnBuddy(e)}>No</button>
+                <button className="swipe-button" onClick={(e)=>swipeLeftOnBuddy(e)}>No</button>
                 {attendeeProfile[numCount] ? 
-                <div className="buddyProfile">
+                <div className="buddy-profile">
                     <h1>{attendeeProfile[numCount].profile.username}</h1>
                 </div> : 
-                <div className="buddyProfile">
+                <div className="buddy-profile">
                     <h1>No More Profiles!</h1>
                 </div>}
-                <button className="swipeButton" onClick={(e)=>{swipeRightOnBuddy([attendeeProfile[numCount]])}}>Yes</button>
+                <button className="swipe-button" onClick={(e)=>{swipeRightOnBuddy([attendeeProfile[numCount]])}}>Yes</button>
             </div>
         );
         } catch (error) {

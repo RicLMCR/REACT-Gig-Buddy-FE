@@ -46,7 +46,7 @@ const [eventId, setEventId] = useState ("")
     fetchEvents(setApiData)
     trendingEvent(setTrendingEvents)
     findAllUsers(setAllUsers)
-   console.log("all users", allUsers)
+   console.log("all users", trendingEvents)
 
 //    setEventIdPass(eventId)
 // console.log("App: EventIdPass is:", eventIdPass)
@@ -66,7 +66,8 @@ const [eventId, setEventId] = useState ("")
 
    {user.token ?
    <>
-   <Navbar imageUrl={imageUrl} displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData}  user={user} />
+
+   <Navbar imageUrl={imageUrl} displayEvent={displayEvent} setDisplayEvent={setDisplayEvent} value={value} setValue={setValue} apiData={apiData}  user={user} setUser={setUser} />
 
     <Routes>
         <Route path="/" element={<PopularEvents setDisplayEvent={setDisplayEvent} setValue={setValue} trendingEvents={trendingEvents}/>} />
@@ -74,7 +75,7 @@ const [eventId, setEventId] = useState ("")
         <Route path="/profile" element={ <Profile imageUrl={imageUrl} setImageUrl={setImageUrl} user={user} trendingEvents={trendingEvents} apiData={apiData}/>}  />
 
         <Route path="/event" element={ <EventList setEventId={setEventId} eventId={eventId} displayEvent={displayEvent} user={user} />}  />
-        <Route path="/buddySwipe" element={ <BuddySwipe user={user}  allUsers={allUsers} />} />
+        <Route path="/buddySwipe" element={ <BuddySwipe user={user}  imageUrl= {imageUrl} allUsers={allUsers} trendingEvents={trendingEvents}/>} />
         {/* setEventId={setEventId} eventId={eventId} */}
         <Route path="/popular" element={ <PopularEvents setDisplayEvent={setDisplayEvent} setValue={setValue} trendingEvents={trendingEvents}/>} />
       

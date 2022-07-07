@@ -10,8 +10,8 @@ import { AiOutlineLike } from "react-icons/ai";
 import { AiOutlineDislike } from "react-icons/ai";
 import { EventIdPass } from "../../utils/EventIDPass";
 import { green } from "@mui/material/colors";
-
-export const BuddySwipe = ({ user, allUsers }) => {
+import emptyProfile from "./blank.png"
+export const BuddySwipe = ({ user, allUsers , trendingEvents, imageUrl}) => {
   const eventIdGen = useContext(EventIdPass);
   console.log(eventIdGen);
 
@@ -83,58 +83,66 @@ export const BuddySwipe = ({ user, allUsers }) => {
     if ((numCount) => attendees.length + 1) {
       console.log("No more attendees");
     }
-    const myProfileObject = { username: "richard", imageUrl: "notsureyet" };
   };
 
   try {
     return (
-      <div className="buddySwipeWrap">
-        <h1>Event Id Pass is: {eventIdGen}</h1>
-        {/* <EventList eventId={eventId} /> */}
-        {allUsers.map((item, index) => {
+      <div className="buddy-swipe-wrap">
+        <div>{trendingEvents.map((item, index) => {
+            if(eventIdGen === item.id){
+                return(
+                    <h1 key={index}>{item.eventname}</h1>   
+               )
+                
+            }
+    
+        })}  </div>
+
+
+         {attendeeProfile[numCount] ? (
+                 
+                    <div className="buddyProfile">
+
+{allUsers.map((item, index) => {
           if (attendeeProfile[numCount].profile.username === item.username) {
             
             return (
-              <div>
-                <img
-                  className="allUsersImage"
-                  key={index}
-                  src={item.imageUrl}
-                  alt="profile picture"
-                />
-                <button
-                  className="swipeButtonLeft"
-                  onClick={(e) => swipeLeftOnBuddy(e)}
-                >
-                  <div className="like">
-                    <AiOutlineDislike size={35} color="red" />
+              <div >
+                 <button className="swipeButtonLeft"  onClick={(e) => swipeLeftOnBuddy(e)} >
+                     <div className="like"> <AiOutlineDislike size={35} color="red" /></div>
+                  </button>
+
+                <button className="swipeButtonRight" onClick={(e) => { swipeRightOnBuddy([attendeeProfile[numCount]]);  }} >
+                  <div className="like"> <AiOutlineLike size={35} color="green" />
                   </div>
                 </button>
-                <button
-                  className="swipeButtonRight"
-                  onClick={(e) => {
-                    swipeRightOnBuddy([attendeeProfile[numCount]]);
-                  }}
-                >
-                  <div className="like">
-                    <AiOutlineLike size={35} color="green" />
-                  </div>
-                </button>
-                {attendeeProfile[numCount] ? (
-                  <div>
-                    <div className="buddyProfile">
-                      {attendeeProfile[numCount].profile.username}
+                 <img  className="empty-profile-image"  key={index} src={imageUrl ? imageUrl : user.imageUrl} alt="profile picture" />
+
+                
+                <div className="low-profile">
+                    <h1> {attendeeProfile[numCount].profile.username}</h1>
                     </div>
-                  </div>
-                ) : (
-                  <div className="buddyProfile">
-                    <h1>No More Profiles!</h1>
-                  </div>
-                )}
+               
               </div>
             );
+            
           }
         })}
+
+
+
+
+                     
+                  </div>
+                ) : (
+                  <div className="buddyProfile-low">
+                    <img src={emptyProfile} alt="profile" className="empty-profile-image" />
+                    <div className="low-profile">
+                    <h1>No More Profiles!</h1>
+                    </div>
+                 
+                  </div>
+                )}
       </div>
     );
   } catch (error) {

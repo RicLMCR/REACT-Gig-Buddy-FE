@@ -49,8 +49,7 @@ export const LogOrSign = ({user, setUser}) => {
                 </form>
                 </div>
                     <div className="description-container">
-                        <h2 className="page-description">People going to gigs, but do not have friends with similar music taste and therefore have to go alone,</h2>
-                        <h2 className="page-description">or people who were planning on going with someone else to a gig, but dropped out at the last minute.</h2>
+                        <h2 className="page-description">People going to gigs, but do not have friends with similar music taste and therefore have to go alone</h2>
                     </div>
                 </div>
             </div>
@@ -68,13 +67,12 @@ export const LogOrSign = ({user, setUser}) => {
                     <input type="password" className = "logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>                  
                     <button className="form-btn">Submit</button>
                     <h3 className="small-text">Already have an account?</h3>
-                    <button className = "form-btn" onClick={(e)=>{setlogSwitch(true)}}>Sign Up</button>
+                    <button className = "form-btn" onClick={(e)=>{setlogSwitch(true)}}>Log in</button>
                 </form>
                 </section>
 
                     <div className="description-container">
-                        <h2 className="page-description">People going to gigs, but do not have friends with similar music taste and therefore have to go alone,</h2>
-                        <h2 className="page-description">or people who were planning on going with someone else to a gig, but dropped out at the last minute.</h2>
+                        <h2 className="page-description">People going to gigs, but do not have friends with similar music taste and therefore have to go alone</h2>
                     </div>
                 </div>
             </div>

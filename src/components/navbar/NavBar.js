@@ -33,7 +33,7 @@ const Navbar = ({displayEvent, setDisplayEvent, value, setValue, apiData, setUse
 
     return (<section>
     <header className='navbar-header'>
-            <Link style={{textDecoration: 'none', color: 'black'}} to="/"><h1 className='gigbuddy-title'>Gig Buddy</h1></Link>
+            <Link style={{textDecoration: 'none', color: 'white'}} to="/"><h1 className='gigbuddy-title'>Gig Buddy</h1></Link>
 
 
             {/* Basic input bar */}

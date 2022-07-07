@@ -30,8 +30,8 @@ const onSearch = (searchTerm, item) => {
 return( 
 <div className="pop-container">
         <h2>Popular events</h2>
-    <h1>Live Events in Manchester</h1>
-  
+        <h1 className="popular-events-mancester-header">Live Events in Manchester</h1>
+
     <div className="pop-events">
 
 {trendingEvents.map((item , index) => {
@@ -39,13 +39,13 @@ return(
     return( 
     <div className="pop-events-big-image" key= {index}>
         
-        <img  src={item.largeimageurl}  alt="" height={250}  />
+        <img  src={item.xlargeimageurl}  alt="" height={250}  />
       
  <div className="pop-events-big-image-description"> 
  
  <div>
     <div className="date-time"> {`${item.date} Doors open: ${item.openingtimes.doorsopen}`}</div>
-    <div className="big-image-event-name">{item.eventname}</div>
+    <div className="big-image-event-name"><p>{item.eventname}</p></div>
 </div>
 <button  onClick={() => onSearch(item.eventname, item)} className="pop-events-btn"><AiOutlineArrowRight size={20} color="white"/></button>
  </div>

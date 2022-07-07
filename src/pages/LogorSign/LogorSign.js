@@ -3,6 +3,11 @@ import './LogorSign.css'
 import { useNavigate } from "react-router-dom";
 import { createUser, logInUser, deleteUser} from '../../utils/fetchReq'
 
+//import react-icons 
+import { FaUser } from 'react-icons/fa'
+import { RiLockPasswordFill } from 'react-icons/ri'
+import { MdEmail } from 'react-icons/md'
+
 //login or sign up user
 export const LogOrSign = ({user, setUser}) => {
     const [username, setUserName] = useState();
@@ -30,40 +35,64 @@ export const LogOrSign = ({user, setUser}) => {
     try { 
         // switch between log in page and sign up page
         const [logSwitch, setlogSwitch] = useState(true);
-        return(<>
-           
-            <div className="body">
-                { logSwitch ? 
-                <div className="form-container">
-               <form className="login-form" onSubmit={submitHandlerLogin}>
-                    <h1 className="text">Log In</h1>
-                    <input type="text" className="logorsign-input" placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
-                    <input type="password" className = "logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>                  
-                    <button className="login-button">Submit</button>
-                    <h3 className="smallText">Don't have an account?</h3>
-                    <button className = "login-button" onClick={(e)=>{setlogSwitch()}}>Sign Up</button>
-                   
-                </form>
-                </div>
-                :
-                <div className="form-container">
-                <form className="login-form" onSubmit={submitHandlerCreate}>
-                    <h1 className="text">Create Profile</h1>
-                    <input type="text" className="logorsign-input" placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
-                    <input type="email" className="logorsign-input" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
-                    <input type="password" className="logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
-                    <button className="login-button" type="submit">Submit</button>
-                   
-                        <h3 className="smallText">Already have an account?</h3>                
-                        <button className = "switch-button"onClick={(e)=>{setlogSwitch(true)}}>Log In</button>
-                       
-                  
-                </form>
-                </div>
-                }
 
-                
-            </div> </>
+        return(
+        <>
+            
+                { logSwitch ?
+        <div className="bg-image">
+            {/* <h1 className="gigbuddy-logorsign-title">Gig Buddy</h1> */}
+            <div className="content-flex">
+            <div className="form-container">
+            <h1 className="gigbuddy-logorsign-title">Gig Buddy</h1>
+                <form className="login-form" onSubmit={submitHandlerLogin}>
+                    <h1 className="text">Log In</h1>
+                    <FaUser className="signlog-icons"/>
+                    <input type="text" className="logorsign-input" placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
+                    <RiLockPasswordFill className="signlog-icons" />
+                    <input type="password" className = "logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>                  
+                    <button className="form-btn">Submit</button>
+                    <h3 className="small-text">Don't have an account?</h3>
+                    <button className = "form-btn" onClick={(e)=>{setlogSwitch()}}>Sign Up</button>
+
+
+                </form>
+                </div>
+                    <div className="description-container">
+                        <h2 className="page-description">People going to gigs, but do not have friends with similar music taste and therefore have to go alone</h2>
+                    </div>
+                </div>
+            </div>
+                :
+            <div className="bg-image">
+                {/* <h1 className="gigbuddy-logorsign-title">Gig Buddy</h1> */}
+                <div className="content-flex">
+                <section className="form-container">
+                <h1 className="gigbuddy-logorsign-title">Gig Buddy</h1>
+                <form className="login-form" onSubmit={submitHandlerLogin}>
+                    <h1 className="find-buddy-text">Find your Gig Buddy</h1>
+                    <h1 className="text">Create Account</h1>
+                    <FaUser className="signlog-icons"/>
+                    <input type="text" className="logorsign-input" placeholder="Username" onChange={(e)=>setUserName(e.target.value)}/>
+                    <MdEmail className="signlog-icons"/>
+                    <input type="email" className = "logorsign-input" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
+                    <RiLockPasswordFill className="signlog-icons"/>
+                    <input type="password" className = "logorsign-input" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>                  
+                    <button className="form-btn">Submit</button>
+                    <h3 className="small-text">Already have an account?</h3>
+                    <button className = "form-btn" onClick={(e)=>{setlogSwitch(true)}}>Log in</button>
+
+                </form>
+                </section>
+
+                    <div className="description-container">
+                        <h2 className="page-description">People going to gigs, but do not have friends with similar music taste and therefore have to go alone</h2>
+                    </div>
+                </div>
+            </div>
+                } 
+                </>
+
         )
     } catch (error){ 
         console.log (error)

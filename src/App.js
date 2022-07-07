@@ -30,17 +30,14 @@ const [user, setUser]=useState({
   username:"",
   token:"",
   imageUrl:"",
-  eventsAttending:[]
+  eventsAttending:[],
+  buddyRequests: []
 });
 console.log("App: user is:", user)
-
 
 const [eventId, setEventId] = useState ("")
 console.log("App: EventId is:", eventId)
 // const [eventIdPass, setEventIdPass]=useState()
-
-
-
 
 
   useEffect (() => {

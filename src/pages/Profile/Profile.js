@@ -90,7 +90,7 @@ const Profile = ({ user, trendingEvents, imageUrl, setImageUrl }) => {
             return (
               <div key={index}>
                 <img
-                  className="pop-events-big-image"
+                  className="pop-big-image"
                   src={item.largeimageurl}
                   alt="gigs image"
                 />

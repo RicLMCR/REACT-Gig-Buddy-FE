@@ -9,7 +9,7 @@ import {
 import { AiOutlineLike } from "react-icons/ai";
 import { AiOutlineDislike } from "react-icons/ai";
 import { EventIdPass } from "../../utils/EventIDPass";
-import { green } from "@mui/material/colors";
+// import { green } from "@mui/material/colors";
 import emptyProfile from "./blank.png"
 export const BuddySwipe = ({ user, allUsers , trendingEvents, imageUrl}) => {
   const eventIdGen = useContext(EventIdPass);
@@ -49,7 +49,8 @@ export const BuddySwipe = ({ user, allUsers , trendingEvents, imageUrl}) => {
   //on swipe right, displayed person is added to potential buddy list and increment counter increases by one
   const swipeRightOnBuddy = (attendee) => {
     setNumCount(numCount + 1);
-    fetchSwipeRight(attendeeProfile, { user }, "myimageurl"); //*********** */
+    console.log(attendee[numCount].profile.username)
+    fetchSwipeRight(attendee[numCount].profile.username, user.username, "myimageurl"); //*********** */
     console.log(
       "buddySwipe>fetchSwipeRight",
       attendeeProfile[numCount].username,
@@ -112,7 +113,7 @@ export const BuddySwipe = ({ user, allUsers , trendingEvents, imageUrl}) => {
                      <div className="like"> <AiOutlineDislike size={35} color="red" /></div>
                   </button>
 
-                <button className="swipeButtonRight" onClick={(e) => { swipeRightOnBuddy([attendeeProfile[numCount]]);  }} >
+                <button className="swipeButtonRight" onClick={(e) => { swipeRightOnBuddy(attendeeProfile);  }} >
                   <div className="like"> <AiOutlineLike size={35} color="green" />
                   </div>
                 </button>

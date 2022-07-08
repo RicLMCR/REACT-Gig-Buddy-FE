@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import React from 'react';
 import { fetchCheckLikes, fetchSingleUser, fetchConfirmBuddy } from '../../utils/fetchReq';
-import { display } from "@mui/system";
-import { MdThumbUpOffAlt } from "react-icons/md";
+import './buddyList.css'
+// import { display } from "@mui/system";
 
 export const BuddyList = ({user})=>{
     const [profileThumbs, setProfileThumbs] = useState([]);
@@ -25,8 +25,9 @@ export const BuddyList = ({user})=>{
         for (let i=0; i < profileInfo.profile.buddyRequests.length; i++){
             const singleProfile = await fetchSingleUser(profileInfo.profile.buddyRequests[i].username)
             profileArray.push(singleProfile)
+            console.log("buddylist push profile",singleProfile )
         }
-        console.log(profileArray)
+        console.log("buddylist profile array:", profileArray)
         setProfileThumbs(()=>[ ...profileArray])
         console.log("dhdhdhddh", profileThumbs)
         })()
@@ -49,16 +50,16 @@ export const BuddyList = ({user})=>{
     try {
         return(<div>
             
-            <div>
+            <div >
                 { switchTrue ?
-                    <div>
+                    <div >
                     {profileThumbs.map ((profile,index)=>(
-                        <>
+                        <div className="buddy-requests">
                         {profile.profile.imageUrl==="Not specified" ? <p onClick={()=>handshake(user.username, profile.profile.username)} value={profile.profile.username} key={index}>{profile.profile.username}</p> 
                         :
                         <img onClick={()=>handshake(user.username, profile.profile.username)} value={profile.profile.username}  src={profile.profile.imageUrl} alt="alt text" key={index} width="40px" height="40px"/>
                         }
-                        </>
+                        </div>
                     ))}
                     </div>
                 :

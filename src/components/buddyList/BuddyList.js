@@ -53,9 +53,9 @@ export const BuddyList = ({user})=>{
             
             <div >
                 { switchTrue ?
-                    <div >
+                    <div className="buddy-requests">
                     {profileThumbs.map ((profile,index)=>(
-                        <div className="buddy-requests">
+                        <div >
                         {profile.profile.imageUrl==="Not specified" ? <p onClick={()=>handshake(user.username, profile.profile.username)} value={profile.profile.username} key={index}>{profile.profile.username}</p> 
                         :
                         <img onClick={()=>handshake(user.username, profile.profile.username)} value={profile.profile.username}  src={profile.profile.imageUrl} alt="alt text" key={index} width="40px" height="40px"/>

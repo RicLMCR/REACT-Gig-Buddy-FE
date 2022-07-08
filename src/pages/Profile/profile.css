@@ -32,7 +32,7 @@
     justify-content:center;
     align-items:center;
     gap: 7px;
-    border: yellow solid 2px;
+    border: rgb(6, 6, 3) solid 6px
     
 }
 
@@ -51,7 +51,7 @@
     justify-content:center;
     align-items:center;
     gap: 7px;
-    border: yellow solid 2px;
+    border: rgb(6, 6, 3) solid 6px;
     
 }
 
@@ -69,7 +69,7 @@
     justify-content:center;
     align-items:center;
     gap: 7px;
-    border: yellow solid 2px;
+    border: rgb(6, 6, 3) solid 6px
 }
 
 
@@ -88,7 +88,7 @@
 .avatar-box {
    position: relative;
  top: -20px;
- border: rgba(255, 255, 0, 0.695) solid 4px;
+ border: rgba(11, 11, 7, 0.695) solid 4px;
 
 
 }
@@ -198,7 +198,7 @@
         text-decoration: none;
       }
 
-    .pop-events-big-image  {
+    .pop-big-image  {
         border-radius: 20px;
               
         width: 136px;
@@ -221,8 +221,4 @@
         font-family: 'Oswald', sans-serif;
         font-size: 16px;
         color: rgba(255, 255, 255, 0.644);
-    }
-
-    .gig-image{
-
     }

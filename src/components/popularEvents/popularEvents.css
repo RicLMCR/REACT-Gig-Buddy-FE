@@ -31,8 +31,8 @@
     align-self: center;
 }
 
-.pop-events-big-image img {
-    height: 500px;
+.pop-events-big-image  {
+    height: 250px;
     border-radius: 10px;
 }
 
@@ -136,4 +136,8 @@
     top: -235px;
     right: -5px;
     
+}
+.pop-big-images{
+    height: 495px;
+    width: 500px;
 }

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import React from 'react';
 import { fetchCheckLikes, fetchSingleUser, fetchConfirmBuddy } from '../../utils/fetchReq';
 import './buddyList.css'
+
 // import { display } from "@mui/system";
 
 export const BuddyList = ({user})=>{
@@ -20,7 +21,7 @@ export const BuddyList = ({user})=>{
     useEffect(() => {
         (async()=>{
         const profileInfo = await fetchSingleUser(user.username);
-        const profiles = profileInfo.buddyRequests
+        // const profiles = profileInfo.buddyRequests
         const profileArray = []
         for (let i=0; i < profileInfo.profile.buddyRequests.length; i++){
             const singleProfile = await fetchSingleUser(profileInfo.profile.buddyRequests[i].username)

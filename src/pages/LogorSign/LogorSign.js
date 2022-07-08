@@ -55,7 +55,13 @@ export const LogOrSign = ({user, setUser}) => {
                     <button className = "form-btn" onClick={(e)=>{setlogSwitch()}}>Sign Up</button>
                 </form>
                 </div>
+
                         <h2 className="page-description">Find Friends  Find Music</h2>
+
+                    <div className="description-container">
+                         <h2 className="page-description">Find Friends  Find Music</h2>
+                    </div>
+
                 </div>
             </div>
                 :
@@ -79,8 +85,11 @@ export const LogOrSign = ({user, setUser}) => {
                 </form>
                 </section>
 
-                        <h2 className="page-description">Find Friends  Find Music</h2>
-                 
+
+                    <div className="description-container">
+                         <h2 className="page-description">Find Friends  Find Music</h2>
+                    </div>
+
                 </div>
             </div>
                 } 

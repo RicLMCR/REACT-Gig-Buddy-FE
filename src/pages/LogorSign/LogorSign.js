@@ -37,11 +37,11 @@ export const LogOrSign = ({user, setUser}) => {
         const [logSwitch, setlogSwitch] = useState(true);
 
         return(
-        <>
+        <div className="bg-image">
             
                 { logSwitch ?
-        <div className="bg-image">
-            {/* <h1 className="gigbuddy-logorsign-title">Gig Buddy</h1> */}
+      
+        
             <div className="content-flex">
             <div className="form-container">
             <h1 className="gigbuddy-logorsign-title">Gig Buddy</h1>
@@ -58,14 +58,12 @@ export const LogOrSign = ({user, setUser}) => {
 
                 </form>
                 </div>
-                    <div className="description-container">
                         <h2 className="page-description">People going to gigs, but do not have friends with similar music taste and therefore have to go alone</h2>
-                    </div>
                 </div>
-            </div>
+          
                 :
-            <div className="bg-image">
-                {/* <h1 className="gigbuddy-logorsign-title">Gig Buddy</h1> */}
+           
+              
                 <div className="content-flex">
                 <section className="form-container">
                 <h1 className="gigbuddy-logorsign-title">Gig Buddy</h1>
@@ -85,13 +83,13 @@ export const LogOrSign = ({user, setUser}) => {
                 </form>
                 </section>
 
-                    <div className="description-container">
+                   
                         <h2 className="page-description">People going to gigs, but do not have friends with similar music taste and therefore have to go alone</h2>
-                    </div>
+                 
                 </div>
-            </div>
+       
                 } 
-                </>
+                </div>
 
         )
     } catch (error){ 

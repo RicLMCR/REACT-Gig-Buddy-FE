@@ -58,11 +58,6 @@ export const LogOrSign = ({user, setUser}) => {
 
                 </form>
                 </div>
-
-                    <div className="description-container">
-                        <h2 className="page-description">Find Music Find Friends</h2>
-                    </div>
-
                         <h2 className="page-description">People going to gigs, but do not have friends with similar music taste and therefore have to go alone</h2>
                 </div>
           
@@ -88,13 +83,9 @@ export const LogOrSign = ({user, setUser}) => {
                 </form>
                 </section>
 
-
-                    <div className="description-container">
-                        <h2 className="page-description">Find Music Find Friends</h2>
-                    </div>
-
                    
                         <h2 className="page-description">People going to gigs, but do not have friends with similar music taste and therefore have to go alone</h2>
+                 
                 </div>
        
                 } 

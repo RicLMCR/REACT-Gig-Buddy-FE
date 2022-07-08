@@ -9,7 +9,7 @@ import {
 import { AiOutlineLike } from "react-icons/ai";
 import { AiOutlineDislike } from "react-icons/ai";
 import { EventIdPass } from "../../utils/EventIDPass";
-// import { green } from "@mui/material/colors";
+import { green } from "@mui/material/colors";
 import emptyProfile from "./blank.png"
 export const BuddySwipe = ({ user, allUsers , trendingEvents, imageUrl}) => {
   const eventIdGen = useContext(EventIdPass);

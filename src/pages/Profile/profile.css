@@ -1,66 +1,117 @@
-.profile-page-top {
-    display: flex;
-    justify-content: space-around;
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&display=swap');
+
+.profile-page-container{
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1.3fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+  
+      "content1 content2 "
+      "content1 content3";
+    grid-gap: 20px;
+    font-weight: 800;
+
+    font-size: 12px;
+    color: #004d40;
+    text-align: center;
 }
 
-.profile-image {
-    border-radius: 10%;
-    margin-top: 5px;
+.profile-picture-container{
+    grid-area: content1;
+    justify-self:flex-end;
+    align-self:center;
+    background: linear-gradient(45deg,#5088bcbc,#0d4bb5fb);
 
+    height: 500px;
+    width: 400px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    gap: 7px;
+    border: yellow solid 2px;
+    
 }
 
 .profile-buddies {
     align-self: center;
+    grid-area: content2;
+    justify-self:start;
+    align-self: flex-end;
+    background: linear-gradient(45deg,#5088bcbc,#0d4bb5fb);
+    width: 600px;
+    height: 240px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    gap: 7px;
+    border: yellow solid 2px;
     
 }
+
+.my-gigs-container{
+    grid-area: content3;
+    justify-self:start;
+    align-self: flex-start;
+    background: linear-gradient(45deg,#5088bcbc,#0d4bb5fb);
+    width: 600px;
+    height: 240px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    gap: 7px;
+    border: yellow solid 2px;
+}
+
+
+
 
 .buddy-images {
     display: flex;
     display: inline;
     position: relative;
-        top: 4rem;
-        right: 10rem;
+   
+  
 
 
 }
 
 .avatar-box {
    position: relative;
-   top: 7rem;
+ top: -20px;
+ border: rgba(255, 255, 0, 0.695) solid 4px;
+
 
 }
 
 .buddy-image {
-    border-radius: 50%;
+    border-radius: 20px;
     width: 6rem;
     display: inline-block;
-    margin: 25px 10px; 
+    margin: 15px 10px; 
 
 }
 
-.see-more-text {
-    align-self: flex-end;
-}
 
 .profile-page-bottom {
     display: flex;
     justify-content: space-around;
     margin-top: 5rem;
+
 }
 
-.bio-container {
-    max-width: 400px;
-    outline: 2px;
-    
-    position: relative;
-    left:6.8rem;
-    top:6rem;
-    
-}
 
-.mygig-image {
-    z-index: 1;
-} 
+
+
 
 .gig-friend-image-group {
     position: relative;
@@ -91,47 +142,87 @@
     box-shadow: rgb(38, 57, 77) 0px 5px 10px -5px;}
 
     .image-upload-box {
-        margin: 5px;
+        margin-top: 7px;
+      text-align: center;
         font-family: "Roboto";
-        border-radius: 20px;
-        height: auto;
-        color: white;
-        background-color: linear-gradient(45deg,#3c546b,#4174cd);
-       
-        border: none;
-        padding: 10px;
-        width: 75%;
-        display: inline;
-        position: relative;
-        top: 8rem;
-        left: 1.7rem;
-    }
-
-    .submit-btn {
         border-radius: 5px;
-    font-family: "Roboto", sans-serif;
-    text-transform: uppercase;
-    background-color: #328f8a;
-    background-image: linear-gradient(45deg,#3c546b,#4174cd);
-    width: 50%;
-    border: none;
-    margin: 5px 0 0 0;
-    padding: 10px;
-    color: #FFFFFF;
-    font-size: 14px;
-    -webkit-transition: all 0.3 ease;
-    transition: all 0.3 ease;
-    cursor: pointer;
-    display: inline;
-    position: relative;
-        top: 8.5rem;
-        left: 3.5rem;
-    }
-    
-    .bio-text {
+        height: auto;
+        background-color: #f2f2f2;
+        border: none;
+        padding: 10px 30px;
+   
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 
+   
     }
 
-    .pop-events-big-image img {
+    .line{
+        position: relative;
+        width:100% ;
+        border-bottom: yellow solid 2px;
+    }
+.profile-form{
+
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+
+}
+    .submit-btn {
+        margin: 10px;
+        padding: 10px 30px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        border-radius: 5px;
+        width: 200px;
+        display: block;
+        border: 0px;
+        font-weight: 40;
+        box-shadow: 0px 0px 14px -7px #f09819;
+        background-image: linear-gradient(144deg,#292c5e, #5B42F3 50%,#00DDEB);
+        cursor: pointer;
+        user-select: none;
+        -webkit-user-select: none;
+        
+        border: rgba(255, 255, 0, 0.695) solid 2px;
+        touch-action: manipulation;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    }
+    .submit-btn:hover {
+        background-position: right center;
+
+        color: #fff;
+        text-decoration: none;
+      }
+
+    .pop-events-big-image  {
         border-radius: 20px;
+              
+        width: 136px;
+        height: 136px;
+    }
+
+    .bio-title, .buddies-header, .mygigs-header{
+        font-family: 'Oswald', sans-serif;
+        font-size: 23px;
+        color: white;
+        border-bottom: yellow solid 3px;
+    }
+    .bio-text{
+        font-family: 'Oswald', sans-serif;
+        color: rgba(255, 255, 255, 0.692);
+        padding: 0px 15px;
+    }
+
+    .see-more-text{
+        font-family: 'Oswald', sans-serif;
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.644);
+    }
+
+    .gig-image{
+
     }

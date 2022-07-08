@@ -200,14 +200,12 @@ export const fetchSwipeRight = async (theirUserProfile, username, myimageurl) =>
     console.log("fetchSwipeRight hit VVVVVVVVVVV", theirUserProfile, username, myimageurl)
     try {
 const response = await fetch(`${process.env.REACT_APP_REST_API}buddy/request`,{
-
     method: "PUT",
             headers:{"Content-Type": "application/json"},
             body: JSON.stringify({
                 username: username,
                 imageUrl: myimageurl,
                 potentialBuddy: theirUserProfile,
-
             }),
         })
         const data = await response.json();
@@ -287,7 +285,7 @@ export const fetchSingleUser = async (username)=>{
             headers: {"Content-Type": "application/json"}
         })
         const data = await response.json();
-        console.log("data", data)
+        console.log("data from single user", data)
         return data;
     } catch (error){
         console.log(error);

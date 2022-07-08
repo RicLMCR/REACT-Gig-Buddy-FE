@@ -54,7 +54,6 @@ min-height: 750px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
-
 .signlog-icons {
     position: relative;
     right: 110px;
@@ -65,7 +64,6 @@ min-height: 750px;
     font-size: 2em;
     text-align: center;
 }
-
 
 .form-btn { 
     font-family: "Roboto", sans-serif;
@@ -82,8 +80,8 @@ min-height: 750px;
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-
 }
+
 .form-btn {
   margin: 10px;
   padding: 10px 30px;
@@ -103,7 +101,6 @@ min-height: 750px;
   -webkit-user-select: none;
   touch-action: manipulation;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-
 }
 
 .form-btn:hover {
@@ -124,6 +121,10 @@ min-height: 750px;
     color: white;
 }
 
+    margin-top: 100px;
+    font-family: 'Roboto', sans-serif;
+}
+
 .bottom-container-right {
     color: #f2f2f2;
     background-color: rgba(34, 34, 34, 0.564);
@@ -132,20 +133,20 @@ min-height: 750px;
 .page-description {
     font-size: 6em;
     font-weight: 900;
-
+    font-size: 4em;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bolder;
-  
     color: #f2f2f2;
     height: 100%;
     padding: 170px;
     text-align: center;
-   
 }
 
 .text{
     font-family: 'Roboto', sans-serif;
     color: white;
 }
+
+
 
 
